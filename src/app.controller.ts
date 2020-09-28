@@ -6,9 +6,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  // @Header('Content-Type', 'text/html')
   getHello(): string {
-    return 'Hello App!';
+    return 'Hello World!';
   }
 }
 

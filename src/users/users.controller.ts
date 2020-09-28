@@ -16,12 +16,20 @@ import { UpdateUserDto } from './user.update.dto';
 import { CreateUsersRatingDto } from './usersRatings.create.dto';
 import { UsersRatings } from './usersRatings.entity';
 import { UpdateUsersRatingDto } from './usersRatings.update.dto';
-import { Movie } from 'src/movies/movie.entity';
+import { Movie } from '../movies/movie.entity';
+import { MoviesService } from '../movies/movies.service';
+import { UsersRepoHelperService } from './usersRepoHelper.service';
+import { MoviesRepoHelperService } from 'src/movies/moviesRepoHelper.service';
 
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private moviesService: MoviesService,
+    private usersRepoHelper: UsersRepoHelperService,
+    private moviesRepoHelper: MoviesRepoHelperService,
+  ) {}
 
   @Get()
   async getMany(): Promise<User[]> {
@@ -76,18 +84,48 @@ export class UsersController {
     );
   }
 
-  @Get(':id/similarUser')
-  async getTheMostSimilarUser(@Param('id') id: number): Promise<User[]> {
-    return this.usersService.findSimilarUsers(id);
+  @Get(':id/average')
+  async getAverage(@Param('id') id: number): Promise<number> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    return this.usersService.calculateAverageForUser(myUser);
   }
 
-  @Get(':id/recommendMovies')
-  async getRecommendedMovies(@Param('id') id: number): Promise<Movie[]> {
-    return this.usersService.recommendNotSeenMovies(id);
+  @Get(':id/similarUser')
+  async getTheMostSimilarUser(@Param('id') id: number): Promise<User[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
+    return this.usersService.findSimilarUsers(myUser, users);
+  }
+
+  @Get(':id/recommendNotSeenMovies')
+  async getRecommendedNotSeenMovies(@Param('id') id: number): Promise<Movie[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
+    return this.usersService.recommendNotSeenMovies(myUser, users);
   }
 
   @Get(':id/bestrated')
   async getBestRatedMovies(@Param('id') id: number): Promise<UsersRatings[]> {
-    return this.usersService.findBestRatedByUser(id);
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    return this.usersService.findBestRatedByUser(myUser);
+  }
+
+  @Get(':id/predictMoviesUserSimilarity')
+  async getPredictionsForNotSeenUser(
+    @Param('id') id: number,
+  ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
+    return this.usersService.predictRatingsByUser(myUser, users);
+  }
+
+  @Get(':id/predictMoviesItemSimilarity')
+  async getPredictionsForNotSeenMovie(
+    @Param('id') id: number,
+  ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    console.log('CNTROLLER');
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const allMovies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
+    return this.moviesService.predictRatingsByUser(myUser, allMovies);
   }
 }

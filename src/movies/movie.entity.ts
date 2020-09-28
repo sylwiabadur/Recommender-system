@@ -6,8 +6,8 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { UsersRatings } from 'src/users/usersRatings.entity';
-import { Category } from 'src/categories/category.entity';
+import { UsersRatings } from '../users/usersRatings.entity';
+import { Category } from '../categories/category.entity';
 
 @Entity()
 export class Movie {

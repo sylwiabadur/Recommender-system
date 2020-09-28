@@ -1,16 +1,24 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Movie } from './movie.entity';
 import { UsersRatings } from '../users/usersRatings.entity';
 import { CreateMovieDto } from './movie.create.dto';
 import { UpdateMovieDto } from './movie.update.dto';
+import { User } from '../users/user.entity';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class MoviesService {
   constructor(
     @InjectRepository(Movie)
     private moviesRepository: Repository<Movie>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+    @InjectRepository(UsersRatings)
+    private usersRatingsRepository: Repository<UsersRatings>,
+    @Inject(UsersService)
+    private usersService: UsersService,
   ) {}
 
   findAll(): Promise<Movie[]> {
@@ -37,13 +45,6 @@ export class MoviesService {
     }
     this.moviesRepository.merge(updatedObj, updateMovieDto);
     return await this.moviesRepository.save(updatedObj);
-  }
-  async calculateAverageRate(id: number): Promise<number> {
-    const movie = await this.moviesRepository.findOne(id, {
-      relations: ['ratings'],
-    });
-
-    return this.sumOfRatings(movie.ratings) / movie.ratings.length;
   }
 
   sumOfRatings(ratings: UsersRatings[]): number {
@@ -72,10 +73,7 @@ export class MoviesService {
     return moviesWithWeightedRatings;
   }
 
-  async bestMovies(): Promise<Movie[]> {
-    const allMovies = await this.moviesRepository.find({
-      relations: ['ratings'],
-    });
+  async bestMovies(allMovies: Movie[]): Promise<Movie[]> {
     const ratings = this.countWeightedRatings(allMovies);
     ratings.sort((a, b) => b.rating - a.rating);
     return ratings.slice(0, 20).map(o => {
@@ -84,10 +82,7 @@ export class MoviesService {
     });
   }
 
-  async popularMovies(): Promise<Movie[]> {
-    const allMovies = await this.moviesRepository.find({
-      relations: ['ratings'],
-    });
+  async popularMovies(allMovies: Movie[]): Promise<Movie[]> {
     const moviesWithNumOfVotes: { movie: Movie; votes: number }[] = [];
     for (const movie of allMovies) {
       moviesWithNumOfVotes.push({ movie, votes: movie.ratings.length });
@@ -97,5 +92,124 @@ export class MoviesService {
       delete o.movie.ratings;
       return o.movie;
     });
+  }
+
+  async findSimilarMovies(movie: Movie, movies: Movie[]): Promise<Movie[]> {
+    const similarMovies = await this.findSimilarMoviesWithSimilarities(
+      movie,
+      movies,
+    );
+
+    return similarMovies.map(o => {
+      delete o.movie.ratings;
+      return o.movie;
+    });
+  }
+
+  async findSimilarMoviesWithSimilarities(
+    myMovie: Movie,
+    movies: Movie[],
+  ): Promise<{ similarity: number; movie: Movie }[]> {
+    const scoresAndMovies: { similarity: number; movie: Movie }[] = [];
+
+    for (const movie of movies) {
+      if (movie.id != myMovie.id) {
+        console.log(myMovie.ratings);
+        console.log(movie.ratings);
+        scoresAndMovies.push({
+          similarity: await this.cosineSimilarity(myMovie, movie),
+          movie: movie,
+        });
+      }
+    }
+
+    let similarMoviesWithSimilarities = scoresAndMovies.sort((el1, el2) => {
+      return el2.similarity - el1.similarity;
+    });
+    similarMoviesWithSimilarities = similarMoviesWithSimilarities.slice(0, 10);
+
+    return similarMoviesWithSimilarities;
+  }
+
+  async cosineSimilarity(movie1: Movie, movie2: Movie): Promise<number> {
+    let dotproduct = 0;
+    let mA = 0;
+    let mB = 0;
+
+    console.log(movie1.ratings);
+    console.log('===');
+    console.log(movie2.ratings);
+    console.log('---------------------------------');
+
+    for (const element1 of movie1.ratings) {
+      for (const element2 of movie2.ratings) {
+        if (element1.user.id == element2.user.id) {
+          const movie1Rating = Number(element1.rating);
+          const movie2Rating = Number(element2.rating);
+          dotproduct +=
+            (movie1Rating -
+              (await this.usersService.calculateAverageForUserId(
+                element1.user.id,
+              ))) *
+            (movie2Rating -
+              (await this.usersService.calculateAverageForUserId(
+                element2.user.id,
+              )));
+          mA += Math.pow(movie1Rating, 2);
+          mB += Math.pow(movie2Rating, 2);
+        }
+      }
+    }
+    mA = Math.sqrt(mA);
+    mB = Math.sqrt(mB);
+    return dotproduct / (mA * mB);
+  }
+
+  calculateAverageForMovie(movie: Movie): number {
+    let sumMovieRatings = 0;
+    movie.ratings.forEach(element1 => {
+      sumMovieRatings += Number(element1.rating);
+    });
+    return sumMovieRatings / movie.ratings.length;
+  }
+
+  async predictRatingsByUser(
+    myUser: User,
+    allMovies: Movie[],
+  ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    const userAverageRating = this.usersService.calculateAverageForUser(myUser);
+
+    const result: { movie: Movie; predictedRating: number }[] = [];
+
+    for (const movie of allMovies) {
+      let up = 0;
+      let down = 0;
+
+      if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
+        const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
+          movie,
+          allMovies,
+        );
+
+        for (const o of similaritiesAndMovies) {
+          const movieRating = await this.usersRatingsRepository.findOne({
+            where: { movie: o.movie, user: myUser },
+          });
+          if (!movieRating) {
+            continue;
+          }
+
+          const r =
+            Number(movieRating.rating) - this.calculateAverageForMovie(o.movie);
+
+          down += o.similarity;
+          up += o.similarity * r;
+        }
+      } else {
+        continue;
+      }
+      result.push({ movie, predictedRating: up / down + userAverageRating });
+    }
+    return result;
   }
 }

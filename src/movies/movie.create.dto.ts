@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import Identifiable from 'src/common/identifiable.dto';
+import Identifiable from '../common/identifiable.dto';
 export class CreateMovieDto {
   @ApiProperty()
   externalId: number;

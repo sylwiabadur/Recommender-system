@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
-import { Movie } from 'src/movies/movie.entity';
+import { Movie } from '../movies/movie.entity';
 
 @Entity()
 export class UsersRatings {
