@@ -29,7 +29,7 @@ describe('UsersService', () => {
   const rating2a = UserRatingsFactory.build({
     user: user2,
     movie: rating1a.movie,
-    rating: 4.0,
+    rating: 3.0,
   });
   const rating2b = UserRatingsFactory.build({
     user: user2,
@@ -83,5 +83,19 @@ describe('UsersService', () => {
     const result = await service.calculateAverageForUser(user1);
     const avg = (Number(rating1a.rating) + Number(rating1.rating)) / 2;
     expect(result).toEqual(avg);
+  });
+
+  it('should calculate cosine similarity between users', async () => {
+    const result = await service.cosineSimilarity(user1, user2);
+    const expectedValue = 0.95;
+    expect(Number(result.toPrecision(2))).toEqual(expectedValue);
+  });
+
+  it('should recommend not seen movies', async () => {
+    const similarUsers = await service.findSimilarUsers(user1, users);
+    const result = await service.recommendNotSeenMovies(user1, users);
+    expect(similarUsers).toEqual([user2]);
+    // expect(result).toEqual([rating2b.movie]);
+    console.log(result);
   });
 });

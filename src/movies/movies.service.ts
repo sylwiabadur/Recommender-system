@@ -13,8 +13,6 @@ export class MoviesService {
   constructor(
     @InjectRepository(Movie)
     private moviesRepository: Repository<Movie>,
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
     @InjectRepository(UsersRatings)
     private usersRatingsRepository: Repository<UsersRatings>,
     @Inject(UsersService)
