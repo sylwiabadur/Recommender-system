@@ -215,7 +215,6 @@ export class UsersService {
   }
 
   async calculateAverageForUserId(id: number): Promise<number> {
-    console.log('TUUUU');
     const myUser = await this.usersRepository.findOne(id, {
       relations: ['ratings', 'ratings.movie'],
     });
@@ -223,7 +222,6 @@ export class UsersService {
     myUser.ratings.forEach(element1 => {
       sumUserRatings += Number(element1.rating);
     });
-    console.log('TUU');
     return sumUserRatings / myUser.ratings.length;
   }
 
@@ -313,9 +311,8 @@ export class UsersService {
 
   async checkIfRatedByUser(user: User, movie: Movie): Promise<boolean> {
     const userRating = await this.usersRatingsRepository.findOne({
-      where: { movie: { id: movie.id }, user: { id: user.id } },
+      where: { movie, user },
     });
-    console.log(userRating);
     return !!userRating;
   }
 }

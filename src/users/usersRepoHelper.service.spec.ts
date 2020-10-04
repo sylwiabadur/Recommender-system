@@ -95,7 +95,9 @@ describe('UsersRepoHelperService', () => {
     mockUserRatingsRepository.findOne.mockResolvedValue(rating1);
     const result = await service.getRatingWhereMovieAndUser(movie1, user1);
 
-    expect(mockUserRatingsRepository.findOne).toBeCalledWith(expect.anything());
+    expect(mockUserRatingsRepository.findOne).toBeCalledWith({
+      where: { movie: movie1, user: user1 },
+    });
     expect(result).toEqual(rating1);
   });
 
@@ -110,7 +112,11 @@ describe('UsersRepoHelperService', () => {
     mockMovieRepository.findOne.mockResolvedValue(movie1);
     const result = await service.getMovieWhere(movie1.id);
 
-    expect(mockMovieRepository.findOne).toBeCalledWith(expect.anything());
+    expect(mockMovieRepository.findOne).toBeCalledWith({
+      where: {
+        id: movie1.id,
+      },
+    });
     expect(result).toEqual(movie1);
   });
 });
