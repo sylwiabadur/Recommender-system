@@ -19,7 +19,7 @@ import { UpdateUsersRatingDto } from './usersRatings.update.dto';
 import { Movie } from '../movies/movie.entity';
 import { MoviesService } from '../movies/movies.service';
 import { UsersRepoHelperService } from './usersRepoHelper.service';
-import { MoviesRepoHelperService } from 'src/movies/moviesRepoHelper.service';
+import { MoviesRepoHelperService } from '../movies/moviesRepoHelper.service';
 
 @ApiTags('users')
 @Controller('users')

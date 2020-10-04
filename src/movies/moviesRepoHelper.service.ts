@@ -1,22 +1,13 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Movie } from './movie.entity';
-import { UsersRatings } from '../users/usersRatings.entity';
-import { User } from '../users/user.entity';
-import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class MoviesRepoHelperService {
   constructor(
     @InjectRepository(Movie)
     private moviesRepository: Repository<Movie>,
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
-    @InjectRepository(UsersRatings)
-    private usersRatingsRepository: Repository<UsersRatings>,
-    @Inject(UsersService)
-    private usersService: UsersService,
   ) {}
 
   async getMovieWithRatingsRelation(id: number): Promise<Movie> {
