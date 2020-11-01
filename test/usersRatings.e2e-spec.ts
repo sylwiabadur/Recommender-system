@@ -9,7 +9,6 @@ import { UsersRatings } from '../src/users/usersRatings.entity';
 import { Movie } from '../src/movies/movie.entity';
 import { UserRatingsFactory } from '../src/users/__factories__/userRatings.entity.factory';
 import { UserFactory } from '../src/users/__factories__/user.entity.factory';
-import { UpdateUserDto } from '../src/users/user.update.dto';
 
 describe('UserRatings', () => {
   let app: INestApplication;

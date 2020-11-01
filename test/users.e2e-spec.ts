@@ -99,6 +99,15 @@ describe('User', () => {
       });
   });
 
+  it(`/PATCH users/0 expect Not Found`, () => {
+    mockUserRepository.findOne.mockResolvedValue(null);
+
+    return request(app.getHttpServer())
+      .patch('/users/' + users[0].id)
+      .send(users[1])
+      .expect(404);
+  });
+
   afterAll(async () => {
     await app.close();
   });

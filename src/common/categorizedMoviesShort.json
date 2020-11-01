@@ -1,0 +1,54 @@
+[
+    {
+        "categoryId": 1,
+        "movieId": 1
+    },
+    {
+        "categoryId": 2,
+        "movieId": 1
+    },
+    {
+        "categoryId": 7,
+        "movieId": 2
+    },
+    {
+        "categoryId": 5,
+        "movieId": 2
+    },
+    {
+        "categoryId": 3,
+        "movieId": 3
+    },
+    {
+        "categoryId": 4,
+        "movieId": 3
+    },
+    {
+        "categoryId": 6,
+        "movieId": 4
+    },
+    {
+        "categoryId": 5,
+        "movieId": 4
+    },
+    {
+        "categoryId": 4,
+        "movieId": 5
+    },
+    {
+        "categoryId": 3,
+        "movieId": 5
+    },
+    {
+        "categoryId": 7,
+        "movieId": 6
+    },
+    {
+        "categoryId": 8,
+        "movieId": 6
+    },
+    {
+        "categoryId": 9,
+        "movieId": 6
+    }
+]

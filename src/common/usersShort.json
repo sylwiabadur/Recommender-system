@@ -1,0 +1,45 @@
+[
+    {
+        "userId": 1,
+        "name": "Lisa",
+        "surname": "Rose",
+        "genres": "Sci-Fi|Horror|Action"
+    },
+    {
+        "userId": 2,
+        "name": "Gene",
+        "surname": "Seymour",
+        "genres": "Action|Sci-Fi|Comedy"
+        
+    },
+    {
+        "userId": 3,
+        "name": "Michael",
+        "surname": "Philips",
+        "genres": "Mystery|Thriller|Action"
+    },
+    {
+        "userId": 4,
+        "name": "Claudia",
+        "surname": "Pluig",
+        "genres": "Mystery|Thriller|Action"
+    },
+    {
+        "userId": 5,
+        "name": "Mick",
+        "surname": "LeSalle",
+        "genres": "Horror|Action|Comedy"
+    },
+    {
+        "userId": 6,
+        "name": "Jack",
+        "surname": "Matthews",
+        "genres": "Action|Sci-Fi|Horror"
+    },
+    {
+        "userId": 7,
+        "name": "Toby",
+        "surname": "Sth",
+        "genres": "Action|Horror|Sci-Fi"
+    }
+]

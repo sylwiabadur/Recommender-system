@@ -20,6 +20,7 @@ import { Movie } from '../movies/movie.entity';
 import { MoviesService } from '../movies/movies.service';
 import { UsersRepoHelperService } from './usersRepoHelper.service';
 import { MoviesRepoHelperService } from '../movies/moviesRepoHelper.service';
+import { Category } from 'src/categories/category.entity';
 
 @ApiTags('users')
 @Controller('users')
@@ -104,6 +105,12 @@ export class UsersController {
     return this.usersService.recommendNotSeenMovies(myUser, users);
   }
 
+  @Get(':id/coldstart')
+  async getColdStart(@Param('id') id: number): Promise<Movie[]> {
+    const myUser = await this.getOne(id);
+    return this.usersService.coldStartRecommendations(myUser);
+  }
+
   @Get(':id/bestrated')
   async getBestRatedMovies(@Param('id') id: number): Promise<UsersRatings[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
@@ -127,5 +134,21 @@ export class UsersController {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     const allMovies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
     return this.moviesService.predictRatingsByUser(myUser, allMovies);
+  }
+
+  @Get(':id/recommendBasedOnPredictions')
+  async getRecommendationBasedOnPrediction(
+    @Param('id') id: number,
+  ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
+    return this.usersService.recommendBasedOnPredicted(myUser, users);
+  }
+
+  @Get(':id/similarUsersFavs')
+  async getSimilarUsersFavs(@Param('id') id: number): Promise<Movie[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
+    return this.usersService.similarUsersFavs(myUser, users);
   }
 }

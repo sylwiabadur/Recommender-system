@@ -1,0 +1,32 @@
+[
+    {
+        "movieId": 1,
+        "title": "Lady in the water",
+        "genres": "Fantasy|Drama"
+    },
+    {
+        "movieId": 2,
+        "title": "Snakes on a plane",
+        "genres": "Horror|Action"
+    },
+    {
+        "movieId": 3,
+        "title": "Just my luck",
+        "genres": "Comedy|Romance"
+    },
+    {
+        "movieId": 4,
+        "title": "Superman returns",
+        "genres": "Action|Sci-Fi"
+    },
+    {
+        "movieId": 5,
+        "title": "You, me and durpee",
+        "genres": "Comedy|Romance"
+    },
+    {
+        "movieId": 6,
+        "title": "The night listener",
+        "genres": "Mystery|Thriller"
+    }
+]

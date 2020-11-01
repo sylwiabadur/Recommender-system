@@ -100,6 +100,15 @@ describe('Movie', () => {
       });
   });
 
+  it(`/PATCH movies/0 expect Not Found`, () => {
+    mockMovieRepository.findOne.mockResolvedValue(null);
+
+    return request(app.getHttpServer())
+      .patch('/movies/' + movies[0].id)
+      .send(movies[1])
+      .expect(404);
+  });
+
   afterAll(async () => {
     await app.close();
   });

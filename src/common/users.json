@@ -1,3252 +1,3902 @@
 [
   {
     "userId": 1,
-    "surname": "deloach",
-    "name": "oden c iii"
+    "surname": "Deloach",
+    "name": "Oden C Iii",
+    "genres": "Adventure|Animation|Children|Comedy|Fantasy"
   },
   {
     "userId": 2,
-    "surname": "safarov",
-    "name": "rufat"
+    "surname": "Safarov",
+    "name": "Rufat",
+    "genres": "Adventure|Children|Fantasy"
   },
   {
     "userId": 3,
-    "surname": "parker",
-    "name": "danny j"
+    "surname": "Parker",
+    "name": "Danny J",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 4,
-    "surname": "pitcher",
-    "name": "george  iii"
+    "surname": "Pitcher",
+    "name": "George  Iii",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 5,
-    "surname": "ferguson",
-    "name": "vinson r"
+    "surname": "Ferguson",
+    "name": "Vinson R",
+    "genres": "Comedy"
   },
   {
     "userId": 6,
-    "surname": "ramsey",
-    "name": "eugene"
+    "surname": "Ramsey",
+    "name": "Eugene",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 7,
-    "surname": "alfaro",
-    "name": "domingo"
+    "surname": "Alfaro",
+    "name": "Domingo",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 8,
-    "surname": "hostetter",
-    "name": "donovan l"
+    "surname": "Hostetter",
+    "name": "Donovan L",
+    "genres": "Adventure|Children"
   },
   {
     "userId": 9,
-    "surname": "baxter",
-    "name": "jay a"
+    "surname": "Baxter",
+    "name": "Jay A",
+    "genres": "Action"
   },
   {
     "userId": 10,
-    "surname": "khan",
-    "name": "ronald"
+    "surname": "Khan",
+    "name": "Ronald",
+    "genres": "Action|Adventure|Thriller"
   },
   {
     "userId": 11,
-    "surname": "ross",
-    "name": "wilton a"
+    "surname": "Ross",
+    "name": "Wilton A",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 12,
-    "surname": "fell",
-    "name": "robert t"
+    "surname": "Fell",
+    "name": "Robert T",
+    "genres": "Comedy|Horror"
   },
   {
     "userId": 13,
-    "surname": "rodriguez",
-    "name": "william"
+    "surname": "Rodriguez",
+    "name": "William",
+    "genres": "Adventure|Animation|Children"
   },
   {
     "userId": 14,
-    "surname": "campbell",
-    "name": "george e"
+    "surname": "Campbell",
+    "name": "George E",
+    "genres": "Drama"
   },
   {
     "userId": 15,
-    "surname": "caraway",
-    "name": "donald j"
+    "surname": "Caraway",
+    "name": "Donald J",
+    "genres": "Action|Adventure|Romance"
   },
   {
     "userId": 16,
-    "surname": "root",
-    "name": "herman"
+    "surname": "Root",
+    "name": "Herman",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 17,
-    "surname": "johnson",
-    "name": "edward"
+    "surname": "Johnson",
+    "name": "Edward",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 18,
-    "surname": "boggs",
-    "name": "john a"
+    "surname": "Boggs",
+    "name": "John A",
+    "genres": "Comedy"
   },
   {
     "userId": 19,
-    "surname": "mathis",
-    "name": "randolph"
+    "surname": "Mathis",
+    "name": "Randolph",
+    "genres": "Comedy"
   },
   {
     "userId": 20,
-    "surname": "gaw",
-    "name": "sean a"
+    "surname": "Gaw",
+    "name": "Sean A",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 21,
-    "surname": "sands",
-    "name": "james"
+    "surname": "Sands",
+    "name": "James",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 22,
-    "surname": "farris",
-    "name": "dennis k"
+    "surname": "Farris",
+    "name": "Dennis K",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 23,
-    "surname": "elkin",
-    "name": "richard s"
+    "surname": "Elkin",
+    "name": "Richard S",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 24,
-    "surname": "watson",
-    "name": "brody a"
+    "surname": "Watson",
+    "name": "Brody A",
+    "genres": "Drama|Sci-Fi"
   },
   {
     "userId": 25,
-    "surname": "ryan",
-    "name": "john a"
+    "surname": "Ryan",
+    "name": "John A",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 26,
-    "surname": "camejo",
-    "name": "oscar"
+    "surname": "Camejo",
+    "name": "Oscar",
+    "genres": "Drama"
   },
   {
     "userId": 27,
-    "surname": "purdy",
-    "name": "christopher l"
+    "surname": "Purdy",
+    "name": "Christopher L",
+    "genres": "Children|Drama"
   },
   {
     "userId": 28,
-    "surname": "rigaud",
-    "name": "michael"
+    "surname": "Rigaud",
+    "name": "Michael",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 29,
-    "surname": "howat",
-    "name": "joseph v"
+    "surname": "Howat",
+    "name": "Joseph V",
+    "genres": "Adventure|Drama|Fantasy|Mystery|Sci-Fi"
   },
   {
     "userId": 30,
-    "surname": "roberts",
-    "name": "richard l"
+    "surname": "Roberts",
+    "name": "Richard L",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 31,
-    "surname": "cook",
-    "name": "christopher j"
+    "surname": "Cook",
+    "name": "Christopher J",
+    "genres": "Drama"
   },
   {
     "userId": 32,
-    "surname": "britt",
-    "name": "kenneth"
+    "surname": "Britt",
+    "name": "Kenneth",
+    "genres": "Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 33,
-    "surname": "dillon",
-    "name": "matthew m"
+    "surname": "Dillon",
+    "name": "Matthew M",
+    "genres": "Children|Drama"
   },
   {
     "userId": 34,
-    "surname": "deluca",
-    "name": "anthony m"
+    "surname": "Deluca",
+    "name": "Anthony M",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 35,
-    "surname": "rogers",
-    "name": "michael l"
+    "surname": "Rogers",
+    "name": "Michael L",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 36,
-    "surname": "graves",
-    "name": "wesley w"
+    "surname": "Graves",
+    "name": "Wesley W",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 37,
-    "surname": "adkins",
-    "name": "kevin r"
+    "surname": "Adkins",
+    "name": "Kevin R",
+    "genres": "Drama"
   },
   {
     "userId": 38,
-    "surname": "kidd",
-    "name": "jonathan t"
+    "surname": "Kidd",
+    "name": "Jonathan T",
+    "genres": "Action"
   },
   {
     "userId": 39,
-    "surname": "daniels",
-    "name": "charles e"
+    "surname": "Daniels",
+    "name": "Charles E",
+    "genres": "Action|Adventure|Thriller"
   },
   {
     "userId": 40,
-    "surname": "dodson",
-    "name": "david b"
+    "surname": "Dodson",
+    "name": "David B",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 41,
-    "surname": "detorres",
-    "name": "jeremy m"
+    "surname": "Detorres",
+    "name": "Jeremy M",
+    "genres": "Comedy|Horror"
   },
   {
     "userId": 42,
-    "surname": "ryan",
-    "name": "cameron"
+    "surname": "Ryan",
+    "name": "Cameron",
+    "genres": "Adventure|Animation|Children"
   },
   {
     "userId": 43,
-    "surname": "whitsitt",
-    "name": "patrick"
+    "surname": "Whitsitt",
+    "name": "Patrick",
+    "genres": "Drama"
   },
   {
     "userId": 44,
-    "surname": "loomis",
-    "name": "nicholas t"
+    "surname": "Loomis",
+    "name": "Nicholas T",
+    "genres": "Action|Adventure|Romance"
   },
   {
     "userId": 45,
-    "surname": "calandra",
-    "name": "joseph"
+    "surname": "Calandra",
+    "name": "Joseph",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 46,
-    "surname": "lara",
-    "name": "jesus b"
+    "surname": "Lara",
+    "name": "Jesus B",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 47,
-    "surname": "graham",
-    "name": "robert a"
+    "surname": "Graham",
+    "name": "Robert A",
+    "genres": "Comedy"
   },
   {
     "userId": 48,
-    "surname": "costa",
-    "name": "donald r"
+    "surname": "Costa",
+    "name": "Donald R",
+    "genres": "Comedy"
   },
   {
     "userId": 49,
-    "surname": "llano",
-    "name": "luis"
+    "surname": "Llano",
+    "name": "Luis",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 50,
-    "surname": "cuba",
-    "name": "edel a"
+    "surname": "Cuba",
+    "name": "Edel A",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 51,
-    "surname": "hernandez",
-    "name": "angel l"
+    "surname": "Hernandez",
+    "name": "Angel L",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 52,
-    "surname": "osborne",
-    "name": "dustin g"
+    "surname": "Osborne",
+    "name": "Dustin G",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 53,
-    "surname": "albanese",
-    "name": "nikko g"
+    "surname": "Albanese",
+    "name": "Nikko G",
+    "genres": "Drama|Sci-Fi"
   },
   {
     "userId": 54,
-    "surname": "coleman",
-    "name": "john t"
+    "surname": "Coleman",
+    "name": "John T",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 55,
-    "surname": "romeo",
-    "name": "bobby r"
+    "surname": "Romeo",
+    "name": "Bobby R",
+    "genres": "Drama"
   },
   {
     "userId": 56,
-    "surname": "potter",
-    "name": "david a"
+    "surname": "Potter",
+    "name": "David A",
+    "genres": "Children|Drama"
   },
   {
     "userId": 57,
-    "surname": "moore",
-    "name": "bud k"
+    "surname": "Moore",
+    "name": "Bud K",
+    "genres": "Children|Drama"
   },
   {
     "userId": 58,
-    "surname": "hutchinson",
-    "name": "jeffrey g"
+    "surname": "Hutchinson",
+    "name": "Jeffrey G",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 59,
-    "surname": "cotton",
-    "name": "jimmy l"
+    "surname": "Cotton",
+    "name": "Jimmy L",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 60,
-    "surname": "palmer",
-    "name": "james w"
+    "surname": "Palmer",
+    "name": "James W",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 61,
-    "surname": "galloway",
-    "name": "britton"
+    "surname": "Galloway",
+    "name": "Britton",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 62,
-    "surname": "pearcy",
-    "name": "jack"
+    "surname": "Pearcy",
+    "name": "Jack",
+    "genres": "Drama|Sci-Fi"
   },
   {
     "userId": 63,
-    "surname": "milan",
-    "name": "juan a"
+    "surname": "Milan",
+    "name": "Juan A",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 64,
-    "surname": "akers",
-    "name": "darin e"
+    "surname": "Akers",
+    "name": "Darin E",
+    "genres": "Drama"
   },
   {
     "userId": 65,
-    "surname": "kirkpatrick",
-    "name": "steven w"
+    "surname": "Kirkpatrick",
+    "name": "Steven W",
+    "genres": "Children|Drama"
   },
   {
     "userId": 66,
-    "surname": "dimassino",
-    "name": "john e"
+    "surname": "Dimassino",
+    "name": "John E",
+    "genres": "Action"
   },
   {
     "userId": 67,
-    "surname": "de jongh",
-    "name": "heriberto e"
+    "surname": "De Jongh",
+    "name": "Heriberto E",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 68,
-    "surname": "betz",
-    "name": "robert c"
+    "surname": "Betz",
+    "name": "Robert C",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 69,
-    "surname": "inman",
-    "name": "jestin"
+    "surname": "Inman",
+    "name": "Jestin",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 70,
-    "surname": "leone",
-    "name": "frank a"
+    "surname": "Leone",
+    "name": "Frank A",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 71,
-    "surname": "moodey",
-    "name": "tamerlane d"
+    "surname": "Moodey",
+    "name": "Tamerlane D",
+    "genres": "Drama|Sci-Fi"
   },
   {
     "userId": 72,
-    "surname": "calloway",
-    "name": "bradley w"
+    "surname": "Calloway",
+    "name": "Bradley W",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 73,
-    "surname": "fogle",
-    "name": "anthony"
+    "surname": "Fogle",
+    "name": "Anthony",
+    "genres": "Drama"
   },
   {
     "userId": 74,
-    "surname": "moore",
-    "name": "paul a"
+    "surname": "Moore",
+    "name": "Paul A",
+    "genres": "Children|Drama"
   },
   {
     "userId": 75,
-    "surname": "cairo",
-    "name": "oscar"
+    "surname": "Cairo",
+    "name": "Oscar",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 76,
-    "surname": "hughes",
-    "name": "steven t"
+    "surname": "Hughes",
+    "name": "Steven T",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 77,
-    "surname": "likes",
-    "name": "jeffrey t"
+    "surname": "Likes",
+    "name": "Jeffrey T",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 78,
-    "surname": "oberdorf",
-    "name": "chad e"
+    "surname": "Oberdorf",
+    "name": "Chad E",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 79,
-    "surname": "dwyer",
-    "name": "donald w"
+    "surname": "Dwyer",
+    "name": "Donald W",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 80,
-    "surname": "goodman",
-    "name": "timothy a"
+    "surname": "Goodman",
+    "name": "Timothy A",
+    "genres": "Drama|Sci-Fi"
   },
   {
     "userId": 81,
-    "surname": "coley",
-    "name": "justin d"
+    "surname": "Coley",
+    "name": "Justin D",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 82,
-    "surname": "padron",
-    "name": "nelson b"
+    "surname": "Padron",
+    "name": "Nelson B",
+    "genres": "Drama"
   },
   {
     "userId": 83,
-    "surname": "knight",
-    "name": "ronald"
+    "surname": "Knight",
+    "name": "Ronald",
+    "genres": "Children|Drama"
   },
   {
     "userId": 84,
-    "surname": "mercado",
-    "name": "julio c"
+    "surname": "Mercado",
+    "name": "Julio C",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 85,
-    "surname": "ray",
-    "name": "terry p"
+    "surname": "Ray",
+    "name": "Terry P",
+    "genres": "Action|Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 86,
-    "surname": "gudgen",
-    "name": "michael s"
+    "surname": "Gudgen",
+    "name": "Michael S",
+    "genres": "Comedy|Crime|Thriller"
   },
   {
     "userId": 87,
-    "surname": "rozon",
-    "name": "john"
+    "surname": "Rozon",
+    "name": "John",
+    "genres": "Crime|Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 88,
-    "surname": "garcia",
-    "name": "ruben"
+    "surname": "Garcia",
+    "name": "Ruben",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 89,
-    "surname": "moore",
-    "name": "patrick m"
+    "surname": "Moore",
+    "name": "Patrick M",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 90,
-    "surname": "comiskey",
-    "name": "michael b"
+    "surname": "Comiskey",
+    "name": "Michael B",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 91,
-    "surname": "edgar",
-    "name": "timothy c"
+    "surname": "Edgar",
+    "name": "Timothy C",
+    "genres": "Comedy"
   },
   {
     "userId": 92,
-    "surname": "quinn",
-    "name": "christopher"
+    "surname": "Quinn",
+    "name": "Christopher",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 93,
-    "surname": "hernandez",
-    "name": "lopaz"
+    "surname": "Hernandez",
+    "name": "Lopaz",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 94,
-    "surname": "jaworski",
-    "name": "michael t"
+    "surname": "Jaworski",
+    "name": "Michael T",
+    "genres": "Adventure|Comedy"
   },
   {
     "userId": 95,
-    "surname": "galdo",
-    "name": "jesus"
+    "surname": "Galdo",
+    "name": "Jesus",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 96,
-    "surname": "carter",
-    "name": "shane m"
+    "surname": "Carter",
+    "name": "Shane M",
+    "genres": "Drama"
   },
   {
     "userId": 97,
-    "surname": "misuraca",
-    "name": "robert j"
+    "surname": "Misuraca",
+    "name": "Robert J",
+    "genres": "Comedy"
   },
   {
     "userId": 98,
-    "surname": "morgan",
-    "name": "billy"
+    "surname": "Morgan",
+    "name": "Billy",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 99,
-    "surname": "nieves",
-    "name": "delfin r"
+    "surname": "Nieves",
+    "name": "Delfin R",
+    "genres": "Action|Comedy|Romance"
   },
   {
     "userId": 100,
-    "surname": "bright",
-    "name": "thomas"
+    "surname": "Bright",
+    "name": "Thomas",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 101,
-    "surname": "arnett",
-    "name": "brian"
+    "surname": "Arnett",
+    "name": "Brian",
+    "genres": "Adventure|Children"
   },
   {
     "userId": 102,
-    "surname": "burleson",
-    "name": "daniel l"
+    "surname": "Burleson",
+    "name": "Daniel L",
+    "genres": "Animation|Children|Comedy|Romance"
   },
   {
     "userId": 103,
-    "surname": "whaley",
-    "name": "johnny r"
+    "surname": "Whaley",
+    "name": "Johnny R",
+    "genres": "Thriller"
   },
   {
     "userId": 104,
-    "surname": "gould",
-    "name": "kenneth"
+    "surname": "Gould",
+    "name": "Kenneth",
+    "genres": "Children|Drama"
   },
   {
     "userId": 105,
-    "surname": "montano",
-    "name": "antonio"
+    "surname": "Montano",
+    "name": "Antonio",
+    "genres": "Drama|Musical"
   },
   {
     "userId": 106,
-    "surname": "hatchcock",
-    "name": "timothy j jr"
+    "surname": "Hatchcock",
+    "name": "Timothy J Jr",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 107,
-    "surname": "ingram",
-    "name": "ricky w"
+    "surname": "Ingram",
+    "name": "Ricky W",
+    "genres": "Documentary"
   },
   {
     "userId": 108,
-    "surname": "castleberry",
-    "name": "jeffrey"
+    "surname": "Castleberry",
+    "name": "Jeffrey",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 109,
-    "surname": "bowen",
-    "name": "jonathan c"
+    "surname": "Bowen",
+    "name": "Jonathan C",
+    "genres": "Comedy"
   },
   {
     "userId": 110,
-    "surname": "evans",
-    "name": "michael c"
+    "surname": "Evans",
+    "name": "Michael C",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 111,
-    "surname": "bolduc",
-    "name": "nicholas j"
+    "surname": "Bolduc",
+    "name": "Nicholas J",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 112,
-    "surname": "peacock",
-    "name": "brian d"
+    "surname": "Peacock",
+    "name": "Brian D",
+    "genres": "Action"
   },
   {
     "userId": 113,
-    "surname": "jimenez",
-    "name": "isreal"
+    "surname": "Jimenez",
+    "name": "Isreal",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 114,
-    "surname": "amador",
-    "name": "ramon"
+    "surname": "Amador",
+    "name": "Ramon",
+    "genres": "Drama|Horror"
   },
   {
     "userId": 115,
-    "surname": "kornell",
-    "name": "phillip g"
+    "surname": "Kornell",
+    "name": "Phillip G",
+    "genres": "Drama"
   },
   {
     "userId": 116,
-    "surname": "nuckols",
-    "name": "jonathon a"
+    "surname": "Nuckols",
+    "name": "Jonathon A",
+    "genres": "Comedy"
   },
   {
     "userId": 117,
-    "surname": "salvato",
-    "name": "nicholas j"
+    "surname": "Salvato",
+    "name": "Nicholas J",
+    "genres": "Comedy|Sci-Fi"
   },
   {
     "userId": 118,
-    "surname": "query",
-    "name": "daven w"
+    "surname": "Query",
+    "name": "Daven W",
+    "genres": "Mystery|Thriller"
   },
   {
     "userId": 119,
-    "surname": "sanchez",
-    "name": "david"
+    "surname": "Sanchez",
+    "name": "David",
+    "genres": "Adventure|Children|Comedy|Fantasy|Romance"
   },
   {
     "userId": 120,
-    "surname": "bortzer",
-    "name": "ronald"
+    "surname": "Bortzer",
+    "name": "Ronald",
+    "genres": "Crime|Drama|Thriller"
   },
   {
     "userId": 121,
-    "surname": "bulkowski",
-    "name": "michael p"
+    "surname": "Bulkowski",
+    "name": "Michael P",
+    "genres": "Action|Adventure|Sci-Fi"
   },
   {
     "userId": 122,
-    "surname": "androff",
-    "name": "kevin f"
+    "surname": "Androff",
+    "name": "Kevin F",
+    "genres": "Drama"
   },
   {
     "userId": 123,
-    "surname": "blumejr",
-    "name": "howard w"
+    "surname": "Blumejr",
+    "name": "Howard W",
+    "genres": "Children|Drama"
   },
   {
     "userId": 124,
-    "surname": "matthews",
-    "name": "nicholas a"
+    "surname": "Matthews",
+    "name": "Nicholas A",
+    "genres": "Drama"
   },
   {
     "userId": 125,
-    "surname": "lucier",
-    "name": "jamie"
+    "surname": "Lucier",
+    "name": "Jamie",
+    "genres": "Drama|Fantasy|Romance"
   },
   {
     "userId": 126,
-    "surname": "dickerson",
-    "name": "charlie j"
+    "surname": "Dickerson",
+    "name": "Charlie J",
+    "genres": "Drama|Romance|War|Western"
   },
   {
     "userId": 127,
-    "surname": "lantigua",
-    "name": "rafael a"
+    "surname": "Lantigua",
+    "name": "Rafael A",
+    "genres": "Comedy"
   },
   {
     "userId": 128,
-    "surname": "nunez-ramos",
-    "name": "kevin o"
+    "surname": "Nunez-Ramos",
+    "name": "Kevin O",
+    "genres": "Drama"
   },
   {
     "userId": 129,
-    "surname": "durham",
-    "name": "david r"
+    "surname": "Durham",
+    "name": "David R",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 130,
-    "surname": "dunning",
-    "name": "brandon g"
+    "surname": "Dunning",
+    "name": "Brandon G",
+    "genres": "Drama"
   },
   {
     "userId": 131,
-    "surname": "cox",
-    "name": "lowell e"
+    "surname": "Cox",
+    "name": "Lowell E",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 132,
-    "surname": "cottrell",
-    "name": "benjamin a iii"
+    "surname": "Cottrell",
+    "name": "Benjamin A Iii",
+    "genres": "Drama|Horror|Sci-Fi"
   },
   {
     "userId": 133,
-    "surname": "hickenbottom",
-    "name": "joshua"
+    "surname": "Hickenbottom",
+    "name": "Joshua",
+    "genres": "Comedy"
   },
   {
     "userId": 134,
-    "surname": "sanchez-ibarra",
-    "name": "francisco"
+    "surname": "Sanchez-Ibarra",
+    "name": "Francisco",
+    "genres": "Comedy"
   },
   {
     "userId": 135,
-    "surname": "mcannally",
-    "name": "timothy d"
+    "surname": "Mcannally",
+    "name": "Timothy D",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 136,
-    "surname": "cruz",
-    "name": "maynor e"
+    "surname": "Cruz",
+    "name": "Maynor E",
+    "genres": "Drama"
   },
   {
     "userId": 137,
-    "surname": "frey",
-    "name": "robert l"
+    "surname": "Frey",
+    "name": "Robert L",
+    "genres": "Comedy"
   },
   {
     "userId": 138,
-    "surname": "payne",
-    "name": "robert w"
+    "surname": "Payne",
+    "name": "Robert W",
+    "genres": "Drama"
   },
   {
     "userId": 139,
-    "surname": "mavity",
-    "name": "william g"
+    "surname": "Mavity",
+    "name": "William G",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 140,
-    "surname": "fernandez",
-    "name": "carlos"
+    "surname": "Fernandez",
+    "name": "Carlos",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 141,
-    "surname": "mullins",
-    "name": "robert b"
+    "surname": "Mullins",
+    "name": "Robert B",
+    "genres": "Drama"
   },
   {
     "userId": 142,
-    "surname": "kerr",
-    "name": "billy s"
+    "surname": "Kerr",
+    "name": "Billy S",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 143,
-    "surname": "harper",
-    "name": "james r jr"
+    "surname": "Harper",
+    "name": "James R Jr",
+    "genres": "Action|Crime"
   },
   {
     "userId": 144,
-    "surname": "bowen",
-    "name": "daniel p"
+    "surname": "Bowen",
+    "name": "Daniel P",
+    "genres": "Drama|Horror"
   },
   {
     "userId": 145,
-    "surname": "davenport",
-    "name": "michael f"
+    "surname": "Davenport",
+    "name": "Michael F",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 146,
-    "surname": "flores",
-    "name": "jose"
+    "surname": "Flores",
+    "name": "Jose",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 147,
-    "surname": "irizarry",
-    "name": "tony j"
+    "surname": "Irizarry",
+    "name": "Tony J",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 148,
-    "surname": "st john",
-    "name": "ricky l"
+    "surname": "St John",
+    "name": "Ricky L",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 149,
-    "surname": "harriman",
-    "name": "jack"
+    "surname": "Harriman",
+    "name": "Jack",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 150,
-    "surname": "padron herrera",
-    "name": "luis m"
+    "surname": "Padron Herrera",
+    "name": "Luis M",
+    "genres": "Action|Drama|Sci-Fi|Thriller"
   },
   {
     "userId": 151,
-    "surname": "brown",
-    "name": "jesse g"
+    "surname": "Brown",
+    "name": "Jesse G",
+    "genres": "Action|Crime|Drama|Thriller"
   },
   {
     "userId": 152,
-    "surname": "burgett",
-    "name": "tommy r"
+    "surname": "Burgett",
+    "name": "Tommy R",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 153,
-    "surname": "cooley",
-    "name": "sean r"
+    "surname": "Cooley",
+    "name": "Sean R",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 154,
-    "surname": "doyle",
-    "name": "jimmy d"
+    "surname": "Doyle",
+    "name": "Jimmy D",
+    "genres": "Comedy|Crime|Drama|Thriller"
   },
   {
     "userId": 155,
-    "surname": "johnson",
-    "name": "russell g"
+    "surname": "Johnson",
+    "name": "Russell G",
+    "genres": "Drama"
   },
   {
     "userId": 156,
-    "surname": "wall",
-    "name": "seth"
+    "surname": "Wall",
+    "name": "Seth",
+    "genres": "Drama"
   },
   {
     "userId": 157,
-    "surname": "gartenbush",
-    "name": "david a"
+    "surname": "Gartenbush",
+    "name": "David A",
+    "genres": "Drama"
   },
   {
     "userId": 158,
-    "surname": "mcclarrie",
-    "name": "james a"
+    "surname": "Mcclarrie",
+    "name": "James A",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 159,
-    "surname": "perez",
-    "name": "wilson j"
+    "surname": "Perez",
+    "name": "Wilson J",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 160,
-    "surname": "fontenot",
-    "name": "william r"
+    "surname": "Fontenot",
+    "name": "William R",
+    "genres": "Action|Thriller|Western"
   },
   {
     "userId": 161,
-    "surname": "knecht",
-    "name": "michael c"
+    "surname": "Knecht",
+    "name": "Michael C",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 162,
-    "surname": "wells",
-    "name": "kenneth"
+    "surname": "Wells",
+    "name": "Kenneth",
+    "genres": "Comedy"
   },
   {
     "userId": 163,
-    "surname": "dupree",
-    "name": "tony o"
+    "surname": "Dupree",
+    "name": "Tony O",
+    "genres": "Drama"
   },
   {
     "userId": 164,
-    "surname": "giralt",
-    "name": "erick"
+    "surname": "Giralt",
+    "name": "Erick",
+    "genres": "Drama"
   },
   {
     "userId": 165,
-    "surname": "lee",
-    "name": "stephen d"
+    "surname": "Lee",
+    "name": "Stephen D",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 166,
-    "surname": "fraiser",
-    "name": "michael b jr"
+    "surname": "Fraiser",
+    "name": "Michael B Jr",
+    "genres": "Comedy"
   },
   {
     "userId": 167,
-    "surname": "alvarez",
-    "name": "pedro"
+    "surname": "Alvarez",
+    "name": "Pedro",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 168,
-    "surname": "hellyer",
-    "name": "gary w"
+    "surname": "Hellyer",
+    "name": "Gary W",
+    "genres": "Comedy"
   },
   {
     "userId": 169,
-    "surname": "blanco",
-    "name": "jesus"
+    "surname": "Blanco",
+    "name": "Jesus",
+    "genres": "Animation|Children"
   },
   {
     "userId": 170,
-    "surname": "martin",
-    "name": "james e"
+    "surname": "Martin",
+    "name": "James E",
+    "genres": "Children|Drama|Fantasy|Mystery"
   },
   {
     "userId": 171,
-    "surname": "ruiz",
-    "name": "jose"
+    "surname": "Ruiz",
+    "name": "Jose",
+    "genres": "Action|Drama|Thriller"
   },
   {
     "userId": 172,
-    "surname": "cummings",
-    "name": "david p"
+    "surname": "Cummings",
+    "name": "David P",
+    "genres": "Action|Adventure|Sci-Fi"
   },
   {
     "userId": 173,
-    "surname": "gutierrez",
-    "name": "jesus"
+    "surname": "Gutierrez",
+    "name": "Jesus",
+    "genres": "Comedy|Drama|Fantasy"
   },
   {
     "userId": 174,
-    "surname": "kunze",
-    "name": "charles d"
+    "surname": "Kunze",
+    "name": "Charles D",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 175,
-    "surname": "arnold",
-    "name": "michael"
+    "surname": "Arnold",
+    "name": "Michael",
+    "genres": "Comedy|Drama|Thriller"
   },
   {
     "userId": 176,
-    "surname": "pitts",
-    "name": "roy c"
+    "surname": "Pitts",
+    "name": "Roy C",
+    "genres": "Film-Noir|Thriller"
   },
   {
     "userId": 177,
-    "surname": "munn",
-    "name": "lonnie r"
+    "surname": "Munn",
+    "name": "Lonnie R",
+    "genres": "Drama"
   },
   {
     "userId": 178,
-    "surname": "lambert",
-    "name": "jared b"
+    "surname": "Lambert",
+    "name": "Jared B",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 179,
-    "surname": "homer",
-    "name": "ronald"
+    "surname": "Homer",
+    "name": "Ronald",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 180,
-    "surname": "guterl",
-    "name": "shannon e"
+    "surname": "Guterl",
+    "name": "Shannon E",
+    "genres": "Comedy"
   },
   {
     "userId": 181,
-    "surname": "alagic",
-    "name": "said"
+    "surname": "Alagic",
+    "name": "Said",
+    "genres": "Drama"
   },
   {
     "userId": 182,
-    "surname": "melton",
-    "name": "christopher"
+    "surname": "Melton",
+    "name": "Christopher",
+    "genres": "Action|Comedy|Sci-Fi"
   },
   {
     "userId": 183,
-    "surname": "phillips",
-    "name": "brandon t"
+    "surname": "Phillips",
+    "name": "Brandon T",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 184,
-    "surname": "colby",
-    "name": "lee h"
+    "surname": "Colby",
+    "name": "Lee H",
+    "genres": "Adventure|Drama|Sci-Fi"
   },
   {
     "userId": 185,
-    "surname": "durham",
-    "name": "kanyon d"
+    "surname": "Durham",
+    "name": "Kanyon D",
+    "genres": "Action|Crime|Horror"
   },
   {
     "userId": 186,
-    "surname": "lozada",
-    "name": "luis a"
+    "surname": "Lozada",
+    "name": "Luis A",
+    "genres": "Drama"
   },
   {
     "userId": 187,
-    "surname": "colangelo",
-    "name": "christopher c"
+    "surname": "Colangelo",
+    "name": "Christopher C",
+    "genres": "Horror|Sci-Fi"
   },
   {
     "userId": 188,
-    "surname": "medich",
-    "name": "john w"
+    "surname": "Medich",
+    "name": "John W",
+    "genres": "Comedy"
   },
   {
     "userId": 189,
-    "surname": "castle",
-    "name": "william c"
+    "surname": "Castle",
+    "name": "William C",
+    "genres": "Drama"
   },
   {
     "userId": 190,
-    "surname": "medina",
-    "name": "anthony"
+    "surname": "Medina",
+    "name": "Anthony",
+    "genres": "Mystery|Thriller"
   },
   {
     "userId": 191,
-    "surname": "cronin",
-    "name": "jason f"
+    "surname": "Cronin",
+    "name": "Jason F",
+    "genres": "Drama|War"
   },
   {
     "userId": 192,
-    "surname": "payne",
-    "name": "jason d"
+    "surname": "Payne",
+    "name": "Jason D",
+    "genres": "Drama"
   },
   {
     "userId": 193,
-    "surname": "drake",
-    "name": "daniel j"
+    "surname": "Drake",
+    "name": "Daniel J",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 194,
-    "surname": "kight",
-    "name": "joseph d"
+    "surname": "Kight",
+    "name": "Joseph D",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 195,
-    "surname": "baker",
-    "name": "sam"
+    "surname": "Baker",
+    "name": "Sam",
+    "genres": "Adventure|Drama|War"
   },
   {
     "userId": 196,
-    "surname": "boggs",
-    "name": "kenneth  ii"
+    "surname": "Boggs",
+    "name": "Kenneth  Ii",
+    "genres": "Drama"
   },
   {
     "userId": 197,
-    "surname": "candito",
-    "name": "vincent c"
+    "surname": "Candito",
+    "name": "Vincent C",
+    "genres": "Comedy"
   },
   {
     "userId": 198,
-    "surname": "leonard",
-    "name": "patrick"
+    "surname": "Leonard",
+    "name": "Patrick",
+    "genres": "Children"
   },
   {
     "userId": 199,
-    "surname": "whaples",
-    "name": "stephean r"
+    "surname": "Whaples",
+    "name": "Stephean R",
+    "genres": "Comedy"
   },
   {
     "userId": 200,
-    "surname": "kinser",
-    "name": "zachary s"
+    "surname": "Kinser",
+    "name": "Zachary S",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 201,
-    "surname": "davidson",
-    "name": "paul w"
+    "surname": "Davidson",
+    "name": "Paul W",
+    "genres": "Drama|Musical"
   },
   {
     "userId": 202,
-    "surname": "pagliaro",
-    "name": "nicholas w"
+    "surname": "Pagliaro",
+    "name": "Nicholas W",
+    "genres": "Drama|Film-Noir|Romance"
   },
   {
     "userId": 203,
-    "surname": "farach",
-    "name": "yamil"
+    "surname": "Farach",
+    "name": "Yamil",
+    "genres": "Comedy"
   },
   {
     "userId": 204,
-    "surname": "mcgee",
-    "name": "thomas m"
+    "surname": "Mcgee",
+    "name": "Thomas M",
+    "genres": "Action|Crime|Drama|Thriller"
   },
   {
     "userId": 205,
-    "surname": "mckenzie",
-    "name": "joshua t"
+    "surname": "Mckenzie",
+    "name": "Joshua T",
+    "genres": "Drama|Mystery|Thriller"
   },
   {
     "userId": 206,
-    "surname": "lopez",
-    "name": "jorge"
+    "surname": "Lopez",
+    "name": "Jorge",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 207,
-    "surname": "vines",
-    "name": "dolan j"
+    "surname": "Vines",
+    "name": "Dolan J",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 208,
-    "surname": "oliver",
-    "name": "chaz n"
+    "surname": "Oliver",
+    "name": "Chaz N",
+    "genres": "Action|Crime|Fantasy|Thriller"
   },
   {
     "userId": 209,
-    "surname": "gross",
-    "name": "joshua"
+    "surname": "Gross",
+    "name": "Joshua",
+    "genres": "Drama"
   },
   {
     "userId": 210,
-    "surname": "hanson",
-    "name": "daniel g"
+    "surname": "Hanson",
+    "name": "Daniel G",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 211,
-    "surname": "brustrom",
-    "name": "patrick j"
+    "surname": "Brustrom",
+    "name": "Patrick J",
+    "genres": "Comedy|Drama|Romance|War"
   },
   {
     "userId": 212,
-    "surname": "erickson",
-    "name": "vincent w"
+    "surname": "Erickson",
+    "name": "Vincent W",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 213,
-    "surname": "ridenour",
-    "name": "donald m"
+    "surname": "Ridenour",
+    "name": "Donald M",
+    "genres": "Drama"
   },
   {
     "userId": 214,
-    "surname": "little",
-    "name": "shawn l"
+    "surname": "Little",
+    "name": "Shawn L",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 215,
-    "surname": "wallace",
-    "name": "ashton b"
+    "surname": "Wallace",
+    "name": "Ashton B",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 216,
-    "surname": "ortiz-romero",
-    "name": "eduardo"
+    "surname": "Ortiz-Romero",
+    "name": "Eduardo",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 217,
-    "surname": "schwab",
-    "name": "aaron j"
+    "surname": "Schwab",
+    "name": "Aaron J",
+    "genres": "Adventure|Children|Romance"
   },
   {
     "userId": 218,
-    "surname": "capps-tobias",
-    "name": "jereme l"
+    "surname": "Capps-Tobias",
+    "name": "Jereme L",
+    "genres": "Documentary"
   },
   {
     "userId": 219,
-    "surname": "beaver",
-    "name": "travis w"
+    "surname": "Beaver",
+    "name": "Travis W",
+    "genres": "Adventure|Animation|Children|Drama|Musical|IMAX"
   },
   {
     "userId": 220,
-    "surname": "rulapaugh",
-    "name": "terry j"
+    "surname": "Rulapaugh",
+    "name": "Terry J",
+    "genres": "Drama"
   },
   {
     "userId": 221,
-    "surname": "baker",
-    "name": "gary s"
+    "surname": "Baker",
+    "name": "Gary S",
+    "genres": "Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 222,
-    "surname": "bush",
-    "name": "william a"
+    "surname": "Bush",
+    "name": "William A",
+    "genres": "Action|Comedy|Crime|Fantasy"
   },
   {
     "userId": 223,
-    "surname": "replogle",
-    "name": "thomas d"
+    "surname": "Replogle",
+    "name": "Thomas D",
+    "genres": "Adventure|Comedy|Western"
   },
   {
     "userId": 224,
-    "surname": "rivera",
-    "name": "angel l"
+    "surname": "Rivera",
+    "name": "Angel L",
+    "genres": "Drama"
   },
   {
     "userId": 225,
-    "surname": "beatty",
-    "name": "john c"
+    "surname": "Beatty",
+    "name": "John C",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 226,
-    "surname": "masterson",
-    "name": "john p"
+    "surname": "Masterson",
+    "name": "John P",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 227,
-    "surname": "johnson",
-    "name": "richard r"
+    "surname": "Johnson",
+    "name": "Richard R",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 228,
-    "surname": "burkett",
-    "name": "colin e"
+    "surname": "Burkett",
+    "name": "Colin E",
+    "genres": "Thriller"
   },
   {
     "userId": 229,
-    "surname": "henricks",
-    "name": "christopher"
+    "surname": "Henricks",
+    "name": "Christopher",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 230,
-    "surname": "merrill",
-    "name": "brett m"
+    "surname": "Merrill",
+    "name": "Brett M",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 231,
-    "surname": "rainesjr",
-    "name": "james d"
+    "surname": "Rainesjr",
+    "name": "James D",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 232,
-    "surname": "hunt",
-    "name": "jacob a"
+    "surname": "Hunt",
+    "name": "Jacob A",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 233,
-    "surname": "mason",
-    "name": "mark w"
+    "surname": "Mason",
+    "name": "Mark W",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 234,
-    "surname": "stewart",
-    "name": "donnie l"
+    "surname": "Stewart",
+    "name": "Donnie L",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 235,
-    "surname": "fernandez",
-    "name": "jorge q"
+    "surname": "Fernandez",
+    "name": "Jorge Q",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 236,
-    "surname": "bruce",
-    "name": "darrell d"
+    "surname": "Bruce",
+    "name": "Darrell D",
+    "genres": "Drama|Horror|Romance|Thriller"
   },
   {
     "userId": 237,
-    "surname": "hernandez",
-    "name": "david"
+    "surname": "Hernandez",
+    "name": "David",
+    "genres": "Western"
   },
   {
     "userId": 238,
-    "surname": "chambliss",
-    "name": "james e"
+    "surname": "Chambliss",
+    "name": "James E",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 239,
-    "surname": "goslin",
-    "name": "todd s"
+    "surname": "Goslin",
+    "name": "Todd S",
+    "genres": "Drama"
   },
   {
     "userId": 240,
-    "surname": "griffin",
-    "name": "daniel"
+    "surname": "Griffin",
+    "name": "Daniel",
+    "genres": "Drama"
   },
   {
     "userId": 241,
-    "surname": "farley",
-    "name": "sean w"
+    "surname": "Farley",
+    "name": "Sean W",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 242,
-    "surname": "gallardo",
-    "name": "manuel a"
+    "surname": "Gallardo",
+    "name": "Manuel A",
+    "genres": "Drama"
   },
   {
     "userId": 243,
-    "surname": "eichenberger",
-    "name": "william j"
+    "surname": "Eichenberger",
+    "name": "William J",
+    "genres": "Drama|Romance|War"
   },
   {
     "userId": 244,
-    "surname": "carr",
-    "name": "thomas l"
+    "surname": "Carr",
+    "name": "Thomas L",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 245,
-    "surname": "roberts",
-    "name": "michael j"
+    "surname": "Roberts",
+    "name": "Michael J",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 246,
-    "surname": "russell",
-    "name": "bradley b"
+    "surname": "Russell",
+    "name": "Bradley B",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 247,
-    "surname": "casey",
-    "name": "timothy d"
+    "surname": "Casey",
+    "name": "Timothy D",
+    "genres": "Action|Fantasy"
   },
   {
     "userId": 248,
-    "surname": "stewart",
-    "name": "cleaborn p"
+    "surname": "Stewart",
+    "name": "Cleaborn P",
+    "genres": "Drama"
   },
   {
     "userId": 249,
-    "surname": "garcia",
-    "name": "erik i"
+    "surname": "Garcia",
+    "name": "Erik I",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 250,
-    "surname": "clark",
-    "name": "john e"
+    "surname": "Clark",
+    "name": "John E",
+    "genres": "Drama"
   },
   {
     "userId": 251,
-    "surname": "carter",
-    "name": "anthony w"
+    "surname": "Carter",
+    "name": "Anthony W",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 252,
-    "surname": "mchargue",
-    "name": "vaughn l"
+    "surname": "Mchargue",
+    "name": "Vaughn L",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 253,
-    "surname": "holder",
-    "name": "donald l"
+    "surname": "Holder",
+    "name": "Donald L",
+    "genres": "Drama"
   },
   {
     "userId": 254,
-    "surname": "htwe",
-    "name": "kyaw m"
+    "surname": "Htwe",
+    "name": "Kyaw M",
+    "genres": "Comedy"
   },
   {
     "userId": 255,
-    "surname": "gordon",
-    "name": "jamie w"
+    "surname": "Gordon",
+    "name": "Jamie W",
+    "genres": "Comedy"
   },
   {
     "userId": 256,
-    "surname": "holt",
-    "name": "timothy l"
+    "surname": "Holt",
+    "name": "Timothy L",
+    "genres": "Comedy|Thriller"
   },
   {
     "userId": 257,
-    "surname": "roundy",
-    "name": "richard r"
+    "surname": "Roundy",
+    "name": "Richard R",
+    "genres": "Western"
   },
   {
     "userId": 258,
-    "surname": "beauchamp",
-    "name": "richard d"
+    "surname": "Beauchamp",
+    "name": "Richard D",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 259,
-    "surname": "cabrera",
-    "name": "anthony g"
+    "surname": "Cabrera",
+    "name": "Anthony G",
+    "genres": "Drama"
   },
   {
     "userId": 260,
-    "surname": "rowland",
-    "name": "joseph r"
+    "surname": "Rowland",
+    "name": "Joseph R",
+    "genres": "Comedy"
   },
   {
     "userId": 261,
-    "surname": "calfy",
-    "name": "julian"
+    "surname": "Calfy",
+    "name": "Julian",
+    "genres": "Action|Comedy|Crime|Thriller"
   },
   {
     "userId": 262,
-    "surname": "kuntzman",
-    "name": "kevin r"
+    "surname": "Kuntzman",
+    "name": "Kevin R",
+    "genres": "Adventure|Children|Drama"
   },
   {
     "userId": 263,
-    "surname": "perez",
-    "name": "roger a"
+    "surname": "Perez",
+    "name": "Roger A",
+    "genres": "Thriller"
   },
   {
     "userId": 264,
-    "surname": "moore",
-    "name": "david w"
+    "surname": "Moore",
+    "name": "David W",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 265,
-    "surname": "houston",
-    "name": "glenn l"
+    "surname": "Houston",
+    "name": "Glenn L",
+    "genres": "Drama"
   },
   {
     "userId": 266,
-    "surname": "anderson",
-    "name": "bobby c"
+    "surname": "Anderson",
+    "name": "Bobby C",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 267,
-    "surname": "mcinturff",
-    "name": "james m"
+    "surname": "Mcinturff",
+    "name": "James M",
+    "genres": "Horror|Sci-Fi|Thriller"
   },
   {
     "userId": 268,
-    "surname": "kerklin",
-    "name": "michael r"
+    "surname": "Kerklin",
+    "name": "Michael R",
+    "genres": "Drama|Mystery|Romance|Thriller"
   },
   {
     "userId": 269,
-    "surname": "creed",
-    "name": "james r"
+    "surname": "Creed",
+    "name": "James R",
+    "genres": "Drama"
   },
   {
     "userId": 270,
-    "surname": "campo",
-    "name": "jeremy j"
+    "surname": "Campo",
+    "name": "Jeremy J",
+    "genres": "Comedy"
   },
   {
     "userId": 271,
-    "surname": "moore",
-    "name": "jack d"
+    "surname": "Moore",
+    "name": "Jack D",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 272,
-    "surname": "hudson",
-    "name": "richard j"
+    "surname": "Hudson",
+    "name": "Richard J",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 273,
-    "surname": "powell",
-    "name": "andrew t"
+    "surname": "Powell",
+    "name": "Andrew T",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 274,
-    "surname": "judy",
-    "name": "jadie h jr"
+    "surname": "Judy",
+    "name": "Jadie H Jr",
+    "genres": "Adventure|Children|Romance"
   },
   {
     "userId": 275,
-    "surname": "salaz",
-    "name": "jonathan b"
+    "surname": "Salaz",
+    "name": "Jonathan B",
+    "genres": "Documentary"
   },
   {
     "userId": 276,
-    "surname": "lacy",
-    "name": "john a"
+    "surname": "Lacy",
+    "name": "John A",
+    "genres": "Adventure|Animation|Children|Drama|Musical|IMAX"
   },
   {
     "userId": 277,
-    "surname": "cordoves",
-    "name": "sergio"
+    "surname": "Cordoves",
+    "name": "Sergio",
+    "genres": "Drama"
   },
   {
     "userId": 278,
-    "surname": "nobles",
-    "name": "silas l"
+    "surname": "Nobles",
+    "name": "Silas L",
+    "genres": "Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 279,
-    "surname": "eyrich",
-    "name": "richard c"
+    "surname": "Eyrich",
+    "name": "Richard C",
+    "genres": "Action|Comedy|Crime|Fantasy"
   },
   {
     "userId": 280,
-    "surname": "leach",
-    "name": "christopher l"
+    "surname": "Leach",
+    "name": "Christopher L",
+    "genres": "Adventure|Comedy|Western"
   },
   {
     "userId": 281,
-    "surname": "sanchez",
-    "name": "edward w"
+    "surname": "Sanchez",
+    "name": "Edward W",
+    "genres": "Drama"
   },
   {
     "userId": 282,
-    "surname": "harris",
-    "name": "justin t"
+    "surname": "Harris",
+    "name": "Justin T",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 283,
-    "surname": "hall",
-    "name": "hunter"
+    "surname": "Hall",
+    "name": "Hunter",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 284,
-    "surname": "smith",
-    "name": "jeffery s"
+    "surname": "Smith",
+    "name": "Jeffery S",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 285,
-    "surname": "allen",
-    "name": "christopher"
+    "surname": "Allen",
+    "name": "Christopher",
+    "genres": "Thriller"
   },
   {
     "userId": 286,
-    "surname": "pearson",
-    "name": "jonathan t"
+    "surname": "Pearson",
+    "name": "Jonathan T",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 287,
-    "surname": "hutcheson",
-    "name": "john l"
+    "surname": "Hutcheson",
+    "name": "John L",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 288,
-    "surname": "luke",
-    "name": "julian g"
+    "surname": "Luke",
+    "name": "Julian G",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 289,
-    "surname": "kim",
-    "name": "sang y"
+    "surname": "Kim",
+    "name": "Sang Y",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 290,
-    "surname": "martinez",
-    "name": "rene l"
+    "surname": "Martinez",
+    "name": "Rene L",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 291,
-    "surname": "coston",
-    "name": "gary e"
+    "surname": "Coston",
+    "name": "Gary E",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 292,
-    "surname": "do nas",
-    "name": "ademar r"
+    "surname": "Do Nas",
+    "name": "Ademar R",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 293,
-    "surname": "daniels",
-    "name": "eric s jr"
+    "surname": "Daniels",
+    "name": "Eric S Jr",
+    "genres": "Drama|Horror|Romance|Thriller"
   },
   {
     "userId": 294,
-    "surname": "rodriguez",
-    "name": "jason s"
+    "surname": "Rodriguez",
+    "name": "Jason S",
+    "genres": "Western"
   },
   {
     "userId": 295,
-    "surname": "mascolo",
-    "name": "cameron"
+    "surname": "Mascolo",
+    "name": "Cameron",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 296,
-    "surname": "caldara",
-    "name": "antony a"
+    "surname": "Caldara",
+    "name": "Antony A",
+    "genres": "Drama"
   },
   {
     "userId": 297,
-    "surname": "ingram",
-    "name": "robert b"
+    "surname": "Ingram",
+    "name": "Robert B",
+    "genres": "Drama"
   },
   {
     "userId": 298,
-    "surname": "benitez",
-    "name": "jose"
+    "surname": "Benitez",
+    "name": "Jose",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 299,
-    "surname": "foss",
-    "name": "james a jr"
+    "surname": "Foss",
+    "name": "James A Jr",
+    "genres": "Drama"
   },
   {
     "userId": 300,
-    "surname": "rodriguez",
-    "name": "juan c"
+    "surname": "Rodriguez",
+    "name": "Juan C",
+    "genres": "Drama|Romance|War"
   },
   {
     "userId": 301,
-    "surname": "dix",
-    "name": "kenneth e"
+    "surname": "Dix",
+    "name": "Kenneth E",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 302,
-    "surname": "perion",
-    "name": "wayne l"
+    "surname": "Perion",
+    "name": "Wayne L",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 303,
-    "surname": "dubeck",
-    "name": "robert a"
+    "surname": "Dubeck",
+    "name": "Robert A",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 304,
-    "surname": "gates",
-    "name": "shawn d"
+    "surname": "Gates",
+    "name": "Shawn D",
+    "genres": "Action|Fantasy"
   },
   {
     "userId": 305,
-    "surname": "bricker",
-    "name": "matthew e"
+    "surname": "Bricker",
+    "name": "Matthew E",
+    "genres": "Drama"
   },
   {
     "userId": 306,
-    "surname": "lopez",
-    "name": "benjamin q"
+    "surname": "Lopez",
+    "name": "Benjamin Q",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 307,
-    "surname": "ojeda",
-    "name": "pedro"
+    "surname": "Ojeda",
+    "name": "Pedro",
+    "genres": "Drama"
   },
   {
     "userId": 308,
-    "surname": "leavell",
-    "name": "joshua d"
+    "surname": "Leavell",
+    "name": "Joshua D",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 309,
-    "surname": "seely",
-    "name": "john l"
+    "surname": "Seely",
+    "name": "John L",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 310,
-    "surname": "brissenden",
-    "name": "jerry t"
+    "surname": "Brissenden",
+    "name": "Jerry T",
+    "genres": "Drama"
   },
   {
     "userId": 311,
-    "surname": "kuhn",
-    "name": "william l"
+    "surname": "Kuhn",
+    "name": "William L",
+    "genres": "Comedy"
   },
   {
     "userId": 312,
-    "surname": "akers",
-    "name": "michael a"
+    "surname": "Akers",
+    "name": "Michael A",
+    "genres": "Comedy"
   },
   {
     "userId": 313,
-    "surname": "mccullough",
-    "name": "steven  jr"
+    "surname": "Mccullough",
+    "name": "Steven  Jr",
+    "genres": "Comedy|Thriller"
   },
   {
     "userId": 314,
-    "surname": "britt",
-    "name": "joseph a"
+    "surname": "Britt",
+    "name": "Joseph A",
+    "genres": "Western"
   },
   {
     "userId": 315,
-    "surname": "brock",
-    "name": "robert l"
+    "surname": "Brock",
+    "name": "Robert L",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 316,
-    "surname": "stapleton",
-    "name": "shane"
+    "surname": "Stapleton",
+    "name": "Shane",
+    "genres": "Drama"
   },
   {
     "userId": 317,
-    "surname": "combs",
-    "name": "christopher a"
+    "surname": "Combs",
+    "name": "Christopher A",
+    "genres": "Comedy"
   },
   {
     "userId": 318,
-    "surname": "corona",
-    "name": "alejandro l"
+    "surname": "Corona",
+    "name": "Alejandro L",
+    "genres": "Action|Comedy|Crime|Thriller"
   },
   {
     "userId": 319,
-    "surname": "allan",
-    "name": "jason d"
+    "surname": "Allan",
+    "name": "Jason D",
+    "genres": "Adventure|Children|Drama"
   },
   {
     "userId": 320,
-    "surname": "jacques",
-    "name": "justin r"
+    "surname": "Jacques",
+    "name": "Justin R",
+    "genres": "Thriller"
   },
   {
     "userId": 321,
-    "surname": "golden",
-    "name": "christopher"
+    "surname": "Golden",
+    "name": "Christopher",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 322,
-    "surname": "hall",
-    "name": "robert"
+    "surname": "Hall",
+    "name": "Robert",
+    "genres": "Drama"
   },
   {
     "userId": 323,
-    "surname": "ridge",
-    "name": "jason r"
+    "surname": "Ridge",
+    "name": "Jason R",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 324,
-    "surname": "evetts",
-    "name": "ryan j"
+    "surname": "Evetts",
+    "name": "Ryan J",
+    "genres": "Horror|Sci-Fi|Thriller"
   },
   {
     "userId": 325,
-    "surname": "harrell",
-    "name": "christopher g"
+    "surname": "Harrell",
+    "name": "Christopher G",
+    "genres": "Drama|Mystery|Romance|Thriller"
   },
   {
     "userId": 326,
-    "surname": "willis",
-    "name": "timothy c"
+    "surname": "Willis",
+    "name": "Timothy C",
+    "genres": "Drama"
   },
   {
     "userId": 327,
-    "surname": "gacita",
-    "name": "rolando"
+    "surname": "Gacita",
+    "name": "Rolando",
+    "genres": "Comedy"
   },
   {
     "userId": 328,
-    "surname": "mclaughlin",
-    "name": "timothy l"
+    "surname": "Mclaughlin",
+    "name": "Timothy L",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 329,
-    "surname": "payton",
-    "name": "larry e"
+    "surname": "Payton",
+    "name": "Larry E",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 330,
-    "surname": "avery",
-    "name": "steven"
+    "surname": "Avery",
+    "name": "Steven",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 331,
-    "surname": "cyprych",
-    "name": "jeremy d"
+    "surname": "Cyprych",
+    "name": "Jeremy D",
+    "genres": "Adventure|Children|Romance"
   },
   {
     "userId": 332,
-    "surname": "reppert",
-    "name": "john n"
+    "surname": "Reppert",
+    "name": "John N",
+    "genres": "Documentary"
   },
   {
     "userId": 333,
-    "surname": "sauvageot",
-    "name": "sean"
+    "surname": "Sauvageot",
+    "name": "Sean",
+    "genres": "Adventure|Animation|Children|Drama|Musical|IMAX"
   },
   {
     "userId": 334,
-    "surname": "coggins",
-    "name": "william"
+    "surname": "Coggins",
+    "name": "William",
+    "genres": "Drama"
   },
   {
     "userId": 335,
-    "surname": "sanchez",
-    "name": "eliesky"
+    "surname": "Sanchez",
+    "name": "Eliesky",
+    "genres": "Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 336,
-    "surname": "russell",
-    "name": "joseph d"
+    "surname": "Russell",
+    "name": "Joseph D",
+    "genres": "Action|Comedy|Crime|Fantasy"
   },
   {
     "userId": 337,
-    "surname": "sumler",
-    "name": "corey a"
+    "surname": "Sumler",
+    "name": "Corey A",
+    "genres": "Adventure|Comedy|Western"
   },
   {
     "userId": 338,
-    "surname": "edwards",
-    "name": "kenneth"
+    "surname": "Edwards",
+    "name": "Kenneth",
+    "genres": "Drama"
   },
   {
     "userId": 339,
-    "surname": "dill",
-    "name": "raymond e"
+    "surname": "Dill",
+    "name": "Raymond E",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 340,
-    "surname": "cooper",
-    "name": "mark a"
+    "surname": "Cooper",
+    "name": "Mark A",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 341,
-    "surname": "hutchinson",
-    "name": "robert a"
+    "surname": "Hutchinson",
+    "name": "Robert A",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 342,
-    "surname": "campbell",
-    "name": "anthony a"
+    "surname": "Campbell",
+    "name": "Anthony A",
+    "genres": "Thriller"
   },
   {
     "userId": 343,
-    "surname": "heredia",
-    "name": "juan g"
+    "surname": "Heredia",
+    "name": "Juan G",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 344,
-    "surname": "briggs",
-    "name": "wesley a"
+    "surname": "Briggs",
+    "name": "Wesley A",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 345,
-    "surname": "chase",
-    "name": "leonard g"
+    "surname": "Chase",
+    "name": "Leonard G",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 346,
-    "surname": "griffis",
-    "name": "michael s"
+    "surname": "Griffis",
+    "name": "Michael S",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 347,
-    "surname": "gurganus",
-    "name": "larry h"
+    "surname": "Gurganus",
+    "name": "Larry H",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 348,
-    "surname": "brawley",
-    "name": "christopher  g."
+    "surname": "Brawley",
+    "name": "Christopher  G.",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 349,
-    "surname": "aldana",
-    "name": "noel"
+    "surname": "Aldana",
+    "name": "Noel",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 350,
-    "surname": "mantilla",
-    "name": "victor"
+    "surname": "Mantilla",
+    "name": "Victor",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 351,
-    "surname": "corbin",
-    "name": "james w"
+    "surname": "Corbin",
+    "name": "James W",
+    "genres": "Action|Comedy|Crime|Horror"
   },
   {
     "userId": 352,
-    "surname": "brinker",
-    "name": "austin p"
+    "surname": "Brinker",
+    "name": "Austin P",
+    "genres": "Action|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 353,
-    "surname": "fetrow",
-    "name": "paul r"
+    "surname": "Fetrow",
+    "name": "Paul R",
+    "genres": "Animation|Comedy"
   },
   {
     "userId": 354,
-    "surname": "mendenhall",
-    "name": "kenneth g"
+    "surname": "Mendenhall",
+    "name": "Kenneth G",
+    "genres": "Comedy"
   },
   {
     "userId": 355,
-    "surname": "schuldheis",
-    "name": "vern"
+    "surname": "Schuldheis",
+    "name": "Vern",
+    "genres": "Comedy"
   },
   {
     "userId": 356,
-    "surname": "mason",
-    "name": "william c"
+    "surname": "Mason",
+    "name": "William C",
+    "genres": "Comedy"
   },
   {
     "userId": 357,
-    "surname": "meriweather",
-    "name": "james r"
+    "surname": "Meriweather",
+    "name": "James R",
+    "genres": "Action|Sci-Fi"
   },
   {
     "userId": 358,
-    "surname": "blalock",
-    "name": "nicholas j"
+    "surname": "Blalock",
+    "name": "Nicholas J",
+    "genres": "Documentary"
   },
   {
     "userId": 359,
-    "surname": "petty",
-    "name": "john e iii"
+    "surname": "Petty",
+    "name": "John E Iii",
+    "genres": "Horror|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 360,
-    "surname": "graham",
-    "name": "teddy w"
+    "surname": "Graham",
+    "name": "Teddy W",
+    "genres": "Crime|Documentary"
   },
   {
     "userId": 361,
-    "surname": "ford",
-    "name": "brandon"
+    "surname": "Ford",
+    "name": "Brandon",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 362,
-    "surname": "calzadillo",
-    "name": "roberto"
+    "surname": "Calzadillo",
+    "name": "Roberto",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 363,
-    "surname": "andrews",
-    "name": "brian j"
+    "surname": "Andrews",
+    "name": "Brian J",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 364,
-    "surname": "hull",
-    "name": "michael l"
+    "surname": "Hull",
+    "name": "Michael L",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 365,
-    "surname": "harding",
-    "name": "damon m"
+    "surname": "Harding",
+    "name": "Damon M",
+    "genres": "Comedy"
   },
   {
     "userId": 366,
-    "surname": "heslop",
-    "name": "colt"
+    "surname": "Heslop",
+    "name": "Colt",
+    "genres": "Action|Crime|Drama|Thriller"
   },
   {
     "userId": 367,
-    "surname": "haun",
-    "name": "steven w"
+    "surname": "Haun",
+    "name": "Steven W",
+    "genres": "Adventure|Children|Fantasy|Sci-Fi"
   },
   {
     "userId": 368,
-    "surname": "alsawwan",
-    "name": "mohamad n"
+    "surname": "Alsawwan",
+    "name": "Mohamad N",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 369,
-    "surname": "kelly",
-    "name": "angus n"
+    "surname": "Kelly",
+    "name": "Angus N",
+    "genres": "Drama|Horror|Thriller"
   },
   {
     "userId": 370,
-    "surname": "noack",
-    "name": "marvin e"
+    "surname": "Noack",
+    "name": "Marvin E",
+    "genres": "Adventure|Thriller"
   },
   {
     "userId": 371,
-    "surname": "lewis",
-    "name": "brandon m"
+    "surname": "Lewis",
+    "name": "Brandon M",
+    "genres": "Drama|Fantasy|Thriller"
   },
   {
     "userId": 372,
-    "surname": "gioe",
-    "name": "michael c"
+    "surname": "Gioe",
+    "name": "Michael C",
+    "genres": "Crime"
   },
   {
     "userId": 373,
-    "surname": "miller",
-    "name": "robert o"
+    "surname": "Miller",
+    "name": "Robert O",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 374,
-    "surname": "harris",
-    "name": "jhon"
+    "surname": "Harris",
+    "name": "Jhon",
+    "genres": "Comedy"
   },
   {
     "userId": 375,
-    "surname": "blankenship",
-    "name": "christopher b"
+    "surname": "Blankenship",
+    "name": "Christopher B",
+    "genres": "Action|Fantasy|Sci-Fi"
   },
   {
     "userId": 376,
-    "surname": "burch",
-    "name": "randall"
+    "surname": "Burch",
+    "name": "Randall",
+    "genres": "Action|Adventure|Sci-Fi"
   },
   {
     "userId": 377,
-    "surname": "hill",
-    "name": "matthew"
+    "surname": "Hill",
+    "name": "Matthew",
+    "genres": "Action|Adventure|Drama|Sci-Fi|Thriller"
   },
   {
     "userId": 378,
-    "surname": "thorton",
-    "name": "shawn r"
+    "surname": "Thorton",
+    "name": "Shawn R",
+    "genres": "Action|Adventure|Animation|Children"
   },
   {
     "userId": 379,
-    "surname": "eckelbarger",
-    "name": "ty e"
+    "surname": "Eckelbarger",
+    "name": "Ty E",
+    "genres": "Action|Comedy|Sci-Fi"
   },
   {
     "userId": 380,
-    "surname": "daniel",
-    "name": "richard l"
+    "surname": "Daniel",
+    "name": "Richard L",
+    "genres": "Action|Adventure|Children|Sci-Fi"
   },
   {
     "userId": 381,
-    "surname": "ferrell",
-    "name": "brian k"
+    "surname": "Ferrell",
+    "name": "Brian K",
+    "genres": "Documentary"
   },
   {
     "userId": 382,
-    "surname": "mccown",
-    "name": "matthew t"
+    "surname": "Mccown",
+    "name": "Matthew T",
+    "genres": "Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 383,
-    "surname": "frazier",
-    "name": "justin s"
+    "surname": "Frazier",
+    "name": "Justin S",
+    "genres": "Action|Adventure|Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 384,
-    "surname": "medley",
-    "name": "mitchell j"
+    "surname": "Medley",
+    "name": "Mitchell J",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 385,
-    "surname": "marcum",
-    "name": "james d"
+    "surname": "Marcum",
+    "name": "James D",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 386,
-    "surname": "cuello",
-    "name": "reynaldo"
+    "surname": "Cuello",
+    "name": "Reynaldo",
+    "genres": "Comedy"
   },
   {
     "userId": 387,
-    "surname": "rosario",
-    "name": "angel"
+    "surname": "Rosario",
+    "name": "Angel",
+    "genres": "Adventure|Comedy|Fantasy"
   },
   {
     "userId": 388,
-    "surname": "clausen",
-    "name": "carl j"
+    "surname": "Clausen",
+    "name": "Carl J",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 389,
-    "surname": "kennedy",
-    "name": "scott"
+    "surname": "Kennedy",
+    "name": "Scott",
+    "genres": "Documentary"
   },
   {
     "userId": 390,
-    "surname": "gonzalez",
-    "name": "roberto"
+    "surname": "Gonzalez",
+    "name": "Roberto",
+    "genres": "Action|Adventure|Thriller"
   },
   {
     "userId": 391,
-    "surname": "witham",
-    "name": "johnny"
+    "surname": "Witham",
+    "name": "Johnny",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 392,
-    "surname": "heidbreder",
-    "name": "dakota r"
+    "surname": "Heidbreder",
+    "name": "Dakota R",
+    "genres": "Action|Sci-Fi"
   },
   {
     "userId": 393,
-    "surname": "langley",
-    "name": "robert b"
+    "surname": "Langley",
+    "name": "Robert B",
+    "genres": "Comedy|Crime|Drama"
   },
   {
     "userId": 394,
-    "surname": "lucas",
-    "name": "michael"
+    "surname": "Lucas",
+    "name": "Michael",
+    "genres": "Sci-Fi|Thriller"
   },
   {
     "userId": 395,
-    "surname": "farris",
-    "name": "billie g"
+    "surname": "Farris",
+    "name": "Billie G",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 396,
-    "surname": "langley",
-    "name": "daniel m"
+    "surname": "Langley",
+    "name": "Daniel M",
+    "genres": "Comedy"
   },
   {
     "userId": 397,
-    "surname": "carey",
-    "name": "john c jr"
+    "surname": "Carey",
+    "name": "John C Jr",
+    "genres": "Drama"
   },
   {
     "userId": 398,
-    "surname": "phillips",
-    "name": "thomas w"
+    "surname": "Phillips",
+    "name": "Thomas W",
+    "genres": "Drama"
   },
   {
     "userId": 399,
-    "surname": "beshears",
-    "name": "dustin s"
+    "surname": "Beshears",
+    "name": "Dustin S",
+    "genres": "Animation"
   },
   {
     "userId": 400,
-    "surname": "eckensberger",
-    "name": "scott"
+    "surname": "Eckensberger",
+    "name": "Scott",
+    "genres": "Documentary"
   },
   {
     "userId": 401,
-    "surname": "gibbs",
-    "name": "james c"
+    "surname": "Gibbs",
+    "name": "James C",
+    "genres": "Action|Adventure|Comedy|Sci-Fi"
   },
   {
     "userId": 402,
-    "surname": "chapman",
-    "name": "harvey d"
+    "surname": "Chapman",
+    "name": "Harvey D",
+    "genres": "Action|Animation|Comedy|Sci-Fi"
   },
   {
     "userId": 403,
-    "surname": "lemay",
-    "name": "sam b"
+    "surname": "Lemay",
+    "name": "Sam B",
+    "genres": "Animation|Drama"
   },
   {
     "userId": 404,
-    "surname": "butler",
-    "name": "christopher r"
+    "surname": "Butler",
+    "name": "Christopher R",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 405,
-    "surname": "aleck",
-    "name": "thomas t jr."
+    "surname": "Aleck",
+    "name": "Thomas T Jr.",
+    "genres": "Animation"
   },
   {
     "userId": 406,
-    "surname": "dunlap",
-    "name": "james r"
+    "surname": "Dunlap",
+    "name": "James R",
+    "genres": "Documentary"
   },
   {
     "userId": 407,
-    "surname": "fonseca",
-    "name": "joseph e"
+    "surname": "Fonseca",
+    "name": "Joseph E",
+    "genres": "Action|Animation|Comedy|Fantasy"
   },
   {
     "userId": 408,
-    "surname": "ramos-ortiz",
-    "name": "angel"
+    "surname": "Ramos-Ortiz",
+    "name": "Angel",
+    "genres": "Animation|Comedy|Fantasy"
   },
   {
     "userId": 409,
-    "surname": "combee",
-    "name": "glenn r"
+    "surname": "Combee",
+    "name": "Glenn R",
+    "genres": "Drama"
   },
   {
     "userId": 410,
-    "surname": "hinkston",
-    "name": "michael w"
+    "surname": "Hinkston",
+    "name": "Michael W",
+    "genres": "Action|Animation"
   },
   {
     "userId": 411,
-    "surname": "koch",
-    "name": "brian m"
+    "surname": "Koch",
+    "name": "Brian M",
+    "genres": "Comedy"
   },
   {
     "userId": 412,
-    "surname": "long",
-    "name": "roland"
+    "surname": "Long",
+    "name": "Roland",
+    "genres": "Drama"
   },
   {
     "userId": 413,
-    "surname": "mycoff",
-    "name": "james"
+    "surname": "Mycoff",
+    "name": "James",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 414,
-    "surname": "klopp",
-    "name": "robert j"
+    "surname": "Klopp",
+    "name": "Robert J",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 415,
-    "surname": "brown",
-    "name": "mickey d"
+    "surname": "Brown",
+    "name": "Mickey D",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 416,
-    "surname": "cassidy",
-    "name": "damien c"
+    "surname": "Cassidy",
+    "name": "Damien C",
+    "genres": "Thriller"
   },
   {
     "userId": 417,
-    "surname": "broche",
-    "name": "ramon j"
+    "surname": "Broche",
+    "name": "Ramon J",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 418,
-    "surname": "haber",
-    "name": "carl j jr."
+    "surname": "Haber",
+    "name": "Carl J Jr.",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 419,
-    "surname": "horton",
-    "name": "noah g"
+    "surname": "Horton",
+    "name": "Noah G",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 420,
-    "surname": "speaks",
-    "name": "travis d"
+    "surname": "Speaks",
+    "name": "Travis D",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 421,
-    "surname": "kuhlmann",
-    "name": "edward n"
+    "surname": "Kuhlmann",
+    "name": "Edward N",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 422,
-    "surname": "ramirez",
-    "name": "nathan j"
+    "surname": "Ramirez",
+    "name": "Nathan J",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 423,
-    "surname": "disanto",
-    "name": "michael a"
+    "surname": "Disanto",
+    "name": "Michael A",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 424,
-    "surname": "rossi",
-    "name": "joseph"
+    "surname": "Rossi",
+    "name": "Joseph",
+    "genres": "Drama|Horror|Romance|Thriller"
   },
   {
     "userId": 425,
-    "surname": "kelly",
-    "name": "richard e"
+    "surname": "Kelly",
+    "name": "Richard E",
+    "genres": "Western"
   },
   {
     "userId": 426,
-    "surname": "bowerman",
-    "name": "bret a"
+    "surname": "Bowerman",
+    "name": "Bret A",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 427,
-    "surname": "fawley",
-    "name": "michael l"
+    "surname": "Fawley",
+    "name": "Michael L",
+    "genres": "Drama"
   },
   {
     "userId": 428,
-    "surname": "cook",
-    "name": "jason m"
+    "surname": "Cook",
+    "name": "Jason M",
+    "genres": "Drama"
   },
   {
     "userId": 429,
-    "surname": "aldridge",
-    "name": "zachary"
+    "surname": "Aldridge",
+    "name": "Zachary",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 430,
-    "surname": "quick",
-    "name": "joshua c"
+    "surname": "Quick",
+    "name": "Joshua C",
+    "genres": "Drama"
   },
   {
     "userId": 431,
-    "surname": "davis",
-    "name": "shelby d"
+    "surname": "Davis",
+    "name": "Shelby D",
+    "genres": "Drama|Romance|War"
   },
   {
     "userId": 432,
-    "surname": "coffman",
-    "name": "james d"
+    "surname": "Coffman",
+    "name": "James D",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 433,
-    "surname": "carr",
-    "name": "mark j"
+    "surname": "Carr",
+    "name": "Mark J",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 434,
-    "surname": "mccarthy",
-    "name": "anthony r"
+    "surname": "Mccarthy",
+    "name": "Anthony R",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 435,
-    "surname": "sanders",
-    "name": "howard w"
+    "surname": "Sanders",
+    "name": "Howard W",
+    "genres": "Action|Fantasy"
   },
   {
     "userId": 436,
-    "surname": "johnson",
-    "name": "patrick b"
+    "surname": "Johnson",
+    "name": "Patrick B",
+    "genres": "Drama"
   },
   {
     "userId": 437,
-    "surname": "mcnanna",
-    "name": "matthew r"
+    "surname": "Mcnanna",
+    "name": "Matthew R",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 438,
-    "surname": "blair",
-    "name": "daniel a"
+    "surname": "Blair",
+    "name": "Daniel A",
+    "genres": "Drama"
   },
   {
     "userId": 439,
-    "surname": "davis",
-    "name": "william m"
+    "surname": "Davis",
+    "name": "William M",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 440,
-    "surname": "garcia-campo",
-    "name": "aureliano"
+    "surname": "Garcia-Campo",
+    "name": "Aureliano",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 441,
-    "surname": "foster",
-    "name": "alton a"
+    "surname": "Foster",
+    "name": "Alton A",
+    "genres": "Drama"
   },
   {
     "userId": 442,
-    "surname": "brena",
-    "name": "homar"
+    "surname": "Brena",
+    "name": "Homar",
+    "genres": "Comedy"
   },
   {
     "userId": 443,
-    "surname": "arocho",
-    "name": "julian m"
+    "surname": "Arocho",
+    "name": "Julian M",
+    "genres": "Comedy"
   },
   {
     "userId": 444,
-    "surname": "little",
-    "name": "terry m"
+    "surname": "Little",
+    "name": "Terry M",
+    "genres": "Comedy|Thriller"
   },
   {
     "userId": 445,
-    "surname": "dobbins",
-    "name": "ellery l"
+    "surname": "Dobbins",
+    "name": "Ellery L",
+    "genres": "Western"
   },
   {
     "userId": 446,
-    "surname": "castro",
-    "name": "genaro j"
+    "surname": "Castro",
+    "name": "Genaro J",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 447,
-    "surname": "bartolot",
-    "name": "christopher"
+    "surname": "Bartolot",
+    "name": "Christopher",
+    "genres": "Drama"
   },
   {
     "userId": 448,
-    "surname": "rosado",
-    "name": "david"
+    "surname": "Rosado",
+    "name": "David",
+    "genres": "Comedy"
   },
   {
     "userId": 449,
-    "surname": "hoel",
-    "name": "chad"
+    "surname": "Hoel",
+    "name": "Chad",
+    "genres": "Action|Comedy|Crime|Thriller"
   },
   {
     "userId": 450,
-    "surname": "gardiner",
-    "name": "edward a"
+    "surname": "Gardiner",
+    "name": "Edward A",
+    "genres": "Adventure|Children|Drama"
   },
   {
     "userId": 451,
-    "surname": "elmore",
-    "name": "wesley d"
+    "surname": "Elmore",
+    "name": "Wesley D",
+    "genres": "Thriller"
   },
   {
     "userId": 452,
-    "surname": "carver",
-    "name": "kevin f"
+    "surname": "Carver",
+    "name": "Kevin F",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 453,
-    "surname": "garavito-quiroga",
-    "name": "edwin"
+    "surname": "Garavito-Quiroga",
+    "name": "Edwin",
+    "genres": "Drama"
   },
   {
     "userId": 454,
-    "surname": "mccumber",
-    "name": "rick r"
+    "surname": "Mccumber",
+    "name": "Rick R",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 455,
-    "surname": "mcdonald",
-    "name": "william"
+    "surname": "Mcdonald",
+    "name": "William",
+    "genres": "Horror|Sci-Fi|Thriller"
   },
   {
     "userId": 456,
-    "surname": "hunter",
-    "name": "jimmy r jr"
+    "surname": "Hunter",
+    "name": "Jimmy R Jr",
+    "genres": "Drama|Mystery|Romance|Thriller"
   },
   {
     "userId": 457,
-    "surname": "fonseca",
-    "name": "ryan"
+    "surname": "Fonseca",
+    "name": "Ryan",
+    "genres": "Drama"
   },
   {
     "userId": 458,
-    "surname": "doll",
-    "name": "antonio"
+    "surname": "Doll",
+    "name": "Antonio",
+    "genres": "Comedy"
   },
   {
     "userId": 459,
-    "surname": "grayden",
-    "name": "edward w"
+    "surname": "Grayden",
+    "name": "Edward W",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 460,
-    "surname": "pavon",
-    "name": "jose l"
+    "surname": "Pavon",
+    "name": "Jose L",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 461,
-    "surname": "brown",
-    "name": "philip a ii"
+    "surname": "Brown",
+    "name": "Philip A Ii",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 462,
-    "surname": "marrero",
-    "name": "robert"
+    "surname": "Marrero",
+    "name": "Robert",
+    "genres": "Adventure|Children|Romance"
   },
   {
     "userId": 463,
-    "surname": "prudhomme",
-    "name": "brian"
+    "surname": "Prudhomme",
+    "name": "Brian",
+    "genres": "Documentary"
   },
   {
     "userId": 464,
-    "surname": "santiago",
-    "name": "hector l"
+    "surname": "Santiago",
+    "name": "Hector L",
+    "genres": "Adventure|Animation|Children|Drama|Musical|IMAX"
   },
   {
     "userId": 465,
-    "surname": "carbary",
-    "name": "donald w jr."
+    "surname": "Carbary",
+    "name": "Donald W Jr.",
+    "genres": "Drama"
   },
   {
     "userId": 466,
-    "surname": "gentilucci",
-    "name": "michael a"
+    "surname": "Gentilucci",
+    "name": "Michael A",
+    "genres": "Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 467,
-    "surname": "ingmire",
-    "name": "gary c jr"
+    "surname": "Ingmire",
+    "name": "Gary C Jr",
+    "genres": "Action|Comedy|Crime|Fantasy"
   },
   {
     "userId": 468,
-    "surname": "murray",
-    "name": "joshua a"
+    "surname": "Murray",
+    "name": "Joshua A",
+    "genres": "Adventure|Comedy|Western"
   },
   {
     "userId": 469,
-    "surname": "lamm",
-    "name": "steven w"
+    "surname": "Lamm",
+    "name": "Steven W",
+    "genres": "Drama"
   },
   {
     "userId": 470,
-    "surname": "patina",
-    "name": "gabriel"
+    "surname": "Patina",
+    "name": "Gabriel",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 471,
-    "surname": "glisson",
-    "name": "clarence e"
+    "surname": "Glisson",
+    "name": "Clarence E",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 472,
-    "surname": "mediate",
-    "name": "marc"
+    "surname": "Mediate",
+    "name": "Marc",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 473,
-    "surname": "lemmond",
-    "name": "terry"
+    "surname": "Lemmond",
+    "name": "Terry",
+    "genres": "Thriller"
   },
   {
     "userId": 474,
-    "surname": "farinas",
-    "name": "jose m"
+    "surname": "Farinas",
+    "name": "Jose M",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 475,
-    "surname": "bleiweiss",
-    "name": "jonathan"
+    "surname": "Bleiweiss",
+    "name": "Jonathan",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 476,
-    "surname": "schwenke",
-    "name": "jonathan a"
+    "surname": "Schwenke",
+    "name": "Jonathan A",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 477,
-    "surname": "burns",
-    "name": "ronnie w"
+    "surname": "Burns",
+    "name": "Ronnie W",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 478,
-    "surname": "brogen",
-    "name": "richard l"
+    "surname": "Brogen",
+    "name": "Richard L",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 479,
-    "surname": "cavender",
-    "name": "howard j"
+    "surname": "Cavender",
+    "name": "Howard J",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 480,
-    "surname": "moore",
-    "name": "dale a"
+    "surname": "Moore",
+    "name": "Dale A",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 481,
-    "surname": "matus",
-    "name": "gary j"
+    "surname": "Matus",
+    "name": "Gary J",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 482,
-    "surname": "quispe",
-    "name": "christian"
+    "surname": "Quispe",
+    "name": "Christian",
+    "genres": "Action|Comedy|Crime|Horror"
   },
   {
     "userId": 483,
-    "surname": "quick",
-    "name": "jason w"
+    "surname": "Quick",
+    "name": "Jason W",
+    "genres": "Action|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 484,
-    "surname": "cockman",
-    "name": "michael b"
+    "surname": "Cockman",
+    "name": "Michael B",
+    "genres": "Animation|Comedy"
   },
   {
     "userId": 485,
-    "surname": "grau",
-    "name": "henry"
+    "surname": "Grau",
+    "name": "Henry",
+    "genres": "Comedy"
   },
   {
     "userId": 486,
-    "surname": "akins",
-    "name": "rodney r"
+    "surname": "Akins",
+    "name": "Rodney R",
+    "genres": "Comedy"
   },
   {
     "userId": 487,
-    "surname": "powers",
-    "name": "clinton l"
+    "surname": "Powers",
+    "name": "Clinton L",
+    "genres": "Comedy"
   },
   {
     "userId": 488,
-    "surname": "mccarty",
-    "name": "eugene"
+    "surname": "Mccarty",
+    "name": "Eugene",
+    "genres": "Action|Sci-Fi"
   },
   {
     "userId": 489,
-    "surname": "chisholm",
-    "name": "glen"
+    "surname": "Chisholm",
+    "name": "Glen",
+    "genres": "Documentary"
   },
   {
     "userId": 490,
-    "surname": "lopez",
-    "name": "david l"
+    "surname": "Lopez",
+    "name": "David L",
+    "genres": "Horror|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 491,
-    "surname": "miguez",
-    "name": "gerardo"
+    "surname": "Miguez",
+    "name": "Gerardo",
+    "genres": "Crime|Documentary"
   },
   {
     "userId": 492,
-    "surname": "gomez",
-    "name": "armando"
+    "surname": "Gomez",
+    "name": "Armando",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 493,
-    "surname": "roberson",
-    "name": "joshua p"
+    "surname": "Roberson",
+    "name": "Joshua P",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 494,
-    "surname": "griswold",
-    "name": "talmadge d"
+    "surname": "Griswold",
+    "name": "Talmadge D",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 495,
-    "surname": "mabry",
-    "name": "kyle d"
+    "surname": "Mabry",
+    "name": "Kyle D",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 496,
-    "surname": "lee",
-    "name": "david b"
+    "surname": "Lee",
+    "name": "David B",
+    "genres": "Comedy"
   },
   {
     "userId": 497,
-    "surname": "cummings",
-    "name": "robert a"
+    "surname": "Cummings",
+    "name": "Robert A",
+    "genres": "Action|Crime|Drama|Thriller"
   },
   {
     "userId": 498,
-    "surname": "salli",
-    "name": "mark a"
+    "surname": "Salli",
+    "name": "Mark A",
+    "genres": "Adventure|Children|Fantasy|Sci-Fi"
   },
   {
     "userId": 499,
-    "surname": "meade",
-    "name": "john r"
+    "surname": "Meade",
+    "name": "John R",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 500,
-    "surname": "fenster",
-    "name": "brett"
+    "surname": "Fenster",
+    "name": "Brett",
+    "genres": "Drama|Horror|Thriller"
   },
   {
     "userId": 501,
-    "surname": "ezerski",
-    "name": "adam j"
+    "surname": "Ezerski",
+    "name": "Adam J",
+    "genres": "Adventure|Thriller"
   },
   {
     "userId": 502,
-    "surname": "dickison",
-    "name": "seth  jr"
+    "surname": "Dickison",
+    "name": "Seth  Jr",
+    "genres": "Drama|Fantasy|Thriller"
   },
   {
     "userId": 503,
-    "surname": "quinones",
-    "name": "angel"
+    "surname": "Quinones",
+    "name": "Angel",
+    "genres": "Crime"
   },
   {
     "userId": 504,
-    "surname": "hill",
-    "name": "edward k"
+    "surname": "Hill",
+    "name": "Edward K",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 505,
-    "surname": "jones",
-    "name": "courtney r"
+    "surname": "Jones",
+    "name": "Courtney R",
+    "genres": "Comedy"
   },
   {
     "userId": 506,
-    "surname": "barrett",
-    "name": "daniel l"
+    "surname": "Barrett",
+    "name": "Daniel L",
+    "genres": "Action|Fantasy|Sci-Fi"
   },
   {
     "userId": 507,
-    "surname": "kavantzas",
-    "name": "telly"
+    "surname": "Kavantzas",
+    "name": "Telly",
+    "genres": "Action|Adventure|Sci-Fi"
   },
   {
     "userId": 508,
-    "surname": "rewerts",
-    "name": "nathan"
+    "surname": "Rewerts",
+    "name": "Nathan",
+    "genres": "Action|Adventure|Drama|Sci-Fi|Thriller"
   },
   {
     "userId": 509,
-    "surname": "langley",
-    "name": "bo c"
+    "surname": "Langley",
+    "name": "Bo C",
+    "genres": "Action|Adventure|Animation|Children"
   },
   {
     "userId": 510,
-    "surname": "barner",
-    "name": "richard l iii"
+    "surname": "Barner",
+    "name": "Richard L Iii",
+    "genres": "Action|Comedy|Sci-Fi"
   },
   {
     "userId": 511,
-    "surname": "mendoza",
-    "name": "george"
+    "surname": "Mendoza",
+    "name": "George",
+    "genres": "Action|Adventure|Children|Sci-Fi"
   },
   {
     "userId": 512,
-    "surname": "davis",
-    "name": "clark e"
+    "surname": "Davis",
+    "name": "Clark E",
+    "genres": "Documentary"
   },
   {
     "userId": 513,
-    "surname": "lopez",
-    "name": "frank"
+    "surname": "Lopez",
+    "name": "Frank",
+    "genres": "Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 514,
-    "surname": "rogers",
-    "name": "jerry l"
+    "surname": "Rogers",
+    "name": "Jerry L",
+    "genres": "Action|Adventure|Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 515,
-    "surname": "mcfarland",
-    "name": "scott m"
+    "surname": "Mcfarland",
+    "name": "Scott M",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 516,
-    "surname": "graham",
-    "name": "matthew r"
+    "surname": "Graham",
+    "name": "Matthew R",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 517,
-    "surname": "nolan",
-    "name": "timothy j"
+    "surname": "Nolan",
+    "name": "Timothy J",
+    "genres": "Comedy"
   },
   {
     "userId": 518,
-    "surname": "delacruz",
-    "name": "jeffrey e"
+    "surname": "Delacruz",
+    "name": "Jeffrey E",
+    "genres": "Adventure|Comedy|Fantasy"
   },
   {
     "userId": 519,
-    "surname": "owens",
-    "name": "scott e"
+    "surname": "Owens",
+    "name": "Scott E",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 520,
-    "surname": "pagan",
-    "name": "joe a"
+    "surname": "Pagan",
+    "name": "Joe A",
+    "genres": "Documentary"
   },
   {
     "userId": 521,
-    "surname": "morris",
-    "name": "walter l"
+    "surname": "Morris",
+    "name": "Walter L",
+    "genres": "Action|Adventure|Thriller"
   },
   {
     "userId": 522,
-    "surname": "collins",
-    "name": "mark e"
+    "surname": "Collins",
+    "name": "Mark E",
+    "genres": "Action|Crime|Thriller"
   },
   {
     "userId": 523,
-    "surname": "montalvo",
-    "name": "alberto"
+    "surname": "Montalvo",
+    "name": "Alberto",
+    "genres": "Action|Sci-Fi"
   },
   {
     "userId": 524,
-    "surname": "mccurley",
-    "name": "stephen s"
+    "surname": "Mccurley",
+    "name": "Stephen S",
+    "genres": "Comedy|Crime|Drama"
   },
   {
     "userId": 525,
-    "surname": "gothard",
-    "name": "walter k"
+    "surname": "Gothard",
+    "name": "Walter K",
+    "genres": "Sci-Fi|Thriller"
   },
   {
     "userId": 526,
-    "surname": "belleville",
-    "name": "justin d"
+    "surname": "Belleville",
+    "name": "Justin D",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 527,
-    "surname": "kleinhenz",
-    "name": "sean t"
+    "surname": "Kleinhenz",
+    "name": "Sean T",
+    "genres": "Comedy"
   },
   {
     "userId": 528,
-    "surname": "rodriguez",
-    "name": "alejandro"
+    "surname": "Rodriguez",
+    "name": "Alejandro",
+    "genres": "Drama"
   },
   {
     "userId": 529,
-    "surname": "massengale",
-    "name": "stephen a"
+    "surname": "Massengale",
+    "name": "Stephen A",
+    "genres": "Drama"
   },
   {
     "userId": 530,
-    "surname": "mullins",
-    "name": "eddy r sr"
+    "surname": "Mullins",
+    "name": "Eddy R Sr",
+    "genres": "Animation"
   },
   {
     "userId": 531,
-    "surname": "cunnup",
-    "name": "james a"
+    "surname": "Cunnup",
+    "name": "James A",
+    "genres": "Documentary"
   },
   {
     "userId": 532,
-    "surname": "owen",
-    "name": "duane p"
+    "surname": "Owen",
+    "name": "Duane P",
+    "genres": "Action|Adventure|Comedy|Sci-Fi"
   },
   {
     "userId": 533,
-    "surname": "muncy",
-    "name": "jimmy"
+    "surname": "Muncy",
+    "name": "Jimmy",
+    "genres": "Action|Animation|Comedy|Sci-Fi"
   },
   {
     "userId": 534,
-    "surname": "luna",
-    "name": "carlos a"
+    "surname": "Luna",
+    "name": "Carlos A",
+    "genres": "Animation|Drama"
   },
   {
     "userId": 535,
-    "surname": "barrett",
-    "name": "brandon r"
+    "surname": "Barrett",
+    "name": "Brandon R",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 536,
-    "surname": "fredrickson",
-    "name": "robert"
+    "surname": "Fredrickson",
+    "name": "Robert",
+    "genres": "Animation"
   },
   {
     "userId": 537,
-    "surname": "register",
-    "name": "johnny i"
+    "surname": "Register",
+    "name": "Johnny I",
+    "genres": "Documentary"
   },
   {
     "userId": 538,
-    "surname": "roberson",
-    "name": "nicholas r"
+    "surname": "Roberson",
+    "name": "Nicholas R",
+    "genres": "Action|Animation|Comedy|Fantasy"
   },
   {
     "userId": 539,
-    "surname": "koehler",
-    "name": "dennis l"
+    "surname": "Koehler",
+    "name": "Dennis L",
+    "genres": "Animation|Comedy|Fantasy"
   },
   {
     "userId": 540,
-    "surname": "bryson",
-    "name": "shelby t"
+    "surname": "Bryson",
+    "name": "Shelby T",
+    "genres": "Drama"
   },
   {
     "userId": 541,
-    "surname": "greenhawjr",
-    "name": "donnie r"
+    "surname": "Greenhawjr",
+    "name": "Donnie R",
+    "genres": "Action|Animation"
   },
   {
     "userId": 542,
-    "surname": "otero",
-    "name": "philip j"
+    "surname": "Otero",
+    "name": "Philip J",
+    "genres": "Comedy"
   },
   {
     "userId": 543,
-    "surname": "mullenax",
-    "name": "william"
+    "surname": "Mullenax",
+    "name": "William",
+    "genres": "Drama"
   },
   {
     "userId": 544,
-    "surname": "adams",
-    "name": "monte r"
+    "surname": "Adams",
+    "name": "Monte R",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 545,
-    "surname": "smithjr",
-    "name": "conard l"
+    "surname": "Smithjr",
+    "name": "Conard L",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 546,
-    "surname": "degennaro",
-    "name": "thomas a"
+    "surname": "Degennaro",
+    "name": "Thomas A",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 547,
-    "surname": "matthews",
-    "name": "steven w"
+    "surname": "Matthews",
+    "name": "Steven W",
+    "genres": "Thriller"
   },
   {
     "userId": 548,
-    "surname": "carpenter",
-    "name": "william d"
+    "surname": "Carpenter",
+    "name": "William D",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 549,
-    "surname": "eastridge",
-    "name": "mylowe"
+    "surname": "Eastridge",
+    "name": "Mylowe",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 550,
-    "surname": "patterson",
-    "name": "david m jr."
+    "surname": "Patterson",
+    "name": "David M Jr.",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 551,
-    "surname": "deese",
-    "name": "jessie"
+    "surname": "Deese",
+    "name": "Jessie",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 552,
-    "surname": "billingsley",
-    "name": "joseph"
+    "surname": "Billingsley",
+    "name": "Joseph",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 553,
-    "surname": "rodriguez",
-    "name": "carlos w"
+    "surname": "Rodriguez",
+    "name": "Carlos W",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 554,
-    "surname": "rogers",
-    "name": "michael t"
+    "surname": "Rogers",
+    "name": "Michael T",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 555,
-    "surname": "morrell",
-    "name": "james s"
+    "surname": "Morrell",
+    "name": "James S",
+    "genres": "Drama|Horror|Romance|Thriller"
   },
   {
     "userId": 556,
-    "surname": "curtis",
-    "name": "steven a"
+    "surname": "Curtis",
+    "name": "Steven A",
+    "genres": "Western"
   },
   {
     "userId": 557,
-    "surname": "hernandez",
-    "name": "jorge a"
+    "surname": "Hernandez",
+    "name": "Jorge A",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 558,
-    "surname": "denney",
-    "name": "robert e"
+    "surname": "Denney",
+    "name": "Robert E",
+    "genres": "Drama"
   },
   {
     "userId": 559,
-    "surname": "pence",
-    "name": "jesse a"
+    "surname": "Pence",
+    "name": "Jesse A",
+    "genres": "Drama"
   },
   {
     "userId": 560,
-    "surname": "rowan",
-    "name": "jason m"
+    "surname": "Rowan",
+    "name": "Jason M",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 561,
-    "surname": "franco",
-    "name": "inacio"
+    "surname": "Franco",
+    "name": "Inacio",
+    "genres": "Drama"
   },
   {
     "userId": 562,
-    "surname": "pooler",
-    "name": "jarod"
+    "surname": "Pooler",
+    "name": "Jarod",
+    "genres": "Drama|Romance|War"
   },
   {
     "userId": 563,
-    "surname": "lunsford",
-    "name": "bryan w"
+    "surname": "Lunsford",
+    "name": "Bryan W",
+    "genres": "Action|Crime|Drama"
   },
   {
     "userId": 564,
-    "surname": "michaelis",
-    "name": "richard"
+    "surname": "Michaelis",
+    "name": "Richard",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 565,
-    "surname": "bohner",
-    "name": "darrell s"
+    "surname": "Bohner",
+    "name": "Darrell S",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 566,
-    "surname": "osorio",
-    "name": "carlos a jr"
+    "surname": "Osorio",
+    "name": "Carlos A Jr",
+    "genres": "Action|Fantasy"
   },
   {
     "userId": 567,
-    "surname": "ferguson",
-    "name": "timothy"
+    "surname": "Ferguson",
+    "name": "Timothy",
+    "genres": "Drama"
   },
   {
     "userId": 568,
-    "surname": "gallagher",
-    "name": "curtis p"
+    "surname": "Gallagher",
+    "name": "Curtis P",
+    "genres": "Horror|Thriller"
   },
   {
     "userId": 569,
-    "surname": "hand",
-    "name": "shane s"
+    "surname": "Hand",
+    "name": "Shane S",
+    "genres": "Drama"
   },
   {
     "userId": 570,
-    "surname": "medlin",
-    "name": "thomas f"
+    "surname": "Medlin",
+    "name": "Thomas F",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 571,
-    "surname": "elrod",
-    "name": "andrew j"
+    "surname": "Elrod",
+    "name": "Andrew J",
+    "genres": "Children|Comedy|Fantasy"
   },
   {
     "userId": 572,
-    "surname": "carter",
-    "name": "floyd w"
+    "surname": "Carter",
+    "name": "Floyd W",
+    "genres": "Drama"
   },
   {
     "userId": 573,
-    "surname": "kaiser",
-    "name": "steven k"
+    "surname": "Kaiser",
+    "name": "Steven K",
+    "genres": "Comedy"
   },
   {
     "userId": 574,
-    "surname": "hetzel",
-    "name": "john w"
+    "surname": "Hetzel",
+    "name": "John W",
+    "genres": "Comedy"
   },
   {
     "userId": 575,
-    "surname": "chism",
-    "name": "cody j"
+    "surname": "Chism",
+    "name": "Cody J",
+    "genres": "Comedy|Thriller"
   },
   {
     "userId": 576,
-    "surname": "osejo",
-    "name": "rene a"
+    "surname": "Osejo",
+    "name": "Rene A",
+    "genres": "Western"
   },
   {
     "userId": 577,
-    "surname": "kohler",
-    "name": "jerry m"
+    "surname": "Kohler",
+    "name": "Jerry M",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 578,
-    "surname": "zastrow",
-    "name": "emory j"
+    "surname": "Zastrow",
+    "name": "Emory J",
+    "genres": "Drama"
   },
   {
     "userId": 579,
-    "surname": "crews",
-    "name": "brian m"
+    "surname": "Crews",
+    "name": "Brian M",
+    "genres": "Comedy"
   },
   {
     "userId": 580,
-    "surname": "jossa",
-    "name": "paul v"
+    "surname": "Jossa",
+    "name": "Paul V",
+    "genres": "Action|Comedy|Crime|Thriller"
   },
   {
     "userId": 581,
-    "surname": "lawson",
-    "name": "dana e jr."
+    "surname": "Lawson",
+    "name": "Dana E Jr.",
+    "genres": "Adventure|Children|Drama"
   },
   {
     "userId": 582,
-    "surname": "boersma",
-    "name": "john"
+    "surname": "Boersma",
+    "name": "John",
+    "genres": "Thriller"
   },
   {
     "userId": 583,
-    "surname": "bonsal",
-    "name": "zachary"
+    "surname": "Bonsal",
+    "name": "Zachary",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 584,
-    "surname": "gilliard",
-    "name": "tommy j"
+    "surname": "Gilliard",
+    "name": "Tommy J",
+    "genres": "Drama"
   },
   {
     "userId": 585,
-    "surname": "gregg",
-    "name": "ralph e"
+    "surname": "Gregg",
+    "name": "Ralph E",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 586,
-    "surname": "bolton",
-    "name": "blake s"
+    "surname": "Bolton",
+    "name": "Blake S",
+    "genres": "Horror|Sci-Fi|Thriller"
   },
   {
     "userId": 587,
-    "surname": "allen",
-    "name": "steve r"
+    "surname": "Allen",
+    "name": "Steve R",
+    "genres": "Drama|Mystery|Romance|Thriller"
   },
   {
     "userId": 588,
-    "surname": "sandefur",
-    "name": "anthony l"
+    "surname": "Sandefur",
+    "name": "Anthony L",
+    "genres": "Drama"
   },
   {
     "userId": 589,
-    "surname": "breznau",
-    "name": "david j"
+    "surname": "Breznau",
+    "name": "David J",
+    "genres": "Comedy"
   },
   {
     "userId": 590,
-    "surname": "volner",
-    "name": "tyler b"
+    "surname": "Volner",
+    "name": "Tyler B",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 591,
-    "surname": "criollo",
-    "name": "victor m"
+    "surname": "Criollo",
+    "name": "Victor M",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 592,
-    "surname": "hardee",
-    "name": "timothy e"
+    "surname": "Hardee",
+    "name": "Timothy E",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 593,
-    "surname": "fincham",
-    "name": "sean"
+    "surname": "Fincham",
+    "name": "Sean",
+    "genres": "Adventure|Children|Romance"
   },
   {
     "userId": 594,
-    "surname": "tarver",
-    "name": "thomas m"
+    "surname": "Tarver",
+    "name": "Thomas M",
+    "genres": "Documentary"
   },
   {
     "userId": 595,
-    "surname": "smith",
-    "name": "wade h"
+    "surname": "Smith",
+    "name": "Wade H",
+    "genres": "Adventure|Animation|Children|Drama|Musical|IMAX"
   },
   {
     "userId": 596,
-    "surname": "sanchez",
-    "name": "lazaro"
+    "surname": "Sanchez",
+    "name": "Lazaro",
+    "genres": "Drama"
   },
   {
     "userId": 597,
-    "surname": "cardwell",
-    "name": "jerry"
+    "surname": "Cardwell",
+    "name": "Jerry",
+    "genres": "Drama|Horror|Mystery|Thriller"
   },
   {
     "userId": 598,
-    "surname": "king",
-    "name": "robert a"
+    "surname": "King",
+    "name": "Robert A",
+    "genres": "Action|Comedy|Crime|Fantasy"
   },
   {
     "userId": 599,
-    "surname": "saucedo",
-    "name": "abraham  jr"
+    "surname": "Saucedo",
+    "name": "Abraham  Jr",
+    "genres": "Adventure|Comedy|Western"
   },
   {
     "userId": 600,
-    "surname": "payne",
-    "name": "francis w"
+    "surname": "Payne",
+    "name": "Francis W",
+    "genres": "Drama"
   },
   {
     "userId": 601,
-    "surname": "godwin",
-    "name": "charles e"
+    "surname": "Godwin",
+    "name": "Charles E",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 602,
-    "surname": "gatlin",
-    "name": "ed"
+    "surname": "Gatlin",
+    "name": "Ed",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 603,
-    "surname": "mendez-hernandez",
-    "name": "manuel"
+    "surname": "Mendez-Hernandez",
+    "name": "Manuel",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 604,
-    "surname": "newsome",
-    "name": "charles d"
+    "surname": "Newsome",
+    "name": "Charles D",
+    "genres": "Thriller"
   },
   {
     "userId": 605,
-    "surname": "ferrell",
-    "name": "andrew d"
+    "surname": "Ferrell",
+    "name": "Andrew D",
+    "genres": "Children|Comedy"
   },
   {
     "userId": 606,
-    "surname": "molpusjr",
-    "name": "william"
+    "surname": "Molpusjr",
+    "name": "William",
+    "genres": "Action|Thriller"
   },
   {
     "userId": 607,
-    "surname": "reeves",
-    "name": "jeffery n"
+    "surname": "Reeves",
+    "name": "Jeffery N",
+    "genres": "Action|Romance|Thriller"
   },
   {
     "userId": 608,
-    "surname": "ellison",
-    "name": "brandon l"
+    "surname": "Ellison",
+    "name": "Brandon L",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 609,
-    "surname": "bush",
-    "name": "ronald w"
+    "surname": "Bush",
+    "name": "Ronald W",
+    "genres": "Action|Sci-Fi|Thriller"
   },
   {
     "userId": 610,
-    "surname": "clarke",
-    "name": "andrew"
+    "surname": "Clarke",
+    "name": "Andrew",
+    "genres": "Action|Adventure|Comedy|Romance|Thriller"
   },
   {
     "userId": 611,
-    "surname": "ester",
-    "name": "thomas c"
+    "surname": "Ester",
+    "name": "Thomas C",
+    "genres": "Drama|Romance"
   },
   {
     "userId": 612,
-    "surname": "caldwell",
-    "name": "blake m"
+    "surname": "Caldwell",
+    "name": "Blake M",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 613,
-    "surname": "bazemore",
-    "name": "eric w"
+    "surname": "Bazemore",
+    "name": "Eric W",
+    "genres": "Action|Comedy|Crime|Horror"
   },
   {
     "userId": 614,
-    "surname": "mccarty",
-    "name": "dustin"
+    "surname": "Mccarty",
+    "name": "Dustin",
+    "genres": "Action|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 615,
-    "surname": "johnson",
-    "name": "kenneth m"
+    "surname": "Johnson",
+    "name": "Kenneth M",
+    "genres": "Animation|Comedy"
   },
   {
     "userId": 616,
-    "surname": "miller",
-    "name": "donald"
+    "surname": "Miller",
+    "name": "Donald",
+    "genres": "Comedy"
   },
   {
     "userId": 617,
-    "surname": "foster",
-    "name": "ronnie"
+    "surname": "Foster",
+    "name": "Ronnie",
+    "genres": "Comedy"
   },
   {
     "userId": 618,
-    "surname": "barrett",
-    "name": "peter a"
+    "surname": "Barrett",
+    "name": "Peter A",
+    "genres": "Comedy"
   },
   {
     "userId": 619,
-    "surname": "krimmel",
-    "name": "stephen m"
+    "surname": "Krimmel",
+    "name": "Stephen M",
+    "genres": "Action|Sci-Fi"
   },
   {
     "userId": 620,
-    "surname": "moynihan",
-    "name": "wayne h"
+    "surname": "Moynihan",
+    "name": "Wayne H",
+    "genres": "Documentary"
   },
   {
     "userId": 621,
-    "surname": "baez",
-    "name": "rudy e"
+    "surname": "Baez",
+    "name": "Rudy E",
+    "genres": "Horror|Mystery|Sci-Fi|Thriller"
   },
   {
     "userId": 622,
-    "surname": "saltzman",
-    "name": "lance m"
+    "surname": "Saltzman",
+    "name": "Lance M",
+    "genres": "Crime|Documentary"
   },
   {
     "userId": 623,
-    "surname": "dixon",
-    "name": "jamie l"
+    "surname": "Dixon",
+    "name": "Jamie L",
+    "genres": "Comedy|Drama|Romance"
   },
   {
     "userId": 624,
-    "surname": "franklin",
-    "name": "kevin l"
+    "surname": "Franklin",
+    "name": "Kevin L",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 625,
-    "surname": "edwards",
-    "name": "joseph"
+    "surname": "Edwards",
+    "name": "Joseph",
+    "genres": "Action|Adventure|Fantasy"
   },
   {
     "userId": 626,
-    "surname": "batson",
-    "name": "jeffery a"
+    "surname": "Batson",
+    "name": "Jeffery A",
+    "genres": "Drama|Thriller"
   },
   {
     "userId": 627,
-    "surname": "newbern",
-    "name": "phillip w"
+    "surname": "Newbern",
+    "name": "Phillip W",
+    "genres": "Comedy"
   },
   {
     "userId": 628,
-    "surname": "cruz",
-    "name": "sergio"
+    "surname": "Cruz",
+    "name": "Sergio",
+    "genres": "Action|Crime|Drama|Thriller"
   },
   {
     "userId": 629,
-    "surname": "compton",
-    "name": "michael j"
+    "surname": "Compton",
+    "name": "Michael J",
+    "genres": "Adventure|Children|Fantasy|Sci-Fi"
   },
   {
     "userId": 630,
-    "surname": "giovo",
-    "name": "michael  jr"
+    "surname": "Giovo",
+    "name": "Michael  Jr",
+    "genres": "Comedy|Drama"
   },
   {
     "userId": 631,
-    "surname": "griffie",
-    "name": "herbert e"
+    "surname": "Griffie",
+    "name": "Herbert E",
+    "genres": "Drama|Horror|Thriller"
   },
   {
     "userId": 632,
-    "surname": "romero",
-    "name": "dorian r"
+    "surname": "Romero",
+    "name": "Dorian R",
+    "genres": "Adventure|Thriller"
   },
   {
     "userId": 633,
-    "surname": "brennan",
-    "name": "keith m"
+    "surname": "Brennan",
+    "name": "Keith M",
+    "genres": "Drama|Fantasy|Thriller"
   },
   {
     "userId": 634,
-    "surname": "cassels",
-    "name": "eric o"
+    "surname": "Cassels",
+    "name": "Eric O",
+    "genres": "Crime"
   },
   {
     "userId": 635,
-    "surname": "temple",
-    "name": "anthony"
+    "surname": "Temple",
+    "name": "Anthony",
+    "genres": "Action|Comedy"
   },
   {
     "userId": 636,
-    "surname": "evans",
-    "name": "william b"
+    "surname": "Evans",
+    "name": "William B",
+    "genres": "Comedy"
   },
   {
     "userId": 637,
-    "surname": "ogden",
-    "name": "phillip t"
+    "surname": "Ogden",
+    "name": "Phillip T",
+    "genres": "Action|Fantasy|Sci-Fi"
   },
   {
     "userId": 638,
-    "surname": "depta",
-    "name": "john s"
+    "surname": "Depta",
+    "name": "John S",
+    "genres": "Action|Adventure|Sci-Fi"
   },
   {
     "userId": 639,
-    "surname": "hurst",
-    "name": "eric r"
+    "surname": "Hurst",
+    "name": "Eric R",
+    "genres": "Action|Adventure|Drama|Sci-Fi|Thriller"
   },
   {
     "userId": 640,
-    "surname": "clemons",
-    "name": "harold e jr"
+    "surname": "Clemons",
+    "name": "Harold E Jr",
+    "genres": "Action|Adventure|Animation|Children"
   },
   {
     "userId": 641,
-    "surname": "fossum",
-    "name": "kevin"
+    "surname": "Fossum",
+    "name": "Kevin",
+    "genres": "Action|Comedy|Sci-Fi"
   },
   {
     "userId": 642,
-    "surname": "collins",
-    "name": "theodore l"
+    "surname": "Collins",
+    "name": "Theodore L",
+    "genres": "Action|Adventure|Children|Sci-Fi"
   },
   {
     "userId": 643,
-    "surname": "bennett",
-    "name": "chase d"
+    "surname": "Bennett",
+    "name": "Chase D",
+    "genres": "Documentary"
   },
   {
     "userId": 644,
-    "surname": "miller",
-    "name": "james a"
+    "surname": "Miller",
+    "name": "James A",
+    "genres": "Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 645,
-    "surname": "martin",
-    "name": "samson w"
+    "surname": "Martin",
+    "name": "Samson W",
+    "genres": "Action|Adventure|Comedy|Fantasy|Sci-Fi"
   },
   {
     "userId": 646,
-    "surname": "gilbert",
-    "name": "scott l"
+    "surname": "Gilbert",
+    "name": "Scott L",
+    "genres": "Crime|Drama"
   },
   {
     "userId": 647,
-    "surname": "puentes-landa",
-    "name": "juan r"
+    "surname": "Puentes-Landa",
+    "name": "Juan R",
+    "genres": "Comedy|Romance"
   },
   {
     "userId": 648,
-    "surname": "easter",
-    "name": "ricky d"
+    "surname": "Easter",
+    "name": "Ricky D",
+    "genres": "Comedy"
   },
   {
     "userId": 649,
-    "surname": "hinson",
-    "name": "william t"
+    "surname": "Hinson",
+    "name": "William T",
+    "genres": "Adventure|Comedy|Fantasy"
   },
   {
     "userId": 650,
-    "surname": "sisk",
-    "name": "braydon"
+    "surname": "Sisk",
+    "name": "Braydon",
+    "genres": "Comedy|Drama"
   }
 ]

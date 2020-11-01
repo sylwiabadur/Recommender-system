@@ -8,4 +8,5 @@ export const UserFactory = Factory.Sync.makeFactory<User>({
   surname: Factory.each(() => faker.name.lastName()),
   externalId: Factory.each(i => i),
   ratings: [],
+  preferedCategories: []
 });

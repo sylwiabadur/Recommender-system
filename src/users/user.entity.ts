@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Category } from '../categories/category.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { UsersRatings } from './usersRatings.entity';
 
 @Entity()
@@ -20,4 +21,8 @@ export class User {
     rating => rating.user,
   )
   ratings: UsersRatings[];
-}
+
+  @ManyToMany(type => Category, {eager: true})
+  @JoinTable()
+  preferedCategories: Category[];
+  }

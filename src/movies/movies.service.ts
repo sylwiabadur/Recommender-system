@@ -20,7 +20,7 @@ export class MoviesService {
   ) {}
 
   findAll(): Promise<Movie[]> {
-    return this.moviesRepository.find();
+    return this.moviesRepository.find({ relations: ['categories'] });
   }
 
   findOne(id: number): Promise<Movie> {
@@ -112,8 +112,6 @@ export class MoviesService {
 
     for (const movie of movies) {
       if (movie.id != myMovie.id) {
-        console.log(myMovie.ratings);
-        console.log(movie.ratings);
         scoresAndMovies.push({
           similarity: await this.cosineSimilarity(myMovie, movie),
           movie: movie,
@@ -133,11 +131,6 @@ export class MoviesService {
     let dotproduct = 0;
     let mA = 0;
     let mB = 0;
-
-    console.log(movie1.ratings);
-    console.log('===');
-    console.log(movie2.ratings);
-    console.log('---------------------------------');
 
     for (const element1 of movie1.ratings) {
       for (const element2 of movie2.ratings) {
@@ -182,12 +175,14 @@ export class MoviesService {
     for (const movie of allMovies) {
       let up = 0;
       let down = 0;
-
+      console.log(myUser.id + ' ' + movie.title);
       if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
         const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
           movie,
           allMovies,
         );
+
+        console.log(similaritiesAndMovies);
 
         for (const o of similaritiesAndMovies) {
           const movieRating = await this.usersRatingsRepository.findOne({
@@ -200,7 +195,7 @@ export class MoviesService {
           const r =
             Number(movieRating.rating) - this.calculateAverageForMovie(o.movie);
 
-          down += o.similarity;
+          down += Math.abs(o.similarity);
           up += o.similarity * r;
         }
       } else {
