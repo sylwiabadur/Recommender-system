@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { User } from './user.entity';
 import { UsersRatings } from './usersRatings.entity';
 import { UsersRepoHelperService } from './usersRepoHelper.service';
@@ -13,22 +13,25 @@ export class UsersHelpersController {
     private usersRepoHelper: UsersRepoHelperService,
   ) {}
 
+  @ApiOperation({ summary: 'Get average rating for one user' })
   @Get(':id/averageRating')
   async getAverage(@Param('id') id: number): Promise<number> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     return this.usersService.calculateAverageForUser(myUser);
   }
 
+  @ApiOperation({ summary: 'Get best ratings by user' })
+  @Get(':id/bestRatedBy')
+  async getBestRatedMovies(@Param('id') id: number): Promise<UsersRatings[]> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    return this.usersService.findBestRatedByUser(myUser);
+  }
+
+  @ApiOperation({ summary: 'Get many similar users to user' })
   @Get(':id/similarUsers')
   async getTheMostSimilarUser(@Param('id') id: number): Promise<User[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
     return this.usersService.findSimilarUsers(myUser, users);
-  }
-
-  @Get(':id/bestRatedBy')
-  async getBestRatedMovies(@Param('id') id: number): Promise<UsersRatings[]> {
-    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
-    return this.usersService.findBestRatedByUser(myUser);
   }
 }

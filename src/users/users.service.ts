@@ -29,10 +29,6 @@ export class UsersService {
     return this.usersRepoHelper.getOneUser(id);
   }
 
-  async findRating(id: number): Promise<UsersRatings> {
-    return this.usersRatingsRepository.findOne(id);
-  }
-
   async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
@@ -40,6 +36,23 @@ export class UsersService {
   async create(createUserDto: CreateUserDto): Promise<User> {
     const createdObj = this.usersRepository.create(createUserDto);
     return await this.usersRepository.save(createdObj);
+  }
+
+  async update(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+    const updatedObj = await this.findOne(id);
+    if (!updatedObj) {
+      throw new NotFoundException();
+    }
+    this.usersRepository.merge(updatedObj, updateUserDto);
+    return await this.usersRepository.save(updatedObj);
+  }
+
+  async findAllRatings(): Promise<UsersRatings[]> {
+    return this.usersRatingsRepository.find();
+  }
+
+  async findRating(id: number): Promise<UsersRatings> {
+    return this.usersRatingsRepository.findOne(id);
   }
 
   async createRating(
@@ -53,13 +66,8 @@ export class UsersService {
     return await this.usersRatingsRepository.save(createdObj);
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto): Promise<User> {
-    const updatedObj = await this.findOne(id);
-    if (!updatedObj) {
-      throw new NotFoundException();
-    }
-    this.usersRepository.merge(updatedObj, updateUserDto);
-    return await this.usersRepository.save(updatedObj);
+  async deleteRating(id: number): Promise<void> {
+    await this.usersRatingsRepository.delete(id);
   }
 
   async updateRating(

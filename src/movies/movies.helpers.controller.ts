@@ -1,6 +1,6 @@
 import { Controller, NotFoundException, Get, Param } from '@nestjs/common';
 import { MoviesService } from './movies.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Movie } from './movie.entity';
 import { MoviesRepoHelperService } from './moviesRepoHelper.service';
 
@@ -12,13 +12,7 @@ export class MoviesHelpersController {
     private moviesRepoHelper: MoviesRepoHelperService,
   ) {}
 
-  @Get(':id/similarMovies')
-  async getSimilarMovies(@Param('id') id: number): Promise<Movie[]> {
-    const myMovie = await this.moviesRepoHelper.getMovieWithRatingsRelation(id);
-    const movies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    return this.moviesService.findSimilarMovies(myMovie, movies);
-  }
-
+  @ApiOperation({ summary: 'Get average rating for one movie' })
   @Get(':id/averageRating')
   async getAverage(@Param('id') id: number): Promise<number> {
     const movie = await this.moviesRepoHelper.getMovieWithRatingsRelation(id);
@@ -26,5 +20,13 @@ export class MoviesHelpersController {
       throw new NotFoundException();
     }
     return this.moviesService.calculateAverageForMovie(movie);
+  }
+
+  @ApiOperation({ summary: 'Get similar movies to one movie' })
+  @Get(':id/similarMovies')
+  async getSimilarMovies(@Param('id') id: number): Promise<Movie[]> {
+    const myMovie = await this.moviesRepoHelper.getMovieWithRatingsRelation(id);
+    const movies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
+    return this.moviesService.findSimilarMovies(myMovie, movies);
   }
 }
