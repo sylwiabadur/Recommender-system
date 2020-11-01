@@ -217,87 +217,90 @@ describe('MoviesService', () => {
     expect(Number(result.toPrecision(3))).toEqual(expectedValue);
   });
 
-  // it('should predict ratings for user based on item-item similarity', async () => {
-  //   const userA = UserFactory.build();
-  //   const ratinga1 = UserRatingsFactory.build({ user: userA, rating: 2.0 });
-  //   const ratinga2 = UserRatingsFactory.build({ user: userA, rating: 3.0 });
-  //   userA.ratings = [rating1, rating1a];
-  //   const userB = UserFactory.build();
-  //   const ratingb1 = UserRatingsFactory.build({
-  //     user: userB,
-  //     rating: 2.5,
-  //   });
-  //   ratingb1.movie = ratinga1.movie;
-  //   const ratingb2 = UserRatingsFactory.build({
-  //     user: userB,
-  //     rating: 3.0,
-  //   });
-  //   ratingb2.movie = ratinga2.movie;
-  //   const ratingb3 = UserRatingsFactory.build({
-  //     user: userB,
-  //     rating: 5.0,
-  //   });
-  //   userA.ratings = [ratinga1, ratinga2];
-  //   userB.ratings = [ratingb1, ratingb2, ratingb3];
-  //   const moviesAll = [ratingb1.movie, ratingb2.movie, ratingb3.movie];
+  it('should predict ratings for user based on item-item similarity', async () => {
+    const movie1 = MovieFactory.build();
+    const movie2 = MovieFactory.build();
+    const movie3 = MovieFactory.build();
+    const userA = UserFactory.build();
+    const ratinga1 = UserRatingsFactory.build({ user: userA, rating: 2.0 });
+    ratinga1.movie = movie1;
+    const ratinga2 = UserRatingsFactory.build({ user: userA, rating: 3.0 });
+    ratinga2.movie = movie2;
+    userA.ratings = [rating1, rating1a];
+    const userB = UserFactory.build();
+    const ratingb1 = UserRatingsFactory.build({
+      user: userB,
+      rating: 2.5,
+    });
+    ratingb1.movie = movie1;
+    const ratingb2 = UserRatingsFactory.build({
+      user: userB,
+      rating: 3.0,
+    });
+    ratingb2.movie = movie2;
+    const ratingb3 = UserRatingsFactory.build({
+      user: userB,
+      rating: 5.0,
+    });
+    ratingb3.movie = movie3;
+    userA.ratings = [ratinga1, ratinga2];
+    userB.ratings = [ratingb1, ratingb2, ratingb3];
+    movie1.ratings = [ratinga1, ratingb1];
+    movie2.ratings = [ratinga2, ratingb2];
+    movie3.ratings = [ratingb3];
+    const moviesAll = [ratingb1.movie, ratingb2.movie, ratingb3.movie];
 
-  //   mockUsersService.calculateAverageForUser.mockImplementation(
-  //     (user: User) => {
-  //       switch (user) {
-  //         case userA:
-  //           return 2.25;
-  //         case userB:
-  //           return 3.5;
-  //         default:
-  //           return 0;
-  //       }
-  //     },
-  //   );
-  //   console.log(
-  //     '!!' +
-  //       ratinga1.movie.title +
-  //       ' ' +
-  //       ratinga2.movie.title +
-  //       ' ' +
-  //       ratingb3.movie.title,
-  //   );
-  //   mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga1);
-  //   mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga2);
-  //   mockUserRatingsRepository.findOne.mockResolvedValueOnce(null);
-  //   mockUsersService.checkIfRatedByUser.mockImplementation(
-  //     (user: User, movie: Movie) => {
-  //       if (
-  //         user == userA &&
-  //         movie == (ratinga1.movie || movie == ratinga2.movie)
-  //       ) {
-  //         return true;
-  //       } else if (
-  //         user == userB &&
-  //         movie ==
-  //           (ratingb1.movie ||
-  //             movie == ratingb2.movie ||
-  //             movie == ratingb3.movie)
-  //       ) {
-  //         return true;
-  //       } else return false;
-  //     },
-  //   );
-  //   mockUsersService.calculateAverageForUserId.mockImplementation(
-  //     (id: number) => {
-  //       switch (id) {
-  //         case userA.id:
-  //           return 2.25;
-  //         case userB.id:
-  //           return 3.5;
-  //         default:
-  //           return 0;
-  //       }
-  //     },
-  //   );
-  //   const result = await service.predictRatingsByUser(userA, moviesAll);
-  //   console.log(result);
-  //   // expect(result[0].predictedRating).toEqual(ratingb3.rating);
-  // });
+    mockUsersService.calculateAverageForUser.mockImplementation(
+      (user: User) => {
+        switch (user) {
+          case userA:
+            return 2.25;
+          case userB:
+            return 3.5;
+          default:
+            return 0;
+        }
+      },
+    );
+    mockUsersService.checkIfRatedByUser.mockImplementation(
+      (user: User, movie: Movie) => {
+        if (
+          user == userA &&
+          movie == (ratinga1.movie || movie == ratinga2.movie)
+        ) {
+          return true;
+        } else if (
+          user == userB &&
+          movie ==
+            (ratingb1.movie ||
+              movie == ratingb2.movie ||
+              movie == ratingb3.movie)
+        ) {
+          return true;
+        } else return false;
+      },
+    );
+    mockUsersService.calculateAverageForUserId.mockImplementation(
+      (id: number) => {
+        switch (id) {
+          case userA.id:
+            return 2.25;
+          case userB.id:
+            return 3.5;
+          default:
+            return 0;
+        }
+      },
+    );
+    mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga1);
+    mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga2);
+    mockUserRatingsRepository.findOne.mockResolvedValueOnce(null);
+    const result = await service.predictRatingsByUser(userA, moviesAll);
+    const expectedValue = 3.54;
+    expect(Number(result[0].predictedRating.toPrecision(3))).toEqual(
+      expectedValue,
+    );
+  });
 
   it('should find similar movies with similarities', async () => {
     const user1 = UserFactory.build();

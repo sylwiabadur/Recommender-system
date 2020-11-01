@@ -131,7 +131,6 @@ export class MoviesService {
     let dotproduct = 0;
     let mA = 0;
     let mB = 0;
-
     for (const element1 of movie1.ratings) {
       for (const element2 of movie2.ratings) {
         if (element1.user.id == element2.user.id) {
@@ -153,7 +152,8 @@ export class MoviesService {
     }
     mA = Math.sqrt(mA);
     mB = Math.sqrt(mB);
-    return dotproduct / (mA * mB);
+    const result = dotproduct / (mA * mB);
+    return result;
   }
 
   calculateAverageForMovie(movie: Movie): number {
@@ -175,14 +175,11 @@ export class MoviesService {
     for (const movie of allMovies) {
       let up = 0;
       let down = 0;
-      console.log(myUser.id + ' ' + movie.title);
       if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
         const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
           movie,
           allMovies,
         );
-
-        console.log(similaritiesAndMovies);
 
         for (const o of similaritiesAndMovies) {
           const movieRating = await this.usersRatingsRepository.findOne({

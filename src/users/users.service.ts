@@ -251,7 +251,6 @@ export class UsersService {
       relations: ['ratings', 'ratings.movie'],
     });
     let sumUserRatings = 0;
-    console.log(myUser + ' !!!!!!!!!');
     myUser.ratings.forEach(element1 => {
       sumUserRatings += Number(element1.rating);
     });
