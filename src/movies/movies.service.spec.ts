@@ -20,6 +20,7 @@ describe('MoviesService', () => {
     calculateAverageForUserId: jest.fn(),
     calculateAverageForUser: jest.fn(),
     checkIfRatedByUser: jest.fn(),
+    findBestRatedByUser: jest.fn(),
   };
 
   const movie1 = MovieFactory.build();
@@ -342,6 +343,16 @@ describe('MoviesService', () => {
         }
       },
     );
+    mockUsersService.findBestRatedByUser.mockImplementation((myUser: User) => {
+      switch (myUser) {
+        case userA:
+          return [ratinga1, ratinga2];
+        case userB:
+          return userB.ratings;
+        default:
+          return {};
+      }
+    });
     mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga1);
     mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga2);
     mockUserRatingsRepository.findOne.mockResolvedValueOnce(null);

@@ -211,7 +211,7 @@ describe('UsersService', () => {
     mockMovieRepository.find.mockResolvedValue([ratingb3.movie]);
     mockUserRatingsRepository.findOne.mockResolvedValue(ratingb3);
     const result = await service.predictRatingsByUser(userA, usersAll);
-    expect(result[0].predictedRating).toEqual(ratingb3.rating);
+    expect(result[0].predictedRating).toEqual(4);
   });
 
   it('should not predict because no not seen movies', async () => {

@@ -224,46 +224,15 @@ export class MoviesService {
 
     const result: { movie: Movie; predictedRating: number }[] = [];
 
-    const topRatingsBestRatedByUser = await this.usersService.findBestRatedByUser(
-      myUser,
-      30,
-    );
+    // const topRatingsBestRatedByUser = this.usersService.findBestRatedByUser(
+    //   myUser,
+    //   30,
+    // );
+    // const topMoviesBestRatedByUser = topRatingsBestRatedByUser.map(o => {
+    //   return o.movie;
+    // });
 
-    const topMoviesBestRatedByUser = topRatingsBestRatedByUser.map(o => {
-      return o.movie;
-    });
-
-    for (const movie of topMoviesBestRatedByUser) {
-      let up = 0;
-      let down = 0;
-      if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
-        const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
-          movie,
-          allMovies,
-          10,
-        );
-
-        for (const o of similaritiesAndMovies) {
-          const movieRating = await this.usersRatingsRepository.findOne({
-            where: { movie: o.movie, user: myUser },
-          });
-          if (!movieRating) {
-            continue;
-          }
-
-          const r =
-            Number(movieRating.rating) - this.calculateAverageForMovie(o.movie);
-
-          down += Math.abs(o.similarity);
-          up += o.similarity * r;
-        }
-      } else {
-        continue;
-      }
-      result.push({ movie, predictedRating: up / down + userAverageRating });
-    }
-
-    // for (const movie of allMovies) {
+    // for (const movie of topMoviesBestRatedByUser) {
     //   let up = 0;
     //   let down = 0;
     //   if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
@@ -272,6 +241,7 @@ export class MoviesService {
     //       allMovies,
     //       10,
     //     );
+
     //     for (const o of similaritiesAndMovies) {
     //       const movieRating = await this.usersRatingsRepository.findOne({
     //         where: { movie: o.movie, user: myUser },
@@ -291,6 +261,35 @@ export class MoviesService {
     //   }
     //   result.push({ movie, predictedRating: up / down + userAverageRating });
     // }
+
+    for (const movie of allMovies) {
+      let up = 0;
+      let down = 0;
+      if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
+        const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
+          movie,
+          allMovies,
+          10,
+        );
+        for (const o of similaritiesAndMovies) {
+          const movieRating = await this.usersRatingsRepository.findOne({
+            where: { movie: o.movie, user: myUser },
+          });
+          if (!movieRating) {
+            continue;
+          }
+
+          const r =
+            Number(movieRating.rating) - this.calculateAverageForMovie(o.movie);
+
+          down += Math.abs(o.similarity);
+          up += o.similarity * r;
+        }
+      } else {
+        continue;
+      }
+      result.push({ movie, predictedRating: up / down + userAverageRating });
+    }
     return result;
   }
 }

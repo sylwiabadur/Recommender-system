@@ -119,7 +119,6 @@ describe('AppController (e2e)', () => {
         result,
         deletedAll,
       );
-      console.log(movieTestResults + ' !!!!!!');
 
       const userTestResult: UserTestResult = {
         movieTestResults,
@@ -136,38 +135,38 @@ describe('AppController (e2e)', () => {
   //   expect(true).toEqual(true);
   // });
 
-  it('complex test for one user and save to csv when user-user', async done => {
-    await abscenario.clearRepos();
-    await abscenario.fillRepos(
-      moviesJson,
-      usersJson,
-      ratingsJson as JsonRating[],
-    );
+  // it('complex test for one user and save to csv when user-user', async done => {
+  //   await abscenario.clearRepos();
+  //   await abscenario.fillRepos(
+  //     moviesJson,
+  //     usersJson,
+  //     ratingsJson as JsonRating[],
+  //   );
 
-    const usersPercentage = await abscenario.getUsersPercentage();
-    const oneUser = usersPercentage[0];
-    console.log(oneUser);
-    const userTestResults = await runTestProcedureForOneUser(oneUser, true);
+  //   const usersPercentage = await abscenario.getUsersPercentage();
+  //   const oneUser = usersPercentage[0];
+  //   console.log(oneUser);
+  //   const userTestResults = await runTestProcedureForOneUser(oneUser, true);
 
-    const csvStream = csv.format({ headers: true });
-    const wStream = fs.createWriteStream('outOneUserCaseUserUser.csv');
-    csvStream.pipe(wStream).on('end', () => console.log('END'));
-    for (let i = 0; i < userTestResults.length; i++) {
-      for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
-        csvStream.write({
-          predicted: userTestResults[i].movieTestResults[j].predicted,
-          real: userTestResults[i].movieTestResults[j].real,
-          reducedByNumber: userTestResults[i].reducedByNumber,
-          reducedByPercent: userTestResults[i].reducedByPercentage,
-          MSEValue: userTestResults[i].mse,
-          RMSEValue: userTestResults[i].rmse,
-          MAEValue: userTestResults[i].mae,
-        });
-      }
-    }
-    csvStream.end();
-    done();
-  });
+  //   const csvStream = csv.format({ headers: true });
+  //   const wStream = fs.createWriteStream('outOneUserCaseUserUser.csv');
+  //   csvStream.pipe(wStream).on('end', () => console.log('END'));
+  //   for (let i = 0; i < userTestResults.length; i++) {
+  //     for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
+  //       csvStream.write({
+  //         predicted: userTestResults[i].movieTestResults[j].predicted,
+  //         real: userTestResults[i].movieTestResults[j].real,
+  //         reducedByNumber: userTestResults[i].reducedByNumber,
+  //         reducedByPercent: userTestResults[i].reducedByPercentage,
+  //         MSEValue: userTestResults[i].mse,
+  //         RMSEValue: userTestResults[i].rmse,
+  //         MAEValue: userTestResults[i].mae,
+  //       });
+  //     }
+  //   }
+  //   csvStream.end();
+  //   done();
+  // });
 
   // it('complex test for many users and save to csv', async () => {
   //   await abscenario.clearRepos();
@@ -245,40 +244,40 @@ describe('AppController (e2e)', () => {
   //   csvStream.end();
   // });
 
-  // it('complex test for one user and save to csv when item-item', async done => {
-  //   await abscenario.clearRepos();
-  //   await abscenario.fillRepos(
-  //     moviesJson,
-  //     usersJson,
-  //     ratingsJson as JsonRating[],
-  //   );
+  it('complex test for one user and save to csv when item-item', async done => {
+    await abscenario.clearRepos();
+    await abscenario.fillRepos(
+      moviesJson,
+      usersJson,
+      ratingsJson as JsonRating[],
+    );
 
-  //   const usersPercentage = await abscenario.getUsersPercentage();
-  //   const oneUser = usersPercentage[0];
-  //   console.log(oneUser);
-  //   const userTestResults = await runTestProcedureForOneUser(oneUser, false);
+    const usersPercentage = await abscenario.getUsersPercentage();
+    const oneUser = usersPercentage[0];
+    console.log(oneUser);
+    const userTestResults = await runTestProcedureForOneUser(oneUser, false);
 
-  //   console.log(userTestResults);
+    console.log(userTestResults);
 
-  //   const csvStream = csv.format({ headers: true });
-  //   const wStream = fs.createWriteStream('outOneUserCaseItemItem.csv');
-  //   csvStream.pipe(wStream).on('end', () => console.log('END'));
-  //   for (let i = 0; i < userTestResults.length; i++) {
-  //     for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
-  //       csvStream.write({
-  //         predicted: userTestResults[i].movieTestResults[j].predicted,
-  //         real: userTestResults[i].movieTestResults[j].real,
-  //         reducedByNumber: userTestResults[i].reducedByNumber,
-  //         reducedByPercent: userTestResults[i].reducedByPercentage,
-  //         MSEValue: userTestResults[i].mse,
-  //         RMSEValue: userTestResults[i].rmse,
-  //         MAEValue: userTestResults[i].mae,
-  //       });
-  //     }
-  //   }
-  //   done();
-  //   csvStream.end();
-  // });
+    const csvStream = csv.format({ headers: true });
+    const wStream = fs.createWriteStream('outOneUserCaseItemItem.csv');
+    csvStream.pipe(wStream).on('end', () => console.log('END'));
+    for (let i = 0; i < userTestResults.length; i++) {
+      for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
+        csvStream.write({
+          predicted: userTestResults[i].movieTestResults[j].predicted,
+          real: userTestResults[i].movieTestResults[j].real,
+          reducedByNumber: userTestResults[i].reducedByNumber,
+          reducedByPercent: userTestResults[i].reducedByPercentage,
+          MSEValue: userTestResults[i].mse,
+          RMSEValue: userTestResults[i].rmse,
+          MAEValue: userTestResults[i].mae,
+        });
+      }
+    }
+    done();
+    csvStream.end();
+  });
 
   // it('complex test for many users and save to csv, Item-Item', async () => {
   //   await abscenario.clearRepos();

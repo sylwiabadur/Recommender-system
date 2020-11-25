@@ -332,10 +332,7 @@ export class UsersService {
     return result;
   }
 
-  async findBestRatedByUser(
-    myUser: User,
-    numOfRatings: number,
-  ): Promise<UsersRatings[]> {
+  findBestRatedByUser(myUser: User, numOfRatings: number): UsersRatings[] {
     const sortedRatings = myUser.ratings.sort(function(a, b) {
       return b.rating - a.rating;
     });
@@ -343,7 +340,6 @@ export class UsersService {
     bestRated.forEach(element => {
       delete element.id;
     });
-
     return bestRated;
   }
 
