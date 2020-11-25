@@ -85,6 +85,8 @@
     },
     "coverageDirectory": "coverage",
     "testEnvironment": "node",
-    "coverageReporters": ["html"]
+    "coverageReporters": [
+      "html"
+    ]
   }
 }

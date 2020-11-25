@@ -21,17 +21,23 @@ export class UsersHelpersController {
   }
 
   @ApiOperation({ summary: 'Get best ratings by user' })
-  @Get(':id/bestRatedBy')
-  async getBestRatedMovies(@Param('id') id: number): Promise<UsersRatings[]> {
+  @Get(':id/bestRatings/:numOfRatings')
+  async getBestRatedMovies(
+    @Param('id') id: number,
+    @Param('numOfRatings') numOfRatings: number,
+  ): Promise<UsersRatings[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
-    return this.usersService.findBestRatedByUser(myUser);
+    return this.usersService.findBestRatedByUser(myUser, numOfRatings);
   }
 
   @ApiOperation({ summary: 'Get many similar users to user' })
-  @Get(':id/similarUsers')
-  async getTheMostSimilarUser(@Param('id') id: number): Promise<User[]> {
+  @Get(':id/similarUsers/:numOfUsers')
+  async getTheMostSimilarUser(
+    @Param('id') id: number,
+    @Param('numOfUsers') numOfUsers: number,
+  ): Promise<User[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
-    return this.usersService.findSimilarUsers(myUser, users);
+    return this.usersService.findSimilarUsers(myUser, users, numOfUsers);
   }
 }

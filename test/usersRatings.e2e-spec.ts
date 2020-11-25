@@ -39,6 +39,27 @@ describe('UserRatings', () => {
     jest.clearAllMocks();
   });
 
+  it(`/GET usersRatings`, () => {
+    mockUserRatingsRepository.find.mockResolvedValue(userRatings);
+    return request(app.getHttpServer())
+      .get('/users/ratings')
+      .expect(200)
+      .expect(userRatings);
+  });
+
+  it(`/GET users/0`, () => {
+    mockUserRatingsRepository.findOne.mockResolvedValue(userRatings[0]);
+    return request(app.getHttpServer())
+      .get('/users/ratings/' + userRatings[0].id)
+      .expect(200)
+      .expect(userRatings[0])
+      .then(() => {
+        expect(mockUserRatingsRepository.findOne).toBeCalledWith(
+          userRatings[0].id.toString(),
+        );
+      });
+  });
+
   it(`/POST usersRatings`, () => {
     mockUserRatingsRepository.create.mockImplementation(user => user);
     mockUserRatingsRepository.save.mockResolvedValue(userRatings[0]);
@@ -50,6 +71,19 @@ describe('UserRatings', () => {
       .then(() => {
         expect(mockUserRatingsRepository.create).toBeCalledWith(userRatings[0]);
         expect(mockUserRatingsRepository.save).toBeCalledWith(userRatings[0]);
+      });
+  });
+
+  it(`/DELETE usersRatings/0`, () => {
+    mockUserRatingsRepository.delete.mockResolvedValue(userRatings[0].id);
+    return request(app.getHttpServer())
+      .delete('/users/ratings/' + userRatings[0].id)
+      .expect(200)
+      .expect('')
+      .then(() => {
+        expect(mockUserRatingsRepository.delete).toBeCalledWith(
+          userRatings[0].id.toString(),
+        );
       });
   });
 

@@ -17,6 +17,7 @@ import * as csv from 'fast-csv';
 import * as fs from 'fs';
 import { MoviesRepoHelperService } from './../src/movies/moviesRepoHelper.service';
 import { MoviesService } from './../src/movies/movies.service';
+import { JsonRating } from './testHelpers/JsonRatingsInterface';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -32,6 +33,7 @@ describe('AppController (e2e)', () => {
   let moviesService: MoviesService;
 
   beforeEach(async () => {
+    jest.setTimeout(1000 * 720);
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -68,6 +70,10 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
+  afterEach(async () => {
+    await app.close();
+  });
+
   async function runTestProcedureForOneUser(
     oneUser: User,
     isUserUserSimilarity: boolean,
@@ -79,8 +85,8 @@ describe('AppController (e2e)', () => {
     const deletedAll: UsersRatings[] = [];
 
     let prev = 0;
-    // for (let i = 1; i <= 5; i++) {
     for (let i = 1; i <= 5; i++) {
+      // here
       const curr = prev + by;
       if (Math.floor(prev) == Math.floor(curr)) {
         prev = curr;
@@ -108,63 +114,74 @@ describe('AppController (e2e)', () => {
           moviesService,
         ); // item-item similarity
       }
-
+      console.log(result);
       const movieTestResults = abscenario.getEstimateAndValueToCompare(
         result,
         deletedAll,
       );
-      console.log(movieTestResults);
+      console.log(movieTestResults + ' !!!!!!');
 
       const userTestResult: UserTestResult = {
         movieTestResults,
         reducedByPercentage: byPercentage * i,
         reducedByNumber: by * i,
-        ...abscenario.countMseAndRmse(result, deletedAll),
+        ...abscenario.countMseAndRmseAndMAE(result, deletedAll),
       };
       userTestResults.push(userTestResult);
     }
     return userTestResults;
   }
 
-  it(`should pass`, () => {
-    expect(true).toEqual(true);
-  });
-
-  // it('complex test for one user and save to csv when user-user', async () => {
-  //   await abscenario.clearRepos();
-  //   await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
-
-  //   const usersPercentage = await abscenario.getUsersPercentage();
-  //   const oneUser = usersPercentage[0];
-  //   console.log(oneUser);
-  //   const userTestResults = await runTestProcedureForOneUser(oneUser, true);
-
-  //   const csvStream = csv.format({ headers: true });
-  //   const wStream = fs.createWriteStream('outOneUserCaseUserUser.csv');
-  //   csvStream.pipe(wStream).on('end', () => console.log('END'));
-  //   for (let i = 0; i < userTestResults.length; i++) {
-  //     for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
-  //       csvStream.write({
-  //         predicted: userTestResults[i].movieTestResults[j].predicted,
-  //         real: userTestResults[i].movieTestResults[j].real,
-  //         reducedByNumber: userTestResults[i].reducedByNumber,
-  //         reducedByPercent: userTestResults[i].reducedByPercentage,
-  //         MSEValue: userTestResults[i].mse,
-  //         RMSEValue: userTestResults[i].rmse,
-  //       });
-  //     }
-  //   }
-  //   csvStream.end();
+  // it(`should pass`, () => {
+  //   expect(true).toEqual(true);
   // });
+
+  it('complex test for one user and save to csv when user-user', async done => {
+    await abscenario.clearRepos();
+    await abscenario.fillRepos(
+      moviesJson,
+      usersJson,
+      ratingsJson as JsonRating[],
+    );
+
+    const usersPercentage = await abscenario.getUsersPercentage();
+    const oneUser = usersPercentage[0];
+    console.log(oneUser);
+    const userTestResults = await runTestProcedureForOneUser(oneUser, true);
+
+    const csvStream = csv.format({ headers: true });
+    const wStream = fs.createWriteStream('outOneUserCaseUserUser.csv');
+    csvStream.pipe(wStream).on('end', () => console.log('END'));
+    for (let i = 0; i < userTestResults.length; i++) {
+      for (let j = 0; j < userTestResults[i].movieTestResults.length; j++) {
+        csvStream.write({
+          predicted: userTestResults[i].movieTestResults[j].predicted,
+          real: userTestResults[i].movieTestResults[j].real,
+          reducedByNumber: userTestResults[i].reducedByNumber,
+          reducedByPercent: userTestResults[i].reducedByPercentage,
+          MSEValue: userTestResults[i].mse,
+          RMSEValue: userTestResults[i].rmse,
+          MAEValue: userTestResults[i].mae,
+        });
+      }
+    }
+    csvStream.end();
+    done();
+  });
 
   // it('complex test for many users and save to csv', async () => {
   //   await abscenario.clearRepos();
-  //   await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
+  //   await abscenario.fillRepos(
+  //     moviesJson,
+  //     usersJson,
+  //     ratingsJson as JsonRating[],
+  //   );
   //   const resultsMultipleUsers: UserTestResult[][] = []; //(usertestresult[])[] for many users
-  //   const usersPercent = 0.2;
-  //   const totalUsers = await usersRepo.count();
+  //   // const usersPercent = 0.2;
+  //   // const totalUsers = await usersRepo.count();
 
-  //   const n = Math.ceil(totalUsers * usersPercent);
+  //   // const n = Math.ceil(totalUsers * usersPercent);
+  //   const n = 5;
   //   for (let i = 0; i < n; i++) {
   //     const user = (
   //       await usersRepo.find({
@@ -177,15 +194,21 @@ describe('AppController (e2e)', () => {
   //     console.log(user);
   //     resultsMultipleUsers.push(await runTestProcedureForOneUser(user, true));
   //     await abscenario.clearRepos();
-  //     await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
+  //     await abscenario.fillRepos(
+  //       moviesJson,
+  //       usersJson,
+  //       ratingsJson as JsonRating[],
+  //     );
   //   }
   //   const globalSumMSE = [0, 0, 0, 0, 0];
+  //   const globalSumMAE = [0, 0, 0, 0, 0];
   //   const nProc = [0, 0, 0, 0, 0];
-  //   const globalSumRMSE = [0, 0, 0, 0, 0];
+  //   let diff = 0;
 
   //   for (let i = 0; i < n; i++) {
   //     for (let j = 0; j < resultsMultipleUsers[i].length; j++) {
   //       for (let percent = 1; percent <= 5; percent++) {
+  //         // here
   //         if (resultsMultipleUsers[i][j].reducedByPercentage == 0.1 * percent) {
   //           for (
   //             let k = 0;
@@ -194,15 +217,13 @@ describe('AppController (e2e)', () => {
   //           ) {
   //             console.log('n' + percent);
   //             console.log(resultsMultipleUsers[i][j].movieTestResults[k]);
-  //             globalSumMSE[percent - 1] += Math.abs(
+  //             diff = Math.abs(
   //               Number(
   //                 resultsMultipleUsers[i][j].movieTestResults[k].predicted,
   //               ) - Number(resultsMultipleUsers[i][j].movieTestResults[k].real),
   //             );
-  //             globalSumRMSE[percent - 1] += Math.pow(
-  //               globalSumMSE[percent - 1],
-  //               2,
-  //             );
+  //             globalSumMAE[percent - 1] += diff;
+  //             globalSumMSE[percent - 1] += Math.pow(diff, 2);
   //             nProc[percent - 1]++;
   //           }
   //         }
@@ -213,17 +234,24 @@ describe('AppController (e2e)', () => {
   //   const wStream = fs.createWriteStream('outManyUsersMseRmseUserUser.csv');
   //   csvStream.pipe(wStream).on('end', () => console.log('END'));
   //   for (let i = 0; i < 5; i++) {
+  //     // here
   //     csvStream.write({
+  //       reducedByPercent: (i + 1) / 10,
   //       MSEValue: globalSumMSE[i] / nProc[i],
-  //       RMSEValue: globalSumRMSE[i] / nProc[i],
+  //       RMSEValue: Math.sqrt(globalSumMSE[i] / nProc[i]),
+  //       MAEValue: globalSumMAE[i] / nProc[i],
   //     });
   //   }
   //   csvStream.end();
   // });
 
-  // it('complex test for one user and save to csv when item-item', async () => {
+  // it('complex test for one user and save to csv when item-item', async done => {
   //   await abscenario.clearRepos();
-  //   await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
+  //   await abscenario.fillRepos(
+  //     moviesJson,
+  //     usersJson,
+  //     ratingsJson as JsonRating[],
+  //   );
 
   //   const usersPercentage = await abscenario.getUsersPercentage();
   //   const oneUser = usersPercentage[0];
@@ -244,9 +272,11 @@ describe('AppController (e2e)', () => {
   //         reducedByPercent: userTestResults[i].reducedByPercentage,
   //         MSEValue: userTestResults[i].mse,
   //         RMSEValue: userTestResults[i].rmse,
+  //         MAEValue: userTestResults[i].mae,
   //       });
   //     }
   //   }
+  //   done();
   //   csvStream.end();
   // });
 
@@ -274,7 +304,8 @@ describe('AppController (e2e)', () => {
   //   }
   //   const globalSumMSE = [0, 0, 0, 0, 0];
   //   const nProc = [0, 0, 0, 0, 0];
-  //   const globalSumRMSE = [0, 0, 0, 0, 0];
+  //   const globalSumMAE = [0, 0, 0, 0, 0];
+  //   let diff = 0;
 
   //   for (let i = 0; i < n; i++) {
   //     for (let j = 0; j < resultsMultipleUsers[i].length; j++) {
@@ -287,15 +318,13 @@ describe('AppController (e2e)', () => {
   //           ) {
   //             console.log('n' + percent);
   //             console.log(resultsMultipleUsers[i][j].movieTestResults[k]);
-  //             globalSumMSE[percent - 1] += Math.abs(
+  //             diff = Math.abs(
   //               Number(
   //                 resultsMultipleUsers[i][j].movieTestResults[k].predicted,
   //               ) - Number(resultsMultipleUsers[i][j].movieTestResults[k].real),
   //             );
-  //             globalSumRMSE[percent - 1] += Math.pow(
-  //               globalSumMSE[percent - 1],
-  //               2,
-  //             );
+  //             globalSumMAE[percent - 1] += diff;
+  //             globalSumMSE[percent - 1] += Math.pow(diff, 2);
   //             nProc[percent - 1]++;
   //           }
   //         }
@@ -307,8 +336,10 @@ describe('AppController (e2e)', () => {
   //   csvStream.pipe(wStream).on('end', () => console.log('END'));
   //   for (let i = 0; i < 5; i++) {
   //     csvStream.write({
+  //       reducedByPercent: (i + 1) / 10,
   //       MSEValue: globalSumMSE[i] / nProc[i],
-  //       RMSEValue: globalSumRMSE[i] / nProc[i],
+  //       RMSEValue: Math.sqrt(globalSumMSE[i] / nProc[i]),
+  //       MAEValue: globalSumMAE[i] / nProc[i],
   //     });
   //   }
   //   csvStream.end();

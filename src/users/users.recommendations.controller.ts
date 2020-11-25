@@ -17,31 +17,40 @@ export class UsersRecommendationsController {
   ) {}
 
   @ApiOperation({ summary: 'Get cold start recommendations for user' })
-  @Get(':id/coldStart')
-  async getColdStart(@Param('id') id: number): Promise<Movie[]> {
+  @Get(':id/coldStart/:numOfMovies')
+  async getColdStart(
+    @Param('id') id: number,
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
     const user = await this.usersService.findOne(id);
     if (!user) {
       throw new NotFoundException();
     }
-    return this.usersService.coldStartRecommendations(user);
+    return this.usersService.coldStartRecommendations(user, numOfMovies);
   }
 
   @ApiOperation({ summary: 'Get not seen movies by user' })
-  @Get(':id/recommendNotSeenMovies')
-  async getRecommendedNotSeenMovies(@Param('id') id: number): Promise<Movie[]> {
+  @Get(':id/recommendNotSeenMovies/:numOfMovies')
+  async getRecommendedNotSeenMovies(
+    @Param('id') id: number,
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
-    return this.usersService.recommendNotSeenMovies(myUser, users);
+    return this.usersService.recommendNotSeenMovies(myUser, users, numOfMovies);
   }
 
   @ApiOperation({
     summary: 'Get favourite movies rated by similar users to user',
   })
-  @Get(':id/similarUsersFavs')
-  async getSimilarUsersFavs(@Param('id') id: number): Promise<Movie[]> {
+  @Get(':id/similarUsersFavs/:numOfUsers')
+  async getSimilarUsersFavs(
+    @Param('id') id: number,
+    @Param('numOfUsers') numOfUsers: number,
+  ): Promise<Movie[]> {
     const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
     const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
-    return this.usersService.similarUsersFavs(myUser, users);
+    return this.usersService.similarUsersFavs(myUser, users, numOfUsers);
   }
 
   @ApiOperation({

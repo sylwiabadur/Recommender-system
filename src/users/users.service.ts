@@ -5,8 +5,6 @@ import { User } from './user.entity';
 import { UpdateUserDto } from './user.update.dto';
 import { CreateUserDto } from './user.create.dto';
 import { UsersRatings } from './usersRatings.entity';
-import { CreateUsersRatingDto } from './usersRatings.create.dto';
-import { UpdateUsersRatingDto } from './usersRatings.update.dto';
 import { Movie } from '../movies/movie.entity';
 import { UsersRepoHelperService } from './usersRepoHelper.service';
 
@@ -47,58 +45,53 @@ export class UsersService {
     return await this.usersRepository.save(updatedObj);
   }
 
-  async findAllRatings(): Promise<UsersRatings[]> {
-    return this.usersRatingsRepository.find();
-  }
-
-  async findRating(id: number): Promise<UsersRatings> {
-    return this.usersRatingsRepository.findOne(id);
-  }
-
-  async createRating(
-    id: number,
-    createUsersRatingDto: CreateUsersRatingDto,
-  ): Promise<UsersRatings> {
-    const createdObj = this.usersRatingsRepository.create({
-      user: { id },
-      ...createUsersRatingDto,
+  calculateAverageForUser(user: User): number {
+    let sumUserRatings = 0;
+    user.ratings.forEach(element1 => {
+      sumUserRatings += Number(element1.rating);
     });
-    return await this.usersRatingsRepository.save(createdObj);
+    return sumUserRatings / user.ratings.length;
   }
 
-  async deleteRating(id: number): Promise<void> {
-    await this.usersRatingsRepository.delete(id);
+  async calculateAverageForUserId(id: number): Promise<number> {
+    const myUser = await this.usersRepository.findOne(id, {
+      relations: ['ratings', 'ratings.movie'],
+    });
+    return this.calculateAverageForUser(myUser);
   }
 
-  async updateRating(
-    id: number,
-    ratingId: number,
-    updateUsersRatingDto: UpdateUsersRatingDto,
-  ): Promise<UsersRatings> {
-    const updatedRating = await this.findRating(ratingId);
-    if (!updatedRating) {
-      throw new NotFoundException();
+  cosineSimilarity(user1: User, user2: User): number {
+    let dotproduct = 0;
+    let mA = 0;
+    let mB = 0;
+
+    const averageRatingForUser1 = this.calculateAverageForUser(user1);
+    const averageRatingForUser2 = this.calculateAverageForUser(user2);
+
+    user1.ratings.forEach(element1 => {
+      user2.ratings.forEach(element2 => {
+        if (element1.movie.id == element2.movie.id) {
+          const normalizedUser1Rating =
+            Number(element1.rating) - averageRatingForUser1;
+          const normalizedUser2Rating =
+            Number(element2.rating) - averageRatingForUser2;
+          dotproduct += normalizedUser1Rating * normalizedUser2Rating;
+          mA += Math.pow(normalizedUser1Rating, 2);
+          mB += Math.pow(normalizedUser2Rating, 2);
+        }
+      });
+    });
+    if (Math.sqrt(mA * mB) == 0) {
+      return 0.05;
     }
-    this.usersRatingsRepository.merge(updatedRating, {
-      user: { id },
-      ...updateUsersRatingDto,
-    });
-    return await this.usersRatingsRepository.save(updatedRating);
-  }
-
-  async findSimilarUsers(user: User, users: User[]): Promise<User[]> {
-    const similarUsers = await this.findSimilarUsersAndSimilarities(
-      user,
-      users,
-    );
-    return similarUsers.map(o => {
-      return o.user;
-    });
+    const similarity = dotproduct / (Math.sqrt(mA) * Math.sqrt(mB));
+    return similarity;
   }
 
   async findSimilarUsersAndSimilarities(
     myUser: User,
     users: User[],
+    numOfUsers: number,
   ): Promise<{ similarity: number; user: User }[]> {
     const scoresAndUsers: { similarity: number; user: User }[] = [];
 
@@ -114,13 +107,34 @@ export class UsersService {
     let similarUsersWithSimilarities = scoresAndUsers.sort((el1, el2) => {
       return el2.similarity - el1.similarity;
     });
-    similarUsersWithSimilarities = similarUsersWithSimilarities.slice(0, 10);
-
+    similarUsersWithSimilarities = similarUsersWithSimilarities.slice(
+      0,
+      numOfUsers,
+    );
     return similarUsersWithSimilarities;
   }
 
-  async recommendNotSeenMovies(myUser: User, users: User[]): Promise<Movie[]> {
-    const similarUsers = await this.findSimilarUsers(myUser, users);
+  async findSimilarUsers(
+    user: User,
+    users: User[],
+    numOfUsers: number,
+  ): Promise<User[]> {
+    const similarUsers = await this.findSimilarUsersAndSimilarities(
+      user,
+      users,
+      numOfUsers,
+    );
+    return similarUsers.map(o => {
+      return o.user;
+    });
+  }
+
+  async recommendNotSeenMovies(
+    myUser: User,
+    users: User[],
+    numOfMovies: number,
+  ): Promise<Movie[]> {
+    const similarUsers = await this.findSimilarUsers(myUser, users, 10);
     const setOfUserMovies = new Set<number>();
     const setOfSeenByUsers = new Set<number>();
 
@@ -150,7 +164,7 @@ export class UsersService {
       );
     }
 
-    return movies;
+    return movies.slice(0, numOfMovies);
   }
 
   async predictRatingsByUser(
@@ -162,11 +176,9 @@ export class UsersService {
     const similaritiesAndUsers = await this.findSimilarUsersAndSimilarities(
       myUser,
       users,
+      10,
     );
 
-    const similarUsers = similaritiesAndUsers.map(o => {
-      return o.user;
-    });
     const setOfUserMovies = new Set<number>();
     const setOfSeenByUsers = new Set<number>();
 
@@ -174,8 +186,8 @@ export class UsersService {
       setOfUserMovies.add(element.movie.id);
     });
 
-    similarUsers.forEach(element => {
-      element.ratings.forEach(rating => {
+    similaritiesAndUsers.forEach(element => {
+      element.user.ratings.forEach(rating => {
         setOfSeenByUsers.add(rating.movie.id);
       });
     });
@@ -203,11 +215,18 @@ export class UsersService {
 
         const r = Number(userRating.rating);
 
-        down += o.similarity;
-        up += o.similarity * r;
+        down += Math.abs(o.similarity);
+        up += o.similarity * (r - this.calculateAverageForUser(o.user));
+      }
+      if (down == 0) {
+        result.push({ movie, predictedRating: 0 });
+        continue;
       }
 
-      result.push({ movie, predictedRating: up / down });
+      result.push({
+        movie,
+        predictedRating: up / down + this.calculateAverageForUser(myUser),
+      });
     }
     return result;
   }
@@ -221,11 +240,33 @@ export class UsersService {
     return (await predictions).filter(o => o.predictedRating >= avgFoUser);
   }
 
-  async similarUsersFavs(myUser: User, users: User[]): Promise<Movie[]> {
+  async checkIfRatedByUserById(
+    userId: number,
+    movieId: number,
+  ): Promise<boolean> {
+    const userRating = await this.usersRatingsRepository.findOne({
+      where: { movie: { id: movieId }, user: { id: userId } },
+    });
+    return !!userRating;
+  }
+
+  async checkIfRatedByUser(user: User, movie: Movie): Promise<boolean> {
+    const userRating = await this.usersRatingsRepository.findOne({
+      where: { movie, user },
+    });
+    return !!userRating;
+  }
+
+  async similarUsersFavs(
+    myUser: User,
+    users: User[],
+    numOfUsers: number,
+  ): Promise<Movie[]> {
     const result = new Map<number, Movie>();
     const similaritiesAndUsers = await this.findSimilarUsersAndSimilarities(
       myUser,
       users,
+      numOfUsers,
     );
 
     const similarUsers = similaritiesAndUsers.map(o => {
@@ -244,51 +285,6 @@ export class UsersService {
       }
     }
     return Array.from(result.values());
-  }
-
-  calculateAverageForUser(user: User): number {
-    let sumUserRatings = 0;
-    user.ratings.forEach(element1 => {
-      sumUserRatings += Number(element1.rating);
-    });
-    return sumUserRatings / user.ratings.length;
-  }
-
-  async calculateAverageForUserId(id: number): Promise<number> {
-    const myUser = await this.usersRepository.findOne(id, {
-      relations: ['ratings', 'ratings.movie'],
-    });
-    let sumUserRatings = 0;
-    myUser.ratings.forEach(element1 => {
-      sumUserRatings += Number(element1.rating);
-    });
-    return sumUserRatings / myUser.ratings.length;
-  }
-
-  cosineSimilarity(user1: User, user2: User): number {
-    let dotproduct = 0;
-    let mA = 0;
-    let mB = 0;
-
-    const averageRatingForUser1 = this.calculateAverageForUser(user1);
-    const averageRatingForUser2 = this.calculateAverageForUser(user2);
-
-    user1.ratings.forEach(element1 => {
-      user2.ratings.forEach(element2 => {
-        if (element1.movie.id == element2.movie.id) {
-          const normalizedUser1Rating =
-            Number(element1.rating) - averageRatingForUser1;
-          const normalizedUser2Rating =
-            Number(element2.rating) - averageRatingForUser2;
-          dotproduct += normalizedUser1Rating * normalizedUser2Rating;
-          mA += Math.pow(normalizedUser1Rating, 2);
-          mB += Math.pow(normalizedUser2Rating, 2);
-        }
-      });
-    });
-    mA = Math.sqrt(mA);
-    mB = Math.sqrt(mB);
-    return dotproduct / (mA * mB);
   }
 
   euclidianDistance(user1: User, user2: User): number {
@@ -330,18 +326,20 @@ export class UsersService {
     const denominator =
       (sameMovies * sumOfEl1Sq - Math.pow(sumOfEl1, 2)) *
       (sameMovies * sumOfEl2Sq - Math.pow(sumOfEl2, 2));
-    if (denominator == 0) return 0;
+    if (denominator == 0) return 0.05;
 
     const result = numerator / Math.sqrt(denominator);
     return result;
   }
 
-  async findBestRatedByUser(myUser: User): Promise<UsersRatings[]> {
+  async findBestRatedByUser(
+    myUser: User,
+    numOfRatings: number,
+  ): Promise<UsersRatings[]> {
     const sortedRatings = myUser.ratings.sort(function(a, b) {
       return b.rating - a.rating;
     });
-
-    const bestRated = sortedRatings.slice(0, 10);
+    const bestRated = sortedRatings.slice(0, numOfRatings);
     bestRated.forEach(element => {
       delete element.id;
     });
@@ -349,25 +347,11 @@ export class UsersService {
     return bestRated;
   }
 
-  async checkIfRatedByUserById(
-    userId: number,
-    movieId: number,
-  ): Promise<boolean> {
-    const userRating = await this.usersRatingsRepository.findOne({
-      where: { movie: { id: movieId }, user: { id: userId } },
-    });
-    return !!userRating;
-  }
-
-  async checkIfRatedByUser(user: User, movie: Movie): Promise<boolean> {
-    const userRating = await this.usersRatingsRepository.findOne({
-      where: { movie, user },
-    });
-    return !!userRating;
-  }
-
-  async coldStartRecommendations(myUser: User): Promise<Movie[]> {
-    const userPrefCategories = myUser.preferedCategories;
+  async coldStartRecommendations(
+    myUser: User,
+    numOfMovies: number,
+  ): Promise<Movie[]> {
+    const userPrefCategories = myUser.preferredCategories;
     const movies = this.moviesRepository
       .createQueryBuilder('movie')
       .select()
@@ -376,7 +360,7 @@ export class UsersService {
         ids: userPrefCategories.map(c => c.id),
       })
       .groupBy('movie.id') // limit must be with group by, concern duplicates
-      .limit(20)
+      .limit(numOfMovies)
       .getMany();
 
     return movies;

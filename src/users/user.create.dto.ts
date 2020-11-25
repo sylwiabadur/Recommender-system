@@ -13,5 +13,5 @@ export class CreateUserDto {
 
   @ApiProperty({ type: [Category], required: false })
   @Optional()
-  preferedCategories: Category[];
+  preferredCategories: Category[];
 }

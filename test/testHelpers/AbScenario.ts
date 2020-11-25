@@ -20,6 +20,7 @@ interface MovieTestResult {
 interface ComputedErrorTestResult {
   mse: number;
   rmse: number;
+  mae: number;
 }
 
 export interface UserTestResult extends ComputedErrorTestResult {
@@ -46,7 +47,8 @@ export class AbScenario {
 
   public async getUsersPercentage(): Promise<User[]> {
     const numOfUsers = await this.usersRepository.count();
-    const percentage = Math.ceil(numOfUsers * 0.5);
+    const percentage = Math.ceil(numOfUsers * 0.6);
+    console.log(percentage);
     const users = await this.usersRepository.find({
       relations: ['ratings', 'ratings.movie'],
       take: percentage,
@@ -81,26 +83,29 @@ export class AbScenario {
     return resultsToCompare;
   }
 
-  public countMseAndRmse(
+  public countMseAndRmseAndMAE(
     result: { movie: Movie; predictedRating: number }[],
     deletedValues: UsersRatings[],
   ): ComputedErrorTestResult {
     let mseSum = 0;
-    let rmseSum = 0;
+    let maeSum = 0;
+    let diff = 0;
     const n = deletedValues.length;
     for (const estimate of result) {
       for (const realVal of deletedValues) {
         if (estimate.movie.id == realVal.movie.id) {
-          mseSum += Math.abs(
+          diff = Math.abs(
             Number(estimate.predictedRating) - Number(realVal.rating),
           );
-          rmseSum += Math.pow(mseSum, 2);
+          maeSum += diff;
+          mseSum += Math.pow(diff, 2);
         }
       }
     }
     const mse = mseSum / n;
-    const rmse = Math.sqrt(rmseSum / n);
-    return { mse, rmse };
+    const mae = maeSum / n;
+    const rmse = Math.sqrt(mse);
+    return { mse, rmse, mae };
   }
 
   public async getPredictedRatingsFromOneUserWhenUU(
@@ -127,9 +132,10 @@ export class AbScenario {
       relations: ['ratings', 'ratings.movie'],
     });
     const allMoviesWithRelations = await moviesRepoHelper.getManyMoviesWithRatingsRelation();
+    const partMoviesWithRelations = allMoviesWithRelations.slice(0, 100);
     return await moviesService.predictRatingsByUser(
       userAfterReduce,
-      allMoviesWithRelations,
+      partMoviesWithRelations,
     );
   }
 
@@ -139,7 +145,7 @@ export class AbScenario {
     jsonRatings: JsonRating[],
   ): Promise<void> {
     const categories = new Map<string, Category>();
-    const movies = [];
+    const movies: Movie[] = [];
     for (const element of jsonMovies) {
       const movieCategories = [];
       for (const categoryName of element.genres.split('|')) {
@@ -163,9 +169,13 @@ export class AbScenario {
         }),
       );
     }
-    await this.moviesRepository.save(movies);
+    const savedMovies = await this.moviesRepository.save(movies);
+    const movieMap = new Map<number, Movie>();
+    savedMovies.forEach(movie => {
+      movieMap.set(movie.externalId, movie);
+    });
 
-    const users = [];
+    const users: User[] = [];
     for (const element of jsonUsers) {
       const prefCategories = [];
       for (const categoryName of element.genres.split('|')) {
@@ -186,25 +196,27 @@ export class AbScenario {
           name: element.name,
           surname: element.surname,
           externalId: element.userId,
-          preferedCategories: prefCategories,
+          preferredCategories: prefCategories,
         }),
       );
     }
-    await this.usersRepository.save(users);
+    const savedUsers = await this.usersRepository.save(users);
+    const userMap = new Map<number, User>();
+    savedUsers.forEach(user => {
+      userMap.set(user.externalId, user);
+    });
 
+    await this.usersRatingsRepository.query('SET FOREIGN_KEY_CHECKS=0');
     const ratings = [];
     for (const ratingElem of jsonRatings) {
       const rating = this.usersRatingsRepository.create({
-        user: await this.usersRepository.findOne({
-          where: { externalId: ratingElem.userId },
-        }),
-        movie: await this.moviesRepository.findOne({
-          where: { externalId: ratingElem.movieId },
-        }),
+        user: { id: userMap.get(ratingElem.userId).id },
+        movie: { id: movieMap.get(ratingElem.movieId).id },
         rating: ratingElem.rating,
       });
       ratings.push(rating);
     }
-    await this.usersRatingsRepository.save(ratings);
+    await this.usersRatingsRepository.save(ratings, { chunk: 10000 });
+    await this.usersRatingsRepository.query('SET FOREIGN_KEY_CHECKS=1');
   }
 }

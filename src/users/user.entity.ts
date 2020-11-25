@@ -1,6 +1,14 @@
 import { Category } from '../categories/category.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { UsersRatings } from './usersRatings.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class User {
@@ -22,7 +30,8 @@ export class User {
   )
   ratings: UsersRatings[];
 
-  @ManyToMany(type => Category, {eager: true})
+  @ManyToMany(type => Category)
+  @ApiProperty({ type: () => Category })
   @JoinTable()
-  preferedCategories: Category[];
-  }
+  preferredCategories: Category[];
+}

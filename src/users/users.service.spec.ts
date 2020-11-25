@@ -23,7 +23,7 @@ describe('UsersService', () => {
   const rating1 = UserRatingsFactory.build({ user: user1, rating: 2.0 });
   const rating1a = UserRatingsFactory.build({ user: user1, rating: 3.0 });
   user1.ratings = [rating1, rating1a];
-  user1.preferedCategories = [category2];
+  user1.preferredCategories = [category2];
   const movie1 = rating1.movie;
   movie1.categories = [category1];
   const movie2 = rating1a.movie;
@@ -96,7 +96,7 @@ describe('UsersService', () => {
   });
 
   it('should get best rated by user', async () => {
-    const result = await service.findBestRatedByUser(user1);
+    const result = await service.findBestRatedByUser(user1, 10);
     expect(result[0]).toEqual(rating1a);
   });
 
@@ -181,7 +181,7 @@ describe('UsersService', () => {
     userA.ratings = [ratinga1, ratinga2];
     userB.ratings = [ratingb1, ratingb2, ratingb3];
     const usersAll = [userA, userB];
-    const result = await service.similarUsersFavs(userA, usersAll);
+    const result = await service.similarUsersFavs(userA, usersAll, 10);
     expect(result).toEqual([ratingb3.movie]);
   });
 
@@ -268,20 +268,19 @@ describe('UsersService', () => {
   });
 
   it('should recommend not seen movies', async () => {
-    const similarUsers = await service.findSimilarUsers(user1, users);
-    const result = await service.recommendNotSeenMovies(user1, users);
+    const similarUsers = await service.findSimilarUsers(user1, users, 10);
+    const result = await service.recommendNotSeenMovies(user1, users, 10);
     expect(similarUsers).toEqual([user2]);
     // expect(result).toEqual([rating2b.movie]);
-    console.log(result);
   });
 
   it('should recommend movies on cold start', async () => {
     mockMovieRepository.queryBuilder.getMany.mockResolvedValue(movie2);
-    const result = await service.coldStartRecommendations(user1);
+    const result = await service.coldStartRecommendations(user1, 10);
     expect(mockMovieRepository.queryBuilder.where).toBeCalledWith(
       expect.anything(),
       {
-        ids: user1.preferedCategories.map(c => c.id),
+        ids: user1.preferredCategories.map(c => c.id),
       },
     );
     expect(result).toEqual(movie2);
@@ -289,11 +288,11 @@ describe('UsersService', () => {
 
   it('should recommend movies on cold start', async () => {
     mockMovieRepository.queryBuilder.getMany.mockResolvedValue(movie2);
-    const result = await service.coldStartRecommendations(user1);
+    const result = await service.coldStartRecommendations(user1, 10);
     expect(mockMovieRepository.queryBuilder.where).toBeCalledWith(
       expect.anything(),
       {
-        ids: user1.preferedCategories.map(c => c.id),
+        ids: user1.preferredCategories.map(c => c.id),
       },
     );
     expect(result).toEqual(movie2);

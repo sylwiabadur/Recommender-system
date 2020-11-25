@@ -9,16 +9,17 @@ import { UsersRepoHelperService } from './usersRepoHelper.service';
 import { UsersHelpersController } from './users.helpers.controller';
 import { UsersRatingsCrudController } from './users.ratings.crud.controller';
 import { UsersRecommendationsController } from './users.recommendations.controller';
+import { UsersRatingsService } from './usersRatings.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, UsersRatings]), MoviesModule],
   controllers: [
-    UsersCrudController,
     UsersRatingsCrudController,
+    UsersCrudController,
     UsersHelpersController,
     UsersRecommendationsController,
   ],
-  providers: [UsersService, UsersRepoHelperService],
+  providers: [UsersService, UsersRepoHelperService, UsersRatingsService],
   exports: [TypeOrmModule, UsersService],
 })
 export class UsersModule {}

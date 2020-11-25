@@ -23,7 +23,6 @@ export class Movie {
   @OneToMany(
     type => UsersRatings,
     ratings => ratings.movie,
-    // { eager: true },
   )
   ratings: UsersRatings[];
 

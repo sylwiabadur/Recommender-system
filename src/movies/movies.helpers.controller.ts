@@ -23,10 +23,13 @@ export class MoviesHelpersController {
   }
 
   @ApiOperation({ summary: 'Get similar movies to one movie' })
-  @Get(':id/similarMovies')
-  async getSimilarMovies(@Param('id') id: number): Promise<Movie[]> {
+  @Get(':id/similarMovies/:numOfMovies')
+  async getSimilarMovies(
+    @Param('id') id: number,
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
     const myMovie = await this.moviesRepoHelper.getMovieWithRatingsRelation(id);
     const movies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    return this.moviesService.findSimilarMovies(myMovie, movies);
+    return this.moviesService.findSimilarMovies(myMovie, movies, numOfMovies);
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Movie } from './movie.entity';
@@ -13,16 +13,28 @@ export class MoviesColdStartController {
   ) {}
 
   @ApiOperation({ summary: 'Get best rated movies' })
-  @Get('bestMovies')
-  async getBestMovies(): Promise<Movie[]> {
+  @Get('bestMovies/:numOfMovies')
+  async getBestMovies(
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
     const movies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    return this.moviesService.bestMovies(movies);
+    return this.moviesService.bestMovies(movies, numOfMovies);
+  }
+
+  @ApiOperation({ summary: 'Get last inserted movies' })
+  @Get('latest/:numOfMovies')
+  async getLastInserted(
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
+    return this.moviesService.lastInserted(numOfMovies);
   }
 
   @ApiOperation({ summary: 'Get most popular movies' })
-  @Get('popularMovies')
-  async getPopularMovies(): Promise<Movie[]> {
+  @Get('popularMovies/:numOfMovies')
+  async getPopularMovies(
+    @Param('numOfMovies') numOfMovies: number,
+  ): Promise<Movie[]> {
     const movies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    return this.moviesService.popularMovies(movies);
+    return this.moviesService.popularMovies(movies, numOfMovies);
   }
 }

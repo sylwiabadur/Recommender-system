@@ -60,7 +60,7 @@ export class Seeder1599327829483 implements MigrationInterface {
           name: element.name,
           surname: element.surname,
           externalId: element.userId,
-          preferedCategories: prefCategories,
+          preferredCategories: prefCategories,
         }),
       );
     }

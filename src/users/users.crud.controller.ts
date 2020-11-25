@@ -13,7 +13,6 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { User } from './user.entity';
 import { CreateUserDto } from './user.create.dto';
 import { UpdateUserDto } from './user.update.dto';
-
 @ApiTags('usersCrud')
 @Controller('users')
 export class UsersCrudController {

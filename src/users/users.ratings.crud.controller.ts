@@ -8,27 +8,27 @@ import {
   Delete,
   NotFoundException,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateUsersRatingDto } from './usersRatings.create.dto';
 import { UsersRatings } from './usersRatings.entity';
 import { UpdateUsersRatingDto } from './usersRatings.update.dto';
+import { UsersRatingsService } from './usersRatings.service';
 
 @ApiTags('usersRatingsCrud')
 @Controller('users')
 export class UsersRatingsCrudController {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersRatingsService: UsersRatingsService) {}
 
   @ApiOperation({ summary: 'Retreive many ratings' })
   @Get('/ratings')
   async getMany(): Promise<UsersRatings[]> {
-    return await this.usersService.findAllRatings();
+    return await this.usersRatingsService.findAllRatings();
   }
 
   @ApiOperation({ summary: 'Retreive one rating' })
   @Get('/ratings/:ratingId')
   async getOne(@Param('ratingId') id: number): Promise<UsersRatings> {
-    const rating = await this.usersService.findRating(id);
+    const rating = await this.usersRatingsService.findRating(id);
     if (!rating) {
       throw new NotFoundException();
     }
@@ -36,9 +36,9 @@ export class UsersRatingsCrudController {
   }
 
   @ApiOperation({ summary: 'Delete one rating' })
-  @Delete('/ratings/:ratingId')
+  @Delete('/ratings/:id')
   async removeOne(@Param('id') id: number): Promise<void> {
-    return await this.usersService.deleteRating(id);
+    return await this.usersRatingsService.deleteRating(id);
   }
 
   @ApiOperation({ summary: 'Create one rating' })
@@ -47,7 +47,10 @@ export class UsersRatingsCrudController {
     @Param('id') id: number,
     @Body() createUsersRatingDto: CreateUsersRatingDto,
   ): Promise<UsersRatings> {
-    return await this.usersService.createRating(id, createUsersRatingDto);
+    return await this.usersRatingsService.createRating(
+      id,
+      createUsersRatingDto,
+    );
   }
 
   @ApiOperation({ summary: 'Update one rating' })
@@ -57,7 +60,7 @@ export class UsersRatingsCrudController {
     @Param('ratingId') ratingId: number,
     @Body() updateUsersRatingDto: UpdateUsersRatingDto,
   ): Promise<UsersRatings> {
-    return await this.usersService.updateRating(
+    return await this.usersRatingsService.updateRating(
       id,
       ratingId,
       updateUsersRatingDto,
