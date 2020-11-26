@@ -17,7 +17,8 @@ export class ConfigService implements TypeOrmOptionsFactory {
       database: 'test_base',
       entities: [User, Movie, UsersRatings, Category],
       synchronize: true, //opcja do synchronizacji encji z baza danych
-      logging: process.env.NODE_ENV == 'test' ? false : 'all',
+      // logging: process.env.NODE_ENV == 'test' ? false : 'all',
+      logging: false,
       migrations: ['dist/migration/*.js'],
       cli: {
         migrationsDir: 'migration',

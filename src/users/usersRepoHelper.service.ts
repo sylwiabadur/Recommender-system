@@ -16,6 +16,22 @@ export class UsersRepoHelperService {
     private moviesRepository: Repository<Movie>,
   ) {}
 
+  async getUserWithRatingsRelationAndMovie(id: number): Promise<User> {
+    const myUser = await this.usersRepository.findOne(id, {
+      relations: [
+        'ratings',
+        'ratings.movie',
+        'ratings.movie.ratings',
+        'ratings.movie.ratings.user',
+      ],
+    });
+
+    if (!myUser) {
+      throw new NotFoundException();
+    }
+    return myUser;
+  }
+
   async getUserWithRatingsRelation(id: number): Promise<User> {
     const myUser = await this.usersRepository.findOne(id, {
       relations: ['ratings', 'ratings.movie'],

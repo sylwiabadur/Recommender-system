@@ -119,7 +119,6 @@ describe('AppController (e2e)', () => {
         result,
         deletedAll,
       );
-
       const userTestResult: UserTestResult = {
         movieTestResults,
         reducedByPercentage: byPercentage * i,
@@ -144,7 +143,7 @@ describe('AppController (e2e)', () => {
   //   );
 
   //   const usersPercentage = await abscenario.getUsersPercentage();
-  //   const oneUser = usersPercentage[0];
+  //   const oneUser = usersPercentage[2];
   //   console.log(oneUser);
   //   const userTestResults = await runTestProcedureForOneUser(oneUser, true);
 
@@ -180,7 +179,7 @@ describe('AppController (e2e)', () => {
   //   // const totalUsers = await usersRepo.count();
 
   //   // const n = Math.ceil(totalUsers * usersPercent);
-  //   const n = 5;
+  //   const n = 2;
   //   for (let i = 0; i < n; i++) {
   //     const user = (
   //       await usersRepo.find({
@@ -253,11 +252,10 @@ describe('AppController (e2e)', () => {
     );
 
     const usersPercentage = await abscenario.getUsersPercentage();
-    const oneUser = usersPercentage[0];
-    console.log(oneUser);
+    const oneUser = usersPercentage[6];
     const userTestResults = await runTestProcedureForOneUser(oneUser, false);
 
-    console.log(userTestResults);
+    // console.log(userTestResults);
 
     const csvStream = csv.format({ headers: true });
     const wStream = fs.createWriteStream('outOneUserCaseItemItem.csv');
@@ -279,68 +277,68 @@ describe('AppController (e2e)', () => {
     csvStream.end();
   });
 
-  // it('complex test for many users and save to csv, Item-Item', async () => {
-  //   await abscenario.clearRepos();
-  //   await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
-  //   const resultsMultipleUsers: UserTestResult[][] = []; //(usertestresult[])[] for many users
-  //   const usersPercent = 0.2;
-  //   const totalUsers = await usersRepo.count();
-
-  //   const n = Math.ceil(totalUsers * usersPercent);
-  //   for (let i = 0; i < n; i++) {
-  //     const user = (
-  //       await usersRepo.find({
-  //         relations: ['ratings', 'ratings.movie'],
-  //         order: { id: 'ASC' },
-  //         skip: i,
-  //         take: 1,
-  //       })
-  //     )[0];
-  //     console.log(user);
-  //     resultsMultipleUsers.push(await runTestProcedureForOneUser(user, false));
+  //   it('complex test for many users and save to csv, Item-Item', async () => {
   //     await abscenario.clearRepos();
   //     await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
-  //   }
-  //   const globalSumMSE = [0, 0, 0, 0, 0];
-  //   const nProc = [0, 0, 0, 0, 0];
-  //   const globalSumMAE = [0, 0, 0, 0, 0];
-  //   let diff = 0;
+  //     const resultsMultipleUsers: UserTestResult[][] = []; //(usertestresult[])[] for many users
+  //     const usersPercent = 0.6;
+  //     const totalUsers = await usersRepo.count();
 
-  //   for (let i = 0; i < n; i++) {
-  //     for (let j = 0; j < resultsMultipleUsers[i].length; j++) {
-  //       for (let percent = 1; percent <= 5; percent++) {
-  //         if (resultsMultipleUsers[i][j].reducedByPercentage == 0.1 * percent) {
-  //           for (
-  //             let k = 0;
-  //             k < resultsMultipleUsers[i][j].movieTestResults.length;
-  //             k++
-  //           ) {
-  //             console.log('n' + percent);
-  //             console.log(resultsMultipleUsers[i][j].movieTestResults[k]);
-  //             diff = Math.abs(
-  //               Number(
-  //                 resultsMultipleUsers[i][j].movieTestResults[k].predicted,
-  //               ) - Number(resultsMultipleUsers[i][j].movieTestResults[k].real),
-  //             );
-  //             globalSumMAE[percent - 1] += diff;
-  //             globalSumMSE[percent - 1] += Math.pow(diff, 2);
-  //             nProc[percent - 1]++;
+  //     const n = Math.ceil(totalUsers * usersPercent);
+  //     for (let i = 0; i < n; i++) {
+  //       const user = (
+  //         await usersRepo.find({
+  //           relations: ['ratings', 'ratings.movie'],
+  //           order: { id: 'ASC' },
+  //           skip: i,
+  //           take: 1,
+  //         })
+  //       )[0];
+  //       console.log(user);
+  //       resultsMultipleUsers.push(await runTestProcedureForOneUser(user, false));
+  //       await abscenario.clearRepos();
+  //       await abscenario.fillRepos(moviesJson, usersJson, ratingsJson);
+  //     }
+  //     const globalSumMSE = [0, 0, 0, 0, 0];
+  //     const nProc = [0, 0, 0, 0, 0];
+  //     const globalSumMAE = [0, 0, 0, 0, 0];
+  //     let diff = 0;
+
+  //     for (let i = 0; i < n; i++) {
+  //       for (let j = 0; j < resultsMultipleUsers[i].length; j++) {
+  //         for (let percent = 1; percent <= 5; percent++) {
+  //           if (resultsMultipleUsers[i][j].reducedByPercentage == 0.1 * percent) {
+  //             for (
+  //               let k = 0;
+  //               k < resultsMultipleUsers[i][j].movieTestResults.length;
+  //               k++
+  //             ) {
+  //               console.log('n' + percent);
+  //               console.log(resultsMultipleUsers[i][j].movieTestResults[k]);
+  //               diff = Math.abs(
+  //                 Number(
+  //                   resultsMultipleUsers[i][j].movieTestResults[k].predicted,
+  //                 ) - Number(resultsMultipleUsers[i][j].movieTestResults[k].real),
+  //               );
+  //               globalSumMAE[percent - 1] += diff;
+  //               globalSumMSE[percent - 1] += Math.pow(diff, 2);
+  //               nProc[percent - 1]++;
+  //             }
   //           }
   //         }
   //       }
   //     }
-  //   }
-  //   const csvStream = csv.format({ headers: true });
-  //   const wStream = fs.createWriteStream('outManyUsersMseRmseItemItem.csv');
-  //   csvStream.pipe(wStream).on('end', () => console.log('END'));
-  //   for (let i = 0; i < 5; i++) {
-  //     csvStream.write({
-  //       reducedByPercent: (i + 1) / 10,
-  //       MSEValue: globalSumMSE[i] / nProc[i],
-  //       RMSEValue: Math.sqrt(globalSumMSE[i] / nProc[i]),
-  //       MAEValue: globalSumMAE[i] / nProc[i],
-  //     });
-  //   }
-  //   csvStream.end();
-  // });
+  //     const csvStream = csv.format({ headers: true });
+  //     const wStream = fs.createWriteStream('outManyUsersMseRmseItemItem.csv');
+  //     csvStream.pipe(wStream).on('end', () => console.log('END'));
+  //     for (let i = 0; i < 5; i++) {
+  //       csvStream.write({
+  //         reducedByPercent: (i + 1) / 10,
+  //         MSEValue: globalSumMSE[i] / nProc[i],
+  //         RMSEValue: Math.sqrt(globalSumMSE[i] / nProc[i]),
+  //         MAEValue: globalSumMAE[i] / nProc[i],
+  //       });
+  //     }
+  //     csvStream.end();
+  //   });
 });

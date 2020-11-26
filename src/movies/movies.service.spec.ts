@@ -357,7 +357,7 @@ describe('MoviesService', () => {
     mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga2);
     mockUserRatingsRepository.findOne.mockResolvedValueOnce(null);
     const result = await service.predictRatingsByUser(userA, moviesAll);
-    const expectedValue = 3.68;
+    const expectedValue = 2;
     expect(Number(result[0].predictedRating.toPrecision(3))).toEqual(
       expectedValue,
     );

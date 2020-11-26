@@ -72,8 +72,12 @@ export class UsersRecommendationsController {
   async getPredictionsForNotSeenMovie(
     @Param('id') id: number,
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
-    const myUser = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelationAndMovie(
+      id,
+    );
+
     const allMovies = await this.moviesRepoHelper.getManyMoviesWithRatingsRelation();
+    allMovies.slice(0, 100);
     return this.moviesService.predictRatingsByUser(myUser, allMovies);
   }
 

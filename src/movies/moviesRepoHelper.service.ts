@@ -12,7 +12,7 @@ export class MoviesRepoHelperService {
 
   async getMovieWithRatingsRelation(id: number): Promise<Movie> {
     const myMovie = await this.moviesRepository.findOne(id, {
-      relations: ['ratings', 'ratings.movie', 'ratings.user'],
+      relations: ['ratings', 'ratings.user'],
     });
 
     if (!myMovie) {
@@ -23,7 +23,7 @@ export class MoviesRepoHelperService {
 
   async getManyMoviesWithRatingsRelation(): Promise<Movie[]> {
     const myMovies = await this.moviesRepository.find({
-      relations: ['ratings', 'ratings.movie', 'ratings.user'],
+      relations: ['ratings', 'ratings.user'],
     });
 
     if (!myMovies) {

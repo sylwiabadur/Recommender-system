@@ -8,6 +8,12 @@ import { UsersRatings } from './usersRatings.entity';
 import { Movie } from '../movies/movie.entity';
 import { UsersRepoHelperService } from './usersRepoHelper.service';
 
+interface UserSimilarity {
+  similarity: number;
+  user: User;
+  ratingsMap: Map<number, number>;
+}
+
 @Injectable()
 export class UsersService {
   constructor(
@@ -88,18 +94,21 @@ export class UsersService {
     return similarity;
   }
 
-  async findSimilarUsersAndSimilarities(
+  findSimilarUsersAndSimilarities(
     myUser: User,
     users: User[],
     numOfUsers: number,
-  ): Promise<{ similarity: number; user: User }[]> {
-    const scoresAndUsers: { similarity: number; user: User }[] = [];
+  ): UserSimilarity[] {
+    const scoresAndUsers: UserSimilarity[] = [];
 
     users.forEach(user => {
       if (user.id != myUser.id) {
+        const ratingsMap = new Map<number, number>();
+        user.ratings.forEach(r => ratingsMap.set(r.movie.id, Number(r.rating)));
         scoresAndUsers.push({
           similarity: this.cosineSimilarity(myUser, user),
-          user: user,
+          user,
+          ratingsMap,
         });
       }
     });
@@ -114,12 +123,8 @@ export class UsersService {
     return similarUsersWithSimilarities;
   }
 
-  async findSimilarUsers(
-    user: User,
-    users: User[],
-    numOfUsers: number,
-  ): Promise<User[]> {
-    const similarUsers = await this.findSimilarUsersAndSimilarities(
+  findSimilarUsers(user: User, users: User[], numOfUsers: number): User[] {
+    const similarUsers = this.findSimilarUsersAndSimilarities(
       user,
       users,
       numOfUsers,
@@ -134,7 +139,7 @@ export class UsersService {
     users: User[],
     numOfMovies: number,
   ): Promise<Movie[]> {
-    const similarUsers = await this.findSimilarUsers(myUser, users, 10);
+    const similarUsers = this.findSimilarUsers(myUser, users, 10);
     const setOfUserMovies = new Set<number>();
     const setOfSeenByUsers = new Set<number>();
 
@@ -173,14 +178,15 @@ export class UsersService {
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
     const result: { movie: Movie; predictedRating: number }[] = [];
 
-    const similaritiesAndUsers = await this.findSimilarUsersAndSimilarities(
+    const similaritiesAndUsers = this.findSimilarUsersAndSimilarities(
       myUser,
       users,
       10,
     );
 
     const setOfUserMovies = new Set<number>();
-    const setOfSeenByUsers = new Set<number>();
+
+    const notSeenByUser = new Map<number, Movie>();
 
     myUser.ratings.forEach(element => {
       setOfUserMovies.add(element.movie.id);
@@ -188,33 +194,24 @@ export class UsersService {
 
     similaritiesAndUsers.forEach(element => {
       element.user.ratings.forEach(rating => {
-        setOfSeenByUsers.add(rating.movie.id);
+        if (!setOfUserMovies.has(rating.movie.id)) {
+          notSeenByUser.set(rating.movie.id, rating.movie);
+        }
       });
     });
 
-    const notSeenMoviesById = [...setOfSeenByUsers].filter(
-      x => !setOfUserMovies.has(x),
-    );
-    if (notSeenMoviesById.length == 0) {
+    if (notSeenByUser.size == 0) {
       return result;
     }
-    const recommendedMovies = await this.moviesRepository.find({
-      where: { id: In(notSeenMoviesById) },
-    });
 
-    for (const movie of recommendedMovies) {
+    for (const movie of notSeenByUser.values()) {
       let up = 0;
       let down = 0;
       for (const o of similaritiesAndUsers) {
-        const userRating = await this.usersRatingsRepository.findOne({
-          where: { movie, user: o.user },
-        });
-        if (!userRating) {
+        if (!o.ratingsMap.has(movie.id)) {
           continue;
         }
-
-        const r = Number(userRating.rating);
-
+        const r = Number(o.ratingsMap.get(movie.id));
         down += Math.abs(o.similarity);
         up += o.similarity * (r - this.calculateAverageForUser(o.user));
       }
@@ -263,7 +260,7 @@ export class UsersService {
     numOfUsers: number,
   ): Promise<Movie[]> {
     const result = new Map<number, Movie>();
-    const similaritiesAndUsers = await this.findSimilarUsersAndSimilarities(
+    const similaritiesAndUsers = this.findSimilarUsersAndSimilarities(
       myUser,
       users,
       numOfUsers,

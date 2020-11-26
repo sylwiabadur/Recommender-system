@@ -47,10 +47,15 @@ export class AbScenario {
 
   public async getUsersPercentage(): Promise<User[]> {
     const numOfUsers = await this.usersRepository.count();
-    const percentage = Math.ceil(numOfUsers * 0.6);
+    const percentage = Math.ceil(numOfUsers * 1);
     console.log(percentage);
     const users = await this.usersRepository.find({
-      relations: ['ratings', 'ratings.movie'],
+      relations: [
+        'ratings',
+        'ratings.movie',
+        'ratings.movie.ratings',
+        'ratings.movie.ratings.user',
+      ],
       take: percentage,
     });
     return users;
@@ -73,6 +78,7 @@ export class AbScenario {
     for (const estimate of result) {
       for (const realVal of deletedValues) {
         if (estimate.movie.id == realVal.movie.id) {
+          console.log(estimate.predictedRating);
           resultsToCompare.push({
             predicted: estimate.predictedRating,
             real: realVal.rating,
@@ -129,10 +135,15 @@ export class AbScenario {
     moviesService: MoviesService,
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
     const userAfterReduce = await this.usersRepository.findOne(user.id, {
-      relations: ['ratings', 'ratings.movie'],
+      relations: [
+        'ratings',
+        'ratings.movie',
+        'ratings.movie.ratings',
+        'ratings.movie.ratings.user',
+      ],
     });
     const allMoviesWithRelations = await moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    const partMoviesWithRelations = allMoviesWithRelations.slice(0, 100);
+    const partMoviesWithRelations = allMoviesWithRelations.slice(0, 10);
     return await moviesService.predictRatingsByUser(
       userAfterReduce,
       partMoviesWithRelations,
