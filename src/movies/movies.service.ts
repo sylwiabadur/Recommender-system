@@ -111,15 +111,14 @@ export class MoviesService {
     for (const element1 of movie1.ratings) {
       for (const element2 of movie2.ratings) {
         if (element1.user.id == element2.user.id) {
-          // const userId = element1.user.id;
+          const userId = element1.user.id;
           const movie1Rating = Number(element1.rating);
           const movie2Rating = Number(element2.rating);
-          console.log(element1.user);
-          // const avgForUser = await this.usersService.calculateAverageForUserId(
-          //   userId,
-          // );
-          const normalized1Rating = movie1Rating;
-          const normalized2Rating = movie2Rating;
+          const avgForUser = await this.usersService.calculateAverageForUserId(
+            userId,
+          );
+          const normalized1Rating = movie1Rating - avgForUser;
+          const normalized2Rating = movie2Rating - avgForUser;
           dotproduct += normalized1Rating * normalized2Rating;
           mA += Math.pow(normalized1Rating, 2);
           mB += Math.pow(normalized2Rating, 2);
@@ -143,11 +142,9 @@ export class MoviesService {
           const movie1Rating = Number(element1.rating);
           const movie2Rating = Number(element2.rating);
           const normalized1Rating =
-            movie1Rating -
-            (await this.calculateAverageForMovieId(element1.movie.id));
+            movie1Rating - (await this.calculateAverageForMovieId(movie1.id));
           const normalized2Rating =
-            movie2Rating -
-            (await this.calculateAverageForMovieId(element2.movie.id));
+            movie2Rating - (await this.calculateAverageForMovieId(movie2.id));
           dotproduct += normalized1Rating * normalized2Rating;
           mA += Math.pow(normalized1Rating, 2);
           mB += Math.pow(normalized2Rating, 2);
@@ -176,21 +173,27 @@ export class MoviesService {
         const ratingsMap = new Map<number, number>();
         movie.ratings.forEach(r => ratingsMap.set(r.user.id, Number(r.rating)));
         scoresAndMovies.push({
-          similarity: await this.cosineSimilarity(myMovie, movie),
+          similarity: await this.pearsonCorrelation(myMovie, movie),
           movie: movie,
           ratingsMap,
         });
       }
     }
 
-    let similarMoviesWithSimilarities = scoresAndMovies.sort((el1, el2) => {
+    const similarMoviesWithSimilarities = scoresAndMovies.sort((el1, el2) => {
       return el2.similarity - el1.similarity;
     });
-    similarMoviesWithSimilarities = similarMoviesWithSimilarities.slice(
-      0,
-      numOfMovies,
-    );
-    return similarMoviesWithSimilarities;
+    let counterOfSimilar = 0;
+    similarMoviesWithSimilarities.forEach(o => {
+      if (Number(o.similarity) > 0.05) {
+        counterOfSimilar++;
+      }
+    });
+    if (counterOfSimilar < numOfMovies) {
+      return similarMoviesWithSimilarities.slice(0, counterOfSimilar);
+    } else {
+      return similarMoviesWithSimilarities.slice(0, numOfMovies);
+    }
   }
 
   async findSimilarMovies(
@@ -203,6 +206,7 @@ export class MoviesService {
       movies,
       numOfMovies,
     );
+    // console.log(similarMovies);
 
     return similarMovies.map(o => {
       delete o.movie.ratings;
@@ -219,10 +223,49 @@ export class MoviesService {
   }
 
   async calculateAverageForMovieId(id: number): Promise<number> {
-    const myMovie = await this.moviesRepository.findOne(id, {
-      relations: ['ratings', 'ratings.movie', 'ratings.user'],
-    });
-    return this.calculateAverageForMovie(myMovie);
+    const { avg } = await this.usersRatingsRepository
+      .createQueryBuilder('r')
+      .select('AVG(r.rating)', 'avg')
+      .where('r.movieId = :id', { id })
+      .getRawOne();
+    return avg;
+  }
+
+  // /**
+  //  * @requires myUser.rating.movie
+  //  */
+  async predictUserRatingForMovie(myUser: User, movie: Movie): Promise<number> {
+    const userMovies: Movie[] = [];
+    let down = 0;
+    let up = 0;
+
+    for (const rating of myUser.ratings) {
+      const ratedMovie = await this.moviesRepository.findOne({
+        where: { id: rating.movie.id },
+        relations: ['ratings', 'ratings.user'],
+      });
+      userMovies.push(ratedMovie);
+    }
+
+    const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
+      movie,
+      userMovies,
+      10,
+    );
+    for (const o of similaritiesAndMovies) {
+      if (!o.ratingsMap.has(myUser.id)) {
+        continue;
+      }
+      const movieRating = Number(o.ratingsMap.get(myUser.id));
+
+      const r = Number(movieRating);
+      down += Math.abs(o.similarity);
+      up += o.similarity * Number(r);
+    }
+    if (isNaN(down) || down == 0) {
+      return await this.calculateAverageForMovieId(movie.id);
+    }
+    return up / down;
   }
 
   async predictRatingsByUser(
@@ -233,44 +276,6 @@ export class MoviesService {
 
     const result: { movie: Movie; predictedRating: number }[] = [];
 
-    // const topRatingsBestRatedByUser = this.usersService.findBestRatedByUser(
-    //   myUser,
-    //   30,
-    // );
-    // const topMoviesBestRatedByUser = topRatingsBestRatedByUser.map(o => {
-    //   return o.movie;
-    // });
-
-    // for (const movie of topMoviesBestRatedByUser) {
-    //   let up = 0;
-    //   let down = 0;
-    //   if (!(await this.usersService.checkIfRatedByUser(myUser, movie))) {
-    //     const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
-    //       movie,
-    //       allMovies,
-    //       10,
-    //     );
-
-    //     for (const o of similaritiesAndMovies) {
-    //       const movieRating = await this.usersRatingsRepository.findOne({
-    //         where: { movie: o.movie, user: myUser },
-    //       });
-    //       if (!movieRating) {
-    //         continue;
-    //       }
-
-    //       const r =
-    //         Number(movieRating.rating) - this.calculateAverageForMovie(o.movie);
-
-    //       down += Math.abs(o.similarity);
-    //       up += o.similarity * r;
-    //     }
-    //   } else {
-    //     continue;
-    //   }
-    //   result.push({ movie, predictedRating: up / down + userAverageRating });
-    // }
-
     for (const rating of myUser.ratings) {
       let up = 0;
       let down = 0;
@@ -278,20 +283,13 @@ export class MoviesService {
       const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
         rating.movie,
         allMovies,
-        3,
+        10,
       );
       for (const o of similaritiesAndMovies) {
         if (!o.ratingsMap.has(myUser.id)) {
           continue;
         }
         const movieRating = Number(o.ratingsMap.get(myUser.id));
-        // const movieRating = await this.usersRatingsRepository.findOne({
-        //   where: { movie: o.movie, user: myUser },
-        // });
-        // if (!movieRating) {
-        //   continue;
-        // }
-
         const r = Number(movieRating) - this.calculateAverageForMovie(o.movie);
         down += Math.abs(o.similarity);
         up += o.similarity * r;

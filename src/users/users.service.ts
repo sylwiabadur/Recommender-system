@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { UpdateUserDto } from './user.update.dto';
 import { CreateUserDto } from './user.create.dto';
@@ -60,10 +60,12 @@ export class UsersService {
   }
 
   async calculateAverageForUserId(id: number): Promise<number> {
-    const myUser = await this.usersRepository.findOne(id, {
-      relations: ['ratings', 'ratings.movie'],
-    });
-    return this.calculateAverageForUser(myUser);
+    const { avg } = await this.usersRatingsRepository
+      .createQueryBuilder('r')
+      .select('AVG(r.rating)', 'avg')
+      .where('r.userId = :id', { id })
+      .getRawOne();
+    return avg;
   }
 
   cosineSimilarity(user1: User, user2: User): number {
@@ -91,6 +93,9 @@ export class UsersService {
       return 0.05;
     }
     const similarity = dotproduct / (Math.sqrt(mA) * Math.sqrt(mB));
+    if (isNaN(similarity)) {
+      console.log('!!!!!!!');
+    }
     return similarity;
   }
 
@@ -226,6 +231,29 @@ export class UsersService {
       });
     }
     return result;
+  }
+
+  predictUserRatingForMovie(myUser: User, users: User[], movie: Movie): number {
+    const similaritiesAndUsers = this.findSimilarUsersAndSimilarities(
+      myUser,
+      users,
+      10, // here
+    );
+
+    let up = 0;
+    let down = 0;
+    for (const o of similaritiesAndUsers) {
+      if (!o.ratingsMap.has(movie.id)) {
+        continue;
+      }
+      const r = Number(o.ratingsMap.get(movie.id));
+      down += Math.abs(o.similarity);
+      up += o.similarity * (r - this.calculateAverageForUser(o.user));
+    }
+    if (isNaN(down) || down == 0) {
+      return this.calculateAverageForUser(myUser);
+    }
+    return up / down + this.calculateAverageForUser(myUser);
   }
 
   async recommendBasedOnPredicted(

@@ -47,15 +47,9 @@ export class AbScenario {
 
   public async getUsersPercentage(): Promise<User[]> {
     const numOfUsers = await this.usersRepository.count();
-    const percentage = Math.ceil(numOfUsers * 1);
-    console.log(percentage);
+    const percentage = Math.ceil(numOfUsers * 0.1);
     const users = await this.usersRepository.find({
-      relations: [
-        'ratings',
-        'ratings.movie',
-        'ratings.movie.ratings',
-        'ratings.movie.ratings.user',
-      ],
+      relations: ['ratings', 'ratings.movie'],
       take: percentage,
     });
     return users;
@@ -76,9 +70,11 @@ export class AbScenario {
   ): MovieTestResult[] {
     const resultsToCompare: MovieTestResult[] = [];
     for (const estimate of result) {
+      if (isNaN(estimate.predictedRating)) {
+        estimate.predictedRating = 3.0;
+      }
       for (const realVal of deletedValues) {
         if (estimate.movie.id == realVal.movie.id) {
-          console.log(estimate.predictedRating);
           resultsToCompare.push({
             predicted: estimate.predictedRating,
             real: realVal.rating,
@@ -114,40 +110,57 @@ export class AbScenario {
     return { mse, rmse, mae };
   }
 
-  public async getPredictedRatingsFromOneUserWhenUU(
+  public async getPredictedRatingsForUserUser(
     user: User,
-    usersRepoHelper: UsersRepoHelperService,
     usersService: UsersService,
+    deletedRatings: UsersRatings[],
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    const result: { movie: Movie; predictedRating: number }[] = [];
     const userAfterReduce = await this.usersRepository.findOne(user.id, {
       relations: ['ratings', 'ratings.movie'],
     });
-    const allUsersWithRelations = await usersRepoHelper.getManyUsersWithRatingsRelation();
-    return await usersService.predictRatingsByUser(
-      userAfterReduce,
-      allUsersWithRelations,
-    );
+    const users = await this.usersRepository.find({
+      relations: ['ratings', 'ratings.movie'],
+    });
+    for (const rating of deletedRatings) {
+      const movie = await this.moviesRepository.findOne({
+        where: { id: rating.movie.id },
+        relations: ['ratings', 'ratings.user'],
+      });
+      let predictedRatingForMovie = usersService.predictUserRatingForMovie(
+        userAfterReduce,
+        users,
+        movie,
+      );
+      if (isNaN(predictedRatingForMovie)) {
+        predictedRatingForMovie = 3.0;
+      }
+      result.push({ movie, predictedRating: predictedRatingForMovie });
+    }
+    return result;
   }
 
-  public async getPredictedRatingsFromOneUserWhenII(
+  public async getPredictedRatingsForUserItemItem(
     user: User,
-    moviesRepoHelper: MoviesRepoHelperService,
     moviesService: MoviesService,
+    deletedRatings: UsersRatings[],
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
+    const result: { movie: Movie; predictedRating: number }[] = [];
     const userAfterReduce = await this.usersRepository.findOne(user.id, {
-      relations: [
-        'ratings',
-        'ratings.movie',
-        'ratings.movie.ratings',
-        'ratings.movie.ratings.user',
-      ],
+      relations: ['ratings', 'ratings.movie'],
     });
-    const allMoviesWithRelations = await moviesRepoHelper.getManyMoviesWithRatingsRelation();
-    const partMoviesWithRelations = allMoviesWithRelations.slice(0, 10);
-    return await moviesService.predictRatingsByUser(
-      userAfterReduce,
-      partMoviesWithRelations,
-    );
+    for (const rating of deletedRatings) {
+      const movie = await this.moviesRepository.findOne({
+        where: { id: rating.movie.id },
+        relations: ['ratings', 'ratings.user'],
+      });
+      const predictedRatingForMovie = await moviesService.predictUserRatingForMovie(
+        userAfterReduce,
+        movie,
+      );
+      result.push({ movie, predictedRating: predictedRatingForMovie });
+    }
+    return result;
   }
 
   public async fillRepos(

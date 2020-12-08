@@ -40,4 +40,17 @@ export class UsersHelpersController {
     const users = await this.usersRepoHelper.getManyUsersWithRatingsRelation();
     return this.usersService.findSimilarUsers(myUser, users, numOfUsers);
   }
+
+  @ApiOperation({ summary: 'Get similarity measure' })
+  @Get(':id/similarity/:iduser')
+  async getSimilarityMeasure(
+    @Param('id') id: number,
+    @Param('iduser') iduser: number,
+  ): Promise<number> {
+    const myUser1 = await this.usersRepoHelper.getUserWithRatingsRelation(id);
+    const myUser2 = await this.usersRepoHelper.getUserWithRatingsRelation(
+      iduser,
+    );
+    return this.usersService.euclidianDistance(myUser1, myUser2);
+  }
 }

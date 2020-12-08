@@ -54,6 +54,24 @@ export class UsersRecommendationsController {
   }
 
   @ApiOperation({
+    summary: 'Predict user rating for movie, item-item',
+  })
+  @Get(':id/userRatingForMovie/:movieId')
+  async predictUserRatingForMovie(
+    @Param('id') id: number,
+    @Param('movieId') movieId: number,
+  ): Promise<number> {
+    const myUser = await this.usersRepoHelper.getUserWithRatingsRelationAndMovie(
+      id,
+    );
+
+    const myMovie = await this.moviesRepoHelper.getMovieWithRatingsRelation(
+      movieId,
+    );
+    return this.moviesService.predictUserRatingForMovie(myUser, myMovie);
+  }
+
+  @ApiOperation({
     summary: 'Get predicted ratings based on user-user similarity',
   })
   @Get(':id/predictedRatingsUserSimilarity')
