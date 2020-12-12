@@ -106,6 +106,38 @@ describe('UsersService', () => {
     expect(result).toEqual(avg);
   });
 
+  it('should calcluate avg for user Id', async () => {
+    const user1 = UserFactory.build();
+    const movie3 = MovieFactory.build();
+    const movie4 = MovieFactory.build();
+    const movie5 = MovieFactory.build();
+
+    const rating3 = UserRatingsFactory.build({
+      rating: 3.0,
+    });
+    rating3.user = user1;
+    rating3.movie = movie3;
+
+    const rating4 = UserRatingsFactory.build({
+      rating: 2.5,
+    });
+    rating4.user = user1;
+    rating4.movie = movie4;
+
+    const rating5 = UserRatingsFactory.build({
+      rating: 2.0,
+    });
+    rating5.user = user1;
+    rating5.movie = movie5;
+
+    user1.ratings = [rating3, rating4, rating5];
+    mockUserRatingsRepository.queryBuilder.getRawOne.mockReturnValue({
+      avg: 2.5,
+    });
+    const result = await service.calculateAverageForUserId(user1.id);
+    expect(result).toEqual(2.5);
+  });
+
   it('should calculate cosine similarity between users', async () => {
     const result = await service.cosineSimilarity(user1, user2);
     const expectedValue = 0.95;
@@ -116,7 +148,6 @@ describe('UsersService', () => {
     const userA = UserFactory.build();
     const ratinga1 = UserRatingsFactory.build({ user: userA, rating: 2.0 });
     const ratinga2 = UserRatingsFactory.build({ user: userA, rating: 3.0 });
-    userA.ratings = [rating1, rating1a];
     const userB = UserFactory.build();
     const ratingb1 = UserRatingsFactory.build({
       user: userB,
@@ -126,12 +157,12 @@ describe('UsersService', () => {
     const ratingb2 = UserRatingsFactory.build({
       user: userB,
       rating: 3.0,
-      movie: ratinga2,
+      movie: ratinga2.movie,
     });
     userA.ratings = [ratinga1, ratinga2];
     userB.ratings = [ratingb1, ratingb2];
     const result = await service.euclidianDistance(userA, userB);
-    const expectedValue = 0.472;
+    const expectedValue = 0.667;
     expect(Number(result.toPrecision(3))).toEqual(expectedValue);
   });
 
@@ -296,5 +327,71 @@ describe('UsersService', () => {
       },
     );
     expect(result).toEqual(movie2);
+  });
+
+  it('should predict user rating for movie', async () => {
+    const user1 = UserFactory.build();
+    const user2 = UserFactory.build();
+    const user3 = UserFactory.build();
+    const users = [user1, user2, user3];
+
+    const movie3 = MovieFactory.build();
+    const movie4 = MovieFactory.build();
+    const movie5 = MovieFactory.build();
+
+    const rating3 = UserRatingsFactory.build({
+      rating: 3.0,
+    });
+    rating3.user = user1;
+    rating3.movie = movie3;
+
+    const rating3a = UserRatingsFactory.build({
+      rating: 4.0,
+    });
+    rating3a.user = user2;
+    rating3a.movie = movie3;
+
+    const rating3b = UserRatingsFactory.build({
+      rating: 3.0,
+    });
+    rating3b.user = user3;
+    rating3b.movie = movie3;
+    movie3.ratings = [rating3, rating3a, rating3b];
+
+    const rating4 = UserRatingsFactory.build({
+      rating: 2.5,
+    });
+    rating4.user = user1;
+    rating4.movie = movie4;
+
+    const rating4a = UserRatingsFactory.build({
+      rating: 4.0,
+    });
+    rating4a.user = user2;
+    rating4a.movie = movie4;
+    movie4.ratings = [rating4, rating4a];
+
+    const rating5 = UserRatingsFactory.build({
+      rating: 2.0,
+    });
+    rating5.user = user1;
+    rating5.movie = movie5;
+
+    const rating5a = UserRatingsFactory.build({
+      rating: 4.0,
+    });
+    rating5a.user = user2;
+    rating5a.movie = movie5;
+    movie5.ratings = [rating5, rating5a];
+
+    user1.ratings = [rating3, rating4, rating5];
+    user2.ratings = [rating3a, rating4a, rating5a];
+    user3.ratings = [rating3b];
+    const result = await service.predictUserRatingForMovie(
+      user3,
+      users,
+      movie5,
+    );
+    expect(result).toEqual(2.75);
   });
 });

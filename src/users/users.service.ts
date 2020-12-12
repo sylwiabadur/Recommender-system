@@ -93,9 +93,6 @@ export class UsersService {
       return 0.05;
     }
     const similarity = dotproduct / (Math.sqrt(mA) * Math.sqrt(mB));
-    if (isNaN(similarity)) {
-      console.log('!!!!!!!');
-    }
     return similarity;
   }
 

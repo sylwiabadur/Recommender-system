@@ -49,6 +49,19 @@ describe('UsersRepoHelperService', () => {
     expect(service).toBeDefined();
   });
 
+  it('should get user with relations and movie', async () => {
+    mockUserRepository.findOne.mockResolvedValue(users[0]);
+    const result = await service.getUserWithRatingsRelationAndMovie(
+      users[0].id,
+    );
+
+    expect(mockUserRepository.findOne).toBeCalledWith(
+      users[0].id,
+      expect.anything(),
+    );
+    expect(result).toEqual(users[0]);
+  });
+
   it('should get user with relations', async () => {
     mockUserRepository.findOne.mockResolvedValue(users[0]);
     const result = await service.getUserWithRatingsRelation(users[0].id);
@@ -67,12 +80,27 @@ describe('UsersRepoHelperService', () => {
     expect(result).rejects.toThrow(NotFoundException);
   });
 
+  it('should not get movie with relations and movie and throw notfoundexception', async () => {
+    mockUserRepository.findOne.mockResolvedValue(null);
+
+    expect(
+      service.getUserWithRatingsRelationAndMovie(users[0].id),
+    ).rejects.toThrow(NotFoundException);
+  });
+
   it('should get all users with relations', async () => {
     mockUserRepository.find.mockResolvedValue(users);
     const result = await service.getManyUsersWithRatingsRelation();
 
     expect(mockUserRepository.find).toBeCalledWith(expect.anything());
     expect(result).toEqual(users);
+  });
+
+  it('should get all users with relations and throw notfoundexception', async () => {
+    mockUserRepository.find.mockResolvedValue(null);
+    expect(service.getManyUsersWithRatingsRelation()).rejects.toThrow(
+      NotFoundException,
+    );
   });
 
   it('should get one user', async () => {

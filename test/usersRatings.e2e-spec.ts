@@ -60,6 +60,13 @@ describe('UserRatings', () => {
       });
   });
 
+  it(`/GET users/0 expect Not found`, () => {
+    mockUserRatingsRepository.findOne.mockResolvedValue(null);
+    return request(app.getHttpServer())
+      .get('/users/ratings/' + userRatings[0].id)
+      .expect(404);
+  });
+
   it(`/POST usersRatings`, () => {
     mockUserRatingsRepository.create.mockImplementation(user => user);
     mockUserRatingsRepository.save.mockResolvedValue(userRatings[0]);
@@ -101,6 +108,15 @@ describe('UserRatings', () => {
           ...userRatings[1],
         });
       });
+  });
+
+  it(`/PATCH usersRatings/0 expect Not Found`, () => {
+    mockUserRatingsRepository.findOne.mockResolvedValue(null);
+
+    return request(app.getHttpServer())
+      .patch('/users/' + users[0].id + '/ratings/' + userRatings[0].id)
+      .send(userRatings[1])
+      .expect(404);
   });
 
   afterAll(async () => {

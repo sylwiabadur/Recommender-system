@@ -8,6 +8,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { UsersRatings } from '../src/users/usersRatings.entity';
 import { Movie } from '../src/movies/movie.entity';
 import { UserFactory } from '../src/users/__factories__/user.entity.factory';
+import { UserRatingsFactory } from 'src/users/__factories__/userRatings.entity.factory';
 
 describe('User', () => {
   let app: INestApplication;
@@ -56,6 +57,13 @@ describe('User', () => {
           users[0].id.toString(),
         );
       });
+  });
+
+  it(`/GET users/0 expect Not found`, () => {
+    mockUserRepository.findOne.mockResolvedValue(null);
+    return request(app.getHttpServer())
+      .get('/users/' + users[0].id)
+      .expect(404);
   });
 
   it(`/POST users`, () => {

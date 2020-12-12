@@ -61,4 +61,11 @@ describe('MoviesRepoHelperService', () => {
     expect(mockMovieRepository.find).toBeCalledWith(expect.anything());
     expect(result).toEqual(movies);
   });
+
+  it('should get all movies with relations and exception', async () => {
+    mockMovieRepository.find.mockResolvedValue(null);
+    expect(service.getManyMoviesWithRatingsRelation()).rejects.toThrow(
+      NotFoundException,
+    );
+  });
 });

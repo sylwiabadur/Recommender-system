@@ -50,6 +50,13 @@ describe('User', () => {
       });
   });
 
+  it(`/GET categories/0 expect Not found`, () => {
+    mockCategoryRepository.findOne.mockResolvedValue(null);
+    return request(app.getHttpServer())
+      .get('/categories/' + categories[0].id)
+      .expect(404);
+  });
+
   it(`/POST categories`, () => {
     mockCategoryRepository.create.mockImplementation(category => category);
     mockCategoryRepository.save.mockResolvedValue(categories[0]);

@@ -160,9 +160,9 @@ describe('AppController (e2e)', () => {
   //   return userTestResults;
   // }
 
-  // it(`should pass`, () => {
-  //   expect(true).toEqual(true);
-  // });
+  it(`should pass`, () => {
+    expect(true).toEqual(true);
+  });
 
   // it('complex test for one user and save to csv when user-user', async done => {
   //   await abscenario.clearRepos();

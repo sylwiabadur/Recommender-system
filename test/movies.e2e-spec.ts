@@ -59,6 +59,13 @@ describe('Movie', () => {
       });
   });
 
+  it(`/GET movies/0 expect Not found`, () => {
+    mockMovieRepository.findOne.mockResolvedValue(null);
+    return request(app.getHttpServer())
+      .get('/movies/' + movies[0].id)
+      .expect(404);
+  });
+
   it(`/POST movies`, () => {
     mockMovieRepository.create.mockImplementation(movie => movie);
     mockMovieRepository.save.mockResolvedValue(movies[0]);
