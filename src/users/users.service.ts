@@ -187,7 +187,6 @@ export class UsersService {
     );
 
     const setOfUserMovies = new Set<number>();
-
     const notSeenByUser = new Map<number, Movie>();
 
     myUser.ratings.forEach(element => {
@@ -207,36 +206,24 @@ export class UsersService {
     }
 
     for (const movie of notSeenByUser.values()) {
-      let up = 0;
-      let down = 0;
-      for (const o of similaritiesAndUsers) {
-        if (!o.ratingsMap.has(movie.id)) {
-          continue;
-        }
-        const r = Number(o.ratingsMap.get(movie.id));
-        down += Math.abs(o.similarity);
-        up += o.similarity * (r - this.calculateAverageForUser(o.user));
-      }
-      if (down == 0) {
-        result.push({ movie, predictedRating: 0 });
-        continue;
-      }
-
+      const predicted = this.predictUserRatingForMovieWithSim(
+        myUser,
+        movie,
+        similaritiesAndUsers,
+      );
       result.push({
         movie,
-        predictedRating: up / down + this.calculateAverageForUser(myUser),
+        predictedRating: Number(predicted),
       });
     }
     return result;
   }
 
-  predictUserRatingForMovie(myUser: User, users: User[], movie: Movie): number {
-    const similaritiesAndUsers = this.findSimilarUsersAndSimilarities(
-      myUser,
-      users,
-      10, // here
-    );
-
+  predictUserRatingForMovieWithSim(
+    myUser: User,
+    movie: Movie,
+    similaritiesAndUsers: UserSimilarity[],
+  ): number {
     let up = 0;
     let down = 0;
     for (const o of similaritiesAndUsers) {
@@ -251,6 +238,20 @@ export class UsersService {
       return this.calculateAverageForUser(myUser);
     }
     return up / down + this.calculateAverageForUser(myUser);
+  }
+
+  predictUserRatingForMovie(myUser: User, users: User[], movie: Movie): number {
+    const similaritiesAndUsers = this.findSimilarUsersAndSimilarities(
+      myUser,
+      users,
+      10, // here
+    );
+
+    return this.predictUserRatingForMovieWithSim(
+      myUser,
+      movie,
+      similaritiesAndUsers,
+    );
   }
 
   async recommendBasedOnPredicted(

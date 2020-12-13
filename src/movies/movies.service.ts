@@ -234,24 +234,19 @@ export class MoviesService {
   // /**
   //  * @requires myUser.rating.movie
   //  */
-  async predictUserRatingForMovie(myUser: User, movie: Movie): Promise<number> {
-    const userMovies: Movie[] = [];
+
+  async predictUserRatingForMovieWithSim(
+    myUser: User,
+    movie: Movie,
+    similaritiesAndMovies: {
+      similarity: number;
+      movie: Movie;
+      ratingsMap: Map<number, number>;
+    }[],
+  ): Promise<number> {
     let down = 0;
     let up = 0;
 
-    for (const rating of myUser.ratings) {
-      const ratedMovie = await this.moviesRepository.findOne({
-        where: { id: rating.movie.id },
-        relations: ['ratings', 'ratings.user'],
-      });
-      userMovies.push(ratedMovie);
-    }
-
-    const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
-      movie,
-      userMovies,
-      10,
-    );
     for (const o of similaritiesAndMovies) {
       if (!o.ratingsMap.has(myUser.id)) {
         continue;
@@ -268,44 +263,101 @@ export class MoviesService {
     return up / down;
   }
 
+  async predictUserRatingForMovie(myUser: User, movie: Movie): Promise<number> {
+    const userMovies: Movie[] = [];
+    for (const rating of myUser.ratings) {
+      const ratedMovie = await this.moviesRepository.findOne({
+        where: { id: rating.movie.id },
+        relations: ['ratings', 'ratings.user'],
+      });
+      userMovies.push(ratedMovie);
+    }
+
+    const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
+      movie,
+      userMovies,
+      10,
+    );
+    return this.predictUserRatingForMovieWithSim(
+      myUser,
+      movie,
+      similaritiesAndMovies,
+    );
+  }
+
   async predictRatingsByUser(
     myUser: User,
     allMovies: Movie[],
   ): Promise<{ movie: Movie; predictedRating: number }[]> {
-    const userAverageRating = this.usersService.calculateAverageForUser(myUser);
-
     const result: { movie: Movie; predictedRating: number }[] = [];
 
-    for (const rating of myUser.ratings) {
-      let up = 0;
-      let down = 0;
+    const setOfUserMovies = new Set<number>();
+    const notSeenByUser = new Map<number, Movie>();
 
-      const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
-        rating.movie,
-        allMovies,
-        10,
-      );
-      for (const o of similaritiesAndMovies) {
-        if (!o.ratingsMap.has(myUser.id)) {
-          continue;
+    myUser.ratings.forEach(element => {
+      setOfUserMovies.add(element.movie.id);
+    });
+
+    for (const element of allMovies) {
+      if (!setOfUserMovies.has(element.id)) {
+        if (notSeenByUser.size < 20) {
+          notSeenByUser.set(element.id, element);
+        } else {
+          break;
         }
-        const movieRating = Number(o.ratingsMap.get(myUser.id));
-        const r = Number(movieRating) - this.calculateAverageForMovie(o.movie);
-        down += Math.abs(o.similarity);
-        up += o.similarity * r;
-      }
-      if (isNaN(up / down)) {
-        result.push({
-          movie: rating.movie,
-          predictedRating: userAverageRating,
-        });
-      } else {
-        result.push({
-          movie: rating.movie,
-          predictedRating: up / down + userAverageRating,
-        });
       }
     }
+
+    if (notSeenByUser.size == 0) {
+      return result;
+    }
+
+    for (const movie of notSeenByUser.values()) {
+      const predicted = await this.predictUserRatingForMovie(myUser, movie);
+      delete movie.ratings;
+      result.push({
+        movie,
+        predictedRating: Number(predicted),
+      });
+    }
     return result;
+    // console.log('HEJKA1');
+
+    // for (const rating of myUser.ratings) {
+    //   console.log('HEJKA2');
+    //   let up = 0;
+    //   let down = 0;
+
+    //   const similaritiesAndMovies = await this.findSimilarMoviesWithSimilarities(
+    //     rating.movie,
+    //     allMovies.slice(0, 100),
+    //     10,
+    //   );
+    //   console.log('HEJKA3');
+    //   for (const o of similaritiesAndMovies) {
+    //     if (!o.ratingsMap.has(myUser.id)) {
+    //       continue;
+    //     }
+    //     console.log('HEJKA4');
+    //     const movieRating = Number(o.ratingsMap.get(myUser.id));
+    //     const r = Number(movieRating);
+    //     down += Math.abs(o.similarity);
+    //     up += o.similarity * r;
+    //   }
+    //   if (isNaN(up / down)) {
+    //     result.push({
+    //       movie: rating.movie,
+    //       predictedRating: await this.calculateAverageForMovieId(
+    //         rating.movie.id,
+    //       ),
+    //     });
+    //   } else {
+    //     result.push({
+    //       movie: rating.movie,
+    //       predictedRating: up / down,
+    //     });
+    //   }
+    // }
+    // return result;
   }
 }

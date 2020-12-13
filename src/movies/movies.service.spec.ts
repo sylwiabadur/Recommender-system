@@ -291,6 +291,7 @@ describe('MoviesService', () => {
     expect(Number(result.toPrecision(3))).toEqual(expectedValue);
   });
 
+  //for pearson Correlation
   it('should predict ratings for user based on item-item similarity', async () => {
     const movie1 = MovieFactory.build();
     const movie2 = MovieFactory.build();
@@ -324,63 +325,25 @@ describe('MoviesService', () => {
     movie3.ratings = [ratingb3];
     const moviesAll = [ratingb1.movie, ratingb2.movie, ratingb3.movie];
 
-    mockUsersService.calculateAverageForUser.mockImplementation(
-      (user: User) => {
-        switch (user) {
-          case userA:
-            return 2.25;
-          case userB:
-            return 3.5;
-          default:
-            return 0;
-        }
-      },
-    );
-    mockUsersService.checkIfRatedByUser.mockImplementation(
-      (user: User, movie: Movie) => {
-        if (
-          user == userA &&
-          movie == (ratinga1.movie || movie == ratinga2.movie)
-        ) {
-          return true;
-        } else if (
-          user == userB &&
-          movie ==
-            (ratingb1.movie ||
-              movie == ratingb2.movie ||
-              movie == ratingb3.movie)
-        ) {
-          return true;
-        } else return false;
-      },
-    );
-    mockUsersService.calculateAverageForUserId.mockImplementation(
+    mockMovieRepository.findOne.mockResolvedValue(ratinga1.movie);
+    mockMovieRepository.findOne.mockResolvedValue(ratinga2.movie);
+
+    mockUserRatingsRepository.queryBuilder.getRawOne.mockImplementation(
       (id: number) => {
         switch (id) {
-          case userA.id:
-            return 2.25;
-          case userB.id:
-            return 3.5;
+          case movie1.id:
+            return { avg: 2.25 };
+          case movie2.id:
+            return { avg: 3 };
+          case movie3.id:
+            return { avg: 5 };
           default:
-            return 0;
+            return { avg: 0 };
         }
       },
     );
-    mockUsersService.findBestRatedByUser.mockImplementation((myUser: User) => {
-      switch (myUser) {
-        case userA:
-          return [ratinga1, ratinga2];
-        case userB:
-          return userB.ratings;
-        default:
-          return {};
-      }
-    });
-    mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga1);
-    mockUserRatingsRepository.findOne.mockResolvedValueOnce(ratinga2);
-    mockUserRatingsRepository.findOne.mockResolvedValueOnce(null);
     const result = await service.predictRatingsByUser(userA, moviesAll);
-    const expectedValue = 2.25;
+    const expectedValue = 3;
     expect(Number(result[0].predictedRating.toPrecision(3))).toEqual(
       expectedValue,
     );
